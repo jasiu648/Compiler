@@ -34,6 +34,7 @@ RBRACE=33
 SEMICOLON=34
 COMMA=35
 ASSIGN=36
+WS=37
 'int'=1
 'float'=2
 'matrix'=3

@@ -37,6 +37,7 @@ RBRACE : '}' ;
 SEMICOLON : ';' ;
 COMMA : ',' ;
 ASSIGN : '=' ;
+WS : [ \t\r\n]+ -> skip;
 
 // Reguły syntaktyczne
 program : statement* ;

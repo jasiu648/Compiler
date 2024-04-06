@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,36,194,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,37,194,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,1,0,5,0,44,8,0,10,0,12,0,47,9,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -101,7 +101,7 @@ class GrammarParser ( Parser ):
                       "ADD", "SUB", "MUL", "DIV", "MOD", "LT", "GT", "LTE", 
                       "GTE", "EQ", "NEQ", "AND", "OR", "NOT", "LPAREN", 
                       "RPAREN", "LBRACE", "RBRACE", "SEMICOLON", "COMMA", 
-                      "ASSIGN" ]
+                      "ASSIGN", "WS" ]
 
     RULE_program = 0
     RULE_statement = 1
@@ -169,6 +169,7 @@ class GrammarParser ( Parser ):
     SEMICOLON=34
     COMMA=35
     ASSIGN=36
+    WS=37
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
