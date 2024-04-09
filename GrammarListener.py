@@ -197,5 +197,23 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GrammarParser#lexerError.
+    def enterLexerError(self, ctx:GrammarParser.LexerErrorContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#lexerError.
+    def exitLexerError(self, ctx:GrammarParser.LexerErrorContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#parserError.
+    def enterParserError(self, ctx:GrammarParser.ParserErrorContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#parserError.
+    def exitParserError(self, ctx:GrammarParser.ParserErrorContext):
+        pass
+
+
 
 del GrammarParser
