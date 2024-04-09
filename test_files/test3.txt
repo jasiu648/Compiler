@@ -1,0 +1,13 @@
+bool a = true;
+bool b = false;
+print a;
+print b;
+print a && b;
+print a || b;
+print ! a;
+print a ^ true;
+print a ^ b;
+print b ^ a;
+print b ^ false;
+print a && b && true;
+print a || b || true;

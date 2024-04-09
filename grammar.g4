@@ -4,6 +4,9 @@ grammar Grammar;
 INT : 'int' ;
 FLOAT : 'float' ;
 MATRIX : 'matrix' ;
+BOOL : 'bool' ;
+TRUE : 'true' ;
+FALSE : 'false' ;
 VOID : 'void' ;
 IF : 'if' ;
 ELSE : 'else' ;
@@ -28,6 +31,7 @@ EQ : '==' ;
 NEQ : '!=' ;
 AND : '&&' ;
 OR : '||' ;
+XOR : '^' ;
 NOT : '!' ;
 LPAREN : '(' ;
 RPAREN : ')' ;
@@ -55,7 +59,7 @@ statement : variable_declaration
 
 variable_declaration : type ID (ASSIGN expression)? SEMICOLON ;
 
-type : INT | FLOAT | MATRIX ;
+type : INT | FLOAT | MATRIX | BOOL;
 
 assignment : ID ASSIGN expression SEMICOLON ;
 
@@ -63,11 +67,11 @@ print_statement : PRINT (ID | INT_CONSTANT | FLOAT_CONSTANT) SEMICOLON ;
 
 read_statement : READ ID SEMICOLON ;
 
-if_statement : IF LPAREN expression RPAREN statement (ELSE statement)?;
+if_statement : IF LPAREN boolean_expression RPAREN statement (ELSE statement)?;
 
-while_loop : WHILE LPAREN expression RPAREN statement ;
+while_loop : WHILE LPAREN boolean_expression RPAREN statement ;
 
-for_loop : FOR LPAREN variable_declaration? SEMICOLON expression SEMICOLON assignment? RPAREN statement ;
+for_loop : FOR LPAREN variable_declaration? SEMICOLON additive_expression SEMICOLON assignment? RPAREN statement ;
 
 function_declaration : type ID LPAREN parameters? RPAREN block ;
 
@@ -77,7 +81,11 @@ parameter : type ID ;
 
 block : LBRACE statement* RBRACE ;
 
-expression : additive_expression ;
+expression : boolean_expression | additive_expression ;
+
+boolean_expression : NOT? (primary_boolean_expression ((AND | OR | XOR) boolean_expression)*) ;
+
+primary_boolean_expression : bool | (additive_expression (LT | GT | LTE | GTE | EQ | NEQ) additive_expression) ;
 
 additive_expression : multiplicative_expression ((ADD | SUB) multiplicative_expression)* ;
 
@@ -90,6 +98,8 @@ primary_expression : INT_CONSTANT
                     | ID
                     | LPAREN expression RPAREN
                     | function_call ;
+
+bool : TRUE | FALSE | ID;
 
 function_call : ID LPAREN arguments? RPAREN ;
 
