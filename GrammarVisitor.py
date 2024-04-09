@@ -114,5 +114,15 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GrammarParser#lexerError.
+    def visitLexerError(self, ctx:GrammarParser.LexerErrorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#parserError.
+    def visitParserError(self, ctx:GrammarParser.ParserErrorContext):
+        return self.visitChildren(ctx)
+
+
 
 del GrammarParser

@@ -15,7 +15,6 @@ RETURN : 'return' ;
 ID : [a-zA-Z_][a-zA-Z0-9_]* ;
 INT_CONSTANT : [0-9]+ ;
 FLOAT_CONSTANT : [0-9]+ '.' [0-9]+ ;
-MATRIX_CONSTANT : '[' [ \t\r\n]* ( INT_CONSTANT (',' INT_CONSTANT)* )? [ \t\r\n]* ']' ;
 ADD : '+' ;
 SUB : '-' ;
 MUL : '*' ;
@@ -51,7 +50,8 @@ statement : variable_declaration
           | for_loop
           | function_declaration
           | RETURN expression SEMICOLON
-          | block ;
+          | block
+          | function_call ;
 
 variable_declaration : type ID (ASSIGN expression)? SEMICOLON ;
 
@@ -87,7 +87,6 @@ unary_expression : (ADD | SUB) unary_expression | primary_expression ;
 
 primary_expression : INT_CONSTANT
                     | FLOAT_CONSTANT
-                    | MATRIX_CONSTANT
                     | ID
                     | LPAREN expression RPAREN
                     | function_call ;
@@ -95,3 +94,12 @@ primary_expression : INT_CONSTANT
 function_call : ID LPAREN arguments? RPAREN ;
 
 arguments : expression (COMMA expression)* ;
+
+// Error handling for lexer
+lexerError
+    : . {emitErrorMessage("Lexer error at line " + getLine() + ", column " + getCharPositionInLine() + ": " + getText());} // Emit an error message with row and column information
+    ;
+
+parserError
+    : . {emitErrorMessage("Parser error at line " + getLine() + ", column " + getCharPositionInLine() + ": " + getText());} // Emit an error message with row and column information
+    ;
