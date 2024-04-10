@@ -11,6 +11,8 @@ class Listener(GrammarListener):
     declarations = {}
     variables = {}
 
+    generator = LLVMGenerator()
+
     def add_item(dictionary, key, value):
         if key in dictionary:
             raise ValueError("Variable of name {key} already exists")
@@ -24,7 +26,7 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#program.
     def exitProgram(self, ctx:GrammarParser.ProgramContext):
-        pass
+        self.generator.generate()
 
 
     # Enter a parse tree produced by GrammarParser#statement.
@@ -69,7 +71,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#print_statement.
     def exitPrint_statement(self, ctx:GrammarParser.Print_statementContext):
-        pass
+        self.generator.printf(1)
+
 
 
     # Enter a parse tree produced by GrammarParser#read_statement.
