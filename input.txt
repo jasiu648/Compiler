@@ -1,1 +1,1 @@
-print(M);
+print(1);

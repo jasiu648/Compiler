@@ -1,5 +1,6 @@
 from antlr4 import *
 from GrammarListener import *
+from LLVMGenerator import *
 if "." in __name__:
     from .GrammarParser import GrammarParser
 else:
@@ -10,6 +11,13 @@ class Listener(GrammarListener):
     declarations = {}
     variables = {}
 
+    def add_item(dictionary, key, value):
+        if key in dictionary:
+            raise ValueError("Variable of name {key} already exists")
+        else:
+            dictionary[key] = value
+
+    
     # Enter a parse tree produced by GrammarParser#program.
     def enterProgram(self, ctx:GrammarParser.ProgramContext):
         pass
