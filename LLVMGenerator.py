@@ -5,7 +5,7 @@ class LLVMGenerator():
     reg = 1
 
     def printf(self, id):
-        self.main_text += f"%{self.reg} = load i32, i32* %{id}\n"
+        self.main_text += f"%{self.reg} = load i32, i32* %{id()}\n"
         self.reg += 1
         self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 %{self.reg-1})\n"
         self.reg += 1
