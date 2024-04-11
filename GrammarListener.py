@@ -143,6 +143,24 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GrammarParser#boolean_expression.
+    def enterBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#boolean_expression.
+    def exitBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#primary_boolean_expression.
+    def enterPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#primary_boolean_expression.
+    def exitPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
+        pass
+
+
     # Enter a parse tree produced by GrammarParser#additive_expression.
     def enterAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
         pass
@@ -176,6 +194,15 @@ class GrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by GrammarParser#primary_expression.
     def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#bool.
+    def enterBool(self, ctx:GrammarParser.BoolContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#bool.
+    def exitBool(self, ctx:GrammarParser.BoolContext):
         pass
 
 

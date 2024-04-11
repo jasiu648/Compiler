@@ -84,6 +84,16 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GrammarParser#boolean_expression.
+    def visitBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#primary_boolean_expression.
+    def visitPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by GrammarParser#additive_expression.
     def visitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
         return self.visitChildren(ctx)
@@ -101,6 +111,11 @@ class GrammarVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by GrammarParser#primary_expression.
     def visitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#bool.
+    def visitBool(self, ctx:GrammarParser.BoolContext):
         return self.visitChildren(ctx)
 
 
