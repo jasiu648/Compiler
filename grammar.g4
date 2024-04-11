@@ -59,7 +59,7 @@ type : INT | FLOAT | MATRIX ;
 
 assignment : ID ASSIGN expression SEMICOLON ;
 
-print_statement : PRINT expression SEMICOLON ;
+print_statement : PRINT (ID | INT_CONSTANT | FLOAT_CONSTANT) SEMICOLON ;
 
 read_statement : READ ID SEMICOLON ;
 

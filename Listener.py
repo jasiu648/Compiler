@@ -71,7 +71,7 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#print_statement.
     def exitPrint_statement(self, ctx:GrammarParser.Print_statementContext):
-        self.generator.printf(1)
+        self.generator.printf(ctx.expression)
 
 
 
