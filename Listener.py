@@ -44,8 +44,15 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#variable_declaration.
     def exitVariable_declaration(self, ctx:GrammarParser.Variable_declarationContext):
-        pass
+        id = str(ctx.ID())
+        if(id in self.variables):
+            print(f"Variable {id} already declared")
+            return
 
+        if(ctx.ASSIGN()):
+            self.variables[id] = 0
+        else:
+            self.variables[id] = 1
 
     # Enter a parse tree produced by GrammarParser#type.
     def enterType(self, ctx:GrammarParser.TypeContext):

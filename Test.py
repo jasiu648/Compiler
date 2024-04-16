@@ -20,7 +20,7 @@ def main():
 
     # Start parsing
     tree = parser.program()
-
+    print(listener.variables)
     # You can traverse the tree and do more processing if needed
     # For example, printing the tree:
     print(tree.toStringTree(recog=parser))

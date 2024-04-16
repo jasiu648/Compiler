@@ -1,0 +1,9 @@
+int essa(int a, int b){
+    int c = 5;
+}
+
+print(9);
+
+int a;
+float c;
+bool a;
