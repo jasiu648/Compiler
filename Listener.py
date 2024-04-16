@@ -10,6 +10,7 @@ class Listener(GrammarListener):
 
     declarations = {}
     variables = {}
+    stack = []
 
     generator = LLVMGenerator()
 
@@ -78,7 +79,7 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#print_statement.
     def exitPrint_statement(self, ctx:GrammarParser.Print_statementContext):
-        self.generator.printf(ctx.INT_CONSTANT())
+        self.generator.printf(str(ctx.INT_CONSTANT()))
 
 
 
@@ -196,8 +197,10 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#primary_expression.
     def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
-        pass
-
+        if(ctx.INT_CONSTANT()):
+            print("INT = " ctx.INT_CONSTANT())
+        elif(ctx.FLOAT_CONSTANT()):
+            print("FLOAT = " ctx.INT_CONSTANT())
 
     # Enter a parse tree produced by GrammarParser#function_call.
     def enterFunction_call(self, ctx:GrammarParser.Function_callContext):
