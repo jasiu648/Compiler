@@ -65,7 +65,7 @@ assignment : ID ASSIGN expression SEMICOLON ;
 
 print_statement : PRINT LPAREN (ID | INT_CONSTANT | FLOAT_CONSTANT) RPAREN SEMICOLON ;
 
-read_statement : READ ID SEMICOLON ;
+read_statement : READ LPAREN ID RPAREN SEMICOLON ;
 
 if_statement : IF LPAREN boolean_expression RPAREN statement (ELSE statement)?;
 

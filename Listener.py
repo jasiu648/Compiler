@@ -5,14 +5,31 @@ if "." in __name__:
     from .GrammarParser import GrammarParser
 else:
     from GrammarParser import GrammarParser
-    
-class Listener(GrammarListener):
 
-    declarations = {}
-    variables = {}
-    stack = []
+class Stack:
+    def __init__(self):
+        self.items = []
 
-    generator = LLVMGenerator()
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise IndexError("pop from an empty stack")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            raise IndexError("peek from an empty stack")
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
 
     def add_item(dictionary, key, value):
         if key in dictionary:
@@ -20,6 +37,15 @@ class Listener(GrammarListener):
         else:
             dictionary[key] = value
 
+
+class Listener(GrammarListener):
+
+    declarations = {}
+    variables = {}
+    stack = Stack()
+
+    generator = LLVMGenerator()
+    
     
     # Enter a parse tree produced by GrammarParser#program.
     def enterProgram(self, ctx:GrammarParser.ProgramContext):
@@ -79,7 +105,12 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#print_statement.
     def exitPrint_statement(self, ctx:GrammarParser.Print_statementContext):
-        self.generator.printf(str(ctx.INT_CONSTANT()))
+        if(ctx.INT_CONSTANT() is not None):
+            self.generator.printf(str(ctx.INT_CONSTANT()))
+        elif(ctx.FLOAT_CONSTANT() is not None):
+            self.generator.printf(str(ctx.FLOAT_CONSTANT()))
+        elif(ctx.ID() is not None):
+            self.generator.printf_id(str(ctx.ID()))
 
 
 
@@ -89,7 +120,12 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#read_statement.
     def exitRead_statement(self, ctx:GrammarParser.Read_statementContext):
-        pass
+        id = str(ctx.ID())
+
+        if(id not in self.variables):
+            self.variables[id] = 1
+            self.generator.declare(id)
+        self.generator.read(id)
 
 
     # Enter a parse tree produced by GrammarParser#if_statement.
@@ -170,8 +206,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#additive_expression.
     def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
+        
         pass
-
 
     # Enter a parse tree produced by GrammarParser#multiplicative_expression.
     def enterMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
@@ -190,7 +226,6 @@ class Listener(GrammarListener):
     def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
         pass
 
-
     # Enter a parse tree produced by GrammarParser#primary_expression.
     def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         pass
@@ -198,9 +233,9 @@ class Listener(GrammarListener):
     # Exit a parse tree produced by GrammarParser#primary_expression.
     def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         if(ctx.INT_CONSTANT()):
-            print("INT = " ctx.INT_CONSTANT())
+            self.stack.push(str(ctx.INT_CONSTANT()))
         elif(ctx.FLOAT_CONSTANT()):
-            print("FLOAT = " ctx.INT_CONSTANT())
+            self.stack.push(str(ctx.FLOAT_CONSTANT()))
 
     # Enter a parse tree produced by GrammarParser#function_call.
     def enterFunction_call(self, ctx:GrammarParser.Function_callContext):
