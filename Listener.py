@@ -1,11 +1,11 @@
 from antlr4 import *
-from GrammarListener import *
+from antlr_files.GrammarListener import *
 from LLVMGenerator import *
 from utils import *
 if "." in __name__:
-    from .GrammarParser import GrammarParser
+    from .antlr_files.GrammarParser import GrammarParser
 else:
-    from GrammarParser import GrammarParser
+    from antlr_files.GrammarParser import GrammarParser
 
 
 class Listener(GrammarListener):
@@ -13,7 +13,7 @@ class Listener(GrammarListener):
     declarations = {}
     variables = {}
     stack = Stack()
-
+    global_scope = True
     generator = LLVMGenerator()
     
     
@@ -68,7 +68,6 @@ class Listener(GrammarListener):
     def exitAssignment(self, ctx:GrammarParser.AssignmentContext):
         pass
 
-
     # Enter a parse tree produced by GrammarParser#print_statement.
     def enterPrint_statement(self, ctx:GrammarParser.Print_statementContext):
         pass
@@ -100,12 +99,18 @@ class Listener(GrammarListener):
 
     # Enter a parse tree produced by GrammarParser#if_statement.
     def enterIf_statement(self, ctx:GrammarParser.If_statementContext):
-        self.generator.if_start()
+        pass
 
     # Exit a parse tree produced by GrammarParser#if_statement.
     def exitIf_statement(self, ctx:GrammarParser.If_statementContext):
-        self.generator.if_end()
+        pass
 
+    def enterIf_block(self, ctx:GrammarParser.If_blockContext):
+        self.generator.if_start()
+
+    # Exit a parse tree produced by GrammarParser#if_block.
+    def exitIf_block(self, ctx:GrammarParser.If_blockContext):
+        self.generator.if_end()
 
     # Enter a parse tree produced by GrammarParser#while_loop.
     def enterWhile_loop(self, ctx:GrammarParser.While_loopContext):
@@ -118,11 +123,11 @@ class Listener(GrammarListener):
 
     # Enter a parse tree produced by GrammarParser#function_declaration.
     def enterFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
-        pass
+        self.generator.func_decl_int(str(ctx.ID()))
 
     # Exit a parse tree produced by GrammarParser#function_declaration.
     def exitFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
-        pass
+        self.generator.func_return_int()
 
 
     # Enter a parse tree produced by GrammarParser#parameters.

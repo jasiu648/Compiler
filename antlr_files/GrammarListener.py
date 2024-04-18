@@ -80,6 +80,15 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GrammarParser#if_block.
+    def enterIf_block(self, ctx:GrammarParser.If_blockContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#if_block.
+    def exitIf_block(self, ctx:GrammarParser.If_blockContext):
+        pass
+
+
     # Enter a parse tree produced by GrammarParser#while_loop.
     def enterWhile_loop(self, ctx:GrammarParser.While_loopContext):
         pass
@@ -89,12 +98,30 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GrammarParser#while_block.
+    def enterWhile_block(self, ctx:GrammarParser.While_blockContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#while_block.
+    def exitWhile_block(self, ctx:GrammarParser.While_blockContext):
+        pass
+
+
     # Enter a parse tree produced by GrammarParser#function_declaration.
     def enterFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
         pass
 
     # Exit a parse tree produced by GrammarParser#function_declaration.
     def exitFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#function_block.
+    def enterFunction_block(self, ctx:GrammarParser.Function_blockContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#function_block.
+    def exitFunction_block(self, ctx:GrammarParser.Function_blockContext):
         pass
 
 

@@ -3,7 +3,6 @@ grammar Grammar;
 // Reguły leksykalne
 INT : 'int' ;
 FLOAT : 'float' ;
-MATRIX : 'matrix' ;
 BOOL : 'bool' ;
 TRUE : 'true' ;
 FALSE : 'false' ;
@@ -58,7 +57,7 @@ statement : variable_declaration
 
 variable_declaration : type ID (ASSIGN expression)? SEMICOLON ;
 
-type : INT | FLOAT | MATRIX | BOOL;
+type : INT | FLOAT | BOOL;
 
 assignment : ID ASSIGN expression SEMICOLON ;
 
@@ -66,11 +65,17 @@ print_statement : PRINT LPAREN (ID | INT_CONSTANT | FLOAT_CONSTANT) RPAREN SEMIC
 
 read_statement : READ LPAREN ID RPAREN SEMICOLON ;
 
-if_statement : IF LPAREN boolean_expression RPAREN block (ELSE block)?;
+if_statement : IF LPAREN boolean_expression RPAREN if_block (ELSE block)?;
 
-while_loop : WHILE LPAREN boolean_expression RPAREN block ;
+if_block: block;
 
-function_declaration : type ID LPAREN parameters? RPAREN block ;
+while_loop : WHILE LPAREN boolean_expression RPAREN while_block ;
+
+while_block: block;
+
+function_declaration : type ID LPAREN parameters? RPAREN function_block ;
+
+function_block : block;
 
 parameters : parameter (COMMA parameter)* ;
 
