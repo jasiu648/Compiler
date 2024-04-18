@@ -1,8 +1,8 @@
 from antlr4 import *
 
-from GrammarLexer import GrammarLexer
-from GrammarParser import GrammarParser
-from GrammarListener import GrammarListener
+from antlr_files.GrammarLexer import GrammarLexer
+from antlr_files.GrammarParser import GrammarParser
+from antlr_files.GrammarListener import GrammarListener
 from Listener import Listener
 import sys
 

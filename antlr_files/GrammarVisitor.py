@@ -49,13 +49,28 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GrammarParser#if_block.
+    def visitIf_block(self, ctx:GrammarParser.If_blockContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by GrammarParser#while_loop.
     def visitWhile_loop(self, ctx:GrammarParser.While_loopContext):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by GrammarParser#while_block.
+    def visitWhile_block(self, ctx:GrammarParser.While_blockContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by GrammarParser#function_declaration.
     def visitFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#function_block.
+    def visitFunction_block(self, ctx:GrammarParser.Function_blockContext):
         return self.visitChildren(ctx)
 
 
