@@ -84,9 +84,9 @@ boolean_expression : NOT? (primary_boolean_expression ((AND | OR | XOR) boolean_
 
 primary_boolean_expression : bool | (additive_expression (LT | GT | LTE | GTE | EQ | NEQ) additive_expression) ;
 
-additive_expression : multiplicative_expression ((ADD | SUB) multiplicative_expression)* ;
+additive_expression : (multiplicative_expression (ADD | SUB))* multiplicative_expression ;
 
-multiplicative_expression : unary_expression ((MUL | DIV | MOD) unary_expression)* ;
+multiplicative_expression : unary_expression ((MUL | DIV | MOD) multiplicative_expression)? ;
 
 unary_expression : (ADD | SUB) unary_expression | primary_expression ;
 
