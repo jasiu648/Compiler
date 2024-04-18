@@ -89,15 +89,6 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GrammarParser#for_loop.
-    def enterFor_loop(self, ctx:GrammarParser.For_loopContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#for_loop.
-    def exitFor_loop(self, ctx:GrammarParser.For_loopContext):
-        pass
-
-
     # Enter a parse tree produced by GrammarParser#function_declaration.
     def enterFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
         pass

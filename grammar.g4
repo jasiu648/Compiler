@@ -51,7 +51,6 @@ statement : variable_declaration
           | read_statement
           | if_statement
           | while_loop
-          | for_loop
           | function_declaration
           | RETURN expression SEMICOLON
           | block
@@ -67,11 +66,9 @@ print_statement : PRINT LPAREN (ID | INT_CONSTANT | FLOAT_CONSTANT) RPAREN SEMIC
 
 read_statement : READ LPAREN ID RPAREN SEMICOLON ;
 
-if_statement : IF LPAREN boolean_expression RPAREN statement (ELSE statement)?;
+if_statement : IF LPAREN boolean_expression RPAREN block (ELSE block)?;
 
-while_loop : WHILE LPAREN boolean_expression RPAREN statement ;
-
-for_loop : FOR LPAREN variable_declaration? SEMICOLON additive_expression SEMICOLON assignment? RPAREN statement ;
+while_loop : WHILE LPAREN boolean_expression RPAREN block ;
 
 function_declaration : type ID LPAREN parameters? RPAREN block ;
 

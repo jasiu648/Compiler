@@ -54,11 +54,6 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GrammarParser#for_loop.
-    def visitFor_loop(self, ctx:GrammarParser.For_loopContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by GrammarParser#function_declaration.
     def visitFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
         return self.visitChildren(ctx)
