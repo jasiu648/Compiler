@@ -1,7 +1,10 @@
+#include <stdio.h>
+
 int main(){
+
   int a = 1;
-  int b = 3;
-  int c = -4;
-  int d = a * b + c;
-  return a;
+  int b = 2;
+  if(a == b){
+    printf("%d", a);
+  }
 }

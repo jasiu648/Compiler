@@ -89,28 +89,8 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GrammarParser#expression.
-    def visitExpression(self, ctx:GrammarParser.ExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GrammarParser#boolean_expression.
-    def visitBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GrammarParser#primary_boolean_expression.
-    def visitPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GrammarParser#additive_expression.
-    def visitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by GrammarParser#multiplicative_expression.
-    def visitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
+    # Visit a parse tree produced by GrammarParser#primary_expression.
+    def visitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         return self.visitChildren(ctx)
 
 
@@ -119,8 +99,38 @@ class GrammarVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by GrammarParser#primary_expression.
-    def visitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+    # Visit a parse tree produced by GrammarParser#multiplicative_expression.
+    def visitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#additive_expression.
+    def visitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#relational_expression.
+    def visitRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#equality_expression.
+    def visitEquality_expression(self, ctx:GrammarParser.Equality_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#logical_and_expression.
+    def visitLogical_and_expression(self, ctx:GrammarParser.Logical_and_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#logical_or_expression.
+    def visitLogical_or_expression(self, ctx:GrammarParser.Logical_or_expressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by GrammarParser#expression.
+    def visitExpression(self, ctx:GrammarParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 
