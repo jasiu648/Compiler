@@ -65,11 +65,11 @@ print_statement : PRINT LPAREN (ID | INT_CONSTANT | FLOAT_CONSTANT) RPAREN SEMIC
 
 read_statement : READ LPAREN ID RPAREN SEMICOLON ;
 
-if_statement : IF LPAREN boolean_expression RPAREN if_block (ELSE block)?;
+if_statement : IF LPAREN expression RPAREN if_block (ELSE block)?;
 
 if_block: block;
 
-while_loop : WHILE LPAREN boolean_expression RPAREN while_block ;
+while_loop : WHILE LPAREN expression RPAREN while_block ;
 
 while_block: block;
 
@@ -83,23 +83,27 @@ parameter : type ID ;
 
 block : LBRACE statement* RBRACE ;
 
-expression : boolean_expression | additive_expression ;
-
-boolean_expression : NOT? (primary_boolean_expression ((AND | OR | XOR) boolean_expression)*) ;
-
-primary_boolean_expression : bool | (additive_expression (LT | GT | LTE | GTE | EQ | NEQ) additive_expression) ;
-
-additive_expression : multiplicative_expression ((ADD | SUB) multiplicative_expression)* ;
-
-multiplicative_expression : unary_expression ((MUL | DIV | MOD) unary_expression)* ;
-
-unary_expression : (ADD | SUB) unary_expression | primary_expression ;
-
 primary_expression : INT_CONSTANT
                     | FLOAT_CONSTANT
                     | ID
                     | LPAREN expression RPAREN
                     | function_call ;
+
+unary_expression : primary_expression | (ADD | SUB | NOT ) primary_expression ;
+
+multiplicative_expression : unary_expression | multiplicative_expression (MUL | DIV | MOD) unary_expression;
+
+additive_expression : multiplicative_expression | additive_expression (ADD | SUB) multiplicative_expression;
+
+relational_expression : additive_expression | relational_expression (LT | GT | LTE | GTE) additive_expression;
+
+equality_expression : relational_expression | equality_expression (EQ | NEQ) relational_expression;
+
+logical_and_expression : equality_expression | logical_and_expression AND equality_expression;
+
+logical_or_expression : logical_and_expression | logical_or_expression OR logical_and_expression;
+
+expression : logical_or_expression;
 
 bool : TRUE | FALSE | ID;
 

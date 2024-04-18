@@ -20,10 +20,13 @@ def main():
     parser.addParseListener(listener)
 
     # Start parsing
-    tree = parser.program()
     #print(listener.variables)
-   
-    print(tree.toStringTree(recog=parser))
+    with open(sys.argv[1]+ ".ll", 'w') as f:
+        original_stdout = sys.stdout
+        sys.stdout = f
+        tree = parser.program()
+        sys.stdout = original_stdout
 
+    print(tree.toStringTree(recog=parser))
 if __name__ == '__main__':
     main()

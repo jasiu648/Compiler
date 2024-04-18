@@ -8,15 +8,17 @@ class LLVMGenerator():
     br = 0
     brstack = Stack()
 
+    
     def func_decl_int(self, id):
         self.header_text += f"define i32 @{id} nouwind {{\n"
 
     def func_return_int(self):
         self.header_text += f"ret i32 0 }}\n"
 
-    def icmp(self, id, value):
-        pass
-    
+    def icmp_eq(self):
+        self.main_text += f"%{self.reg} = icmp eq i32 %{self.reg - 2}, %{self.reg -1}\n"
+        self.reg += 1
+        
     def if_start(self):
         self.br += 1
         self.main_text += f"br i1 {self.reg - 1}, label %true{self.br}, label %false{self.br}\n"
@@ -38,7 +40,7 @@ class LLVMGenerator():
     
     def printf(self, id):
         if '.' in id:
-            self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 {id})\n"
+            self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), float {id})\n"
         else:
             self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 {id})\n"
         self.reg += 1

@@ -1,0 +1,6 @@
+int a = 10;
+float b = 2;
+int c = a - b;
+print(1);
+read(d);
+print(d);

@@ -152,48 +152,12 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GrammarParser#expression.
-    def enterExpression(self, ctx:GrammarParser.ExpressionContext):
+    # Enter a parse tree produced by GrammarParser#primary_expression.
+    def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         pass
 
-    # Exit a parse tree produced by GrammarParser#expression.
-    def exitExpression(self, ctx:GrammarParser.ExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#boolean_expression.
-    def enterBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#boolean_expression.
-    def exitBoolean_expression(self, ctx:GrammarParser.Boolean_expressionContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#primary_boolean_expression.
-    def enterPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#primary_boolean_expression.
-    def exitPrimary_boolean_expression(self, ctx:GrammarParser.Primary_boolean_expressionContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#additive_expression.
-    def enterAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#additive_expression.
-    def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#multiplicative_expression.
-    def enterMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#multiplicative_expression.
-    def exitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
+    # Exit a parse tree produced by GrammarParser#primary_expression.
+    def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         pass
 
 
@@ -206,12 +170,66 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by GrammarParser#primary_expression.
-    def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+    # Enter a parse tree produced by GrammarParser#multiplicative_expression.
+    def enterMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
         pass
 
-    # Exit a parse tree produced by GrammarParser#primary_expression.
-    def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+    # Exit a parse tree produced by GrammarParser#multiplicative_expression.
+    def exitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#additive_expression.
+    def enterAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#additive_expression.
+    def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#relational_expression.
+    def enterRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#relational_expression.
+    def exitRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#equality_expression.
+    def enterEquality_expression(self, ctx:GrammarParser.Equality_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#equality_expression.
+    def exitEquality_expression(self, ctx:GrammarParser.Equality_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#logical_and_expression.
+    def enterLogical_and_expression(self, ctx:GrammarParser.Logical_and_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#logical_and_expression.
+    def exitLogical_and_expression(self, ctx:GrammarParser.Logical_and_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#logical_or_expression.
+    def enterLogical_or_expression(self, ctx:GrammarParser.Logical_or_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#logical_or_expression.
+    def exitLogical_or_expression(self, ctx:GrammarParser.Logical_or_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#expression.
+    def enterExpression(self, ctx:GrammarParser.ExpressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#expression.
+    def exitExpression(self, ctx:GrammarParser.ExpressionContext):
         pass
 
 

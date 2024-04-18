@@ -45,11 +45,17 @@ class Listener(GrammarListener):
         if(id in self.variables):
             print(f"Variable {id} already declared")
             return
-
-        if(ctx.ASSIGN()):
-            self.variables[id] = 0
+        
+        if(ctx.type_().FLOAT() is not None):
+            self.generator.declare_float(id)
         else:
-            self.variables[id] = 1
+            self.generator.declare_int(id)
+
+        if(ctx.ASSIGN() is None):
+            return
+        print("ASSIGN")
+
+        
 
     # Enter a parse tree produced by GrammarParser#type.
     def enterType(self, ctx:GrammarParser.TypeContext):
@@ -106,6 +112,7 @@ class Listener(GrammarListener):
         pass
 
     def enterIf_block(self, ctx:GrammarParser.If_blockContext):
+        self.generator.icmp_eq()
         self.generator.if_start()
 
     # Exit a parse tree produced by GrammarParser#if_block.
