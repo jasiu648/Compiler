@@ -16,7 +16,14 @@ class Listener(GrammarListener):
     global_scope = True
     generator = LLVMGenerator()
     
-    
+    def popVariable(self):
+        a = self.stack.pop()
+        if '.' in a:
+            a = float(a)
+        else:
+            a = int(a)
+        return a
+
     # Enter a parse tree produced by GrammarParser#program.
     def enterProgram(self, ctx:GrammarParser.ProgramContext):
         pass
@@ -45,11 +52,26 @@ class Listener(GrammarListener):
         if(id in self.variables):
             print(f"Variable {id} already declared")
             return
-
-        if(ctx.ASSIGN()):
-            self.variables[id] = 0
-        else:
-            self.variables[id] = 1
+        if(str(ctx.type_().INT()) == 'int'):
+            if(ctx.ASSIGN()):
+                self.variables[id] = 0
+                self.declarations[id] = 0
+                self.generator.declare_int(id)
+                self.generator.assignInt(id,self.stack.pop())
+            else:
+                self.variables[id] = 1
+                self.declarations[id] = 0
+                self.generator.declare_int(id)
+        elif(str(ctx.type_().FLOAT()) == 'float'):
+            if(ctx.ASSIGN()):
+                self.variables[id] = 0
+                self.declarations[id] = 1
+                self.generator.declare_float(id)
+                self.generator.assignFloat(id,self.stack.pop())
+            else:
+                self.variables[id] = 1
+                self.declarations[id] = 1
+                self.generator.declare_float(id)
 
     # Enter a parse tree produced by GrammarParser#type.
     def enterType(self, ctx:GrammarParser.TypeContext):
@@ -66,7 +88,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#assignment.
     def exitAssignment(self, ctx:GrammarParser.AssignmentContext):
-        pass
+        id = str(ctx.ID())
+        self.generator.assignFloat(id,self.stack.pop())
 
     # Enter a parse tree produced by GrammarParser#print_statement.
     def enterPrint_statement(self, ctx:GrammarParser.Print_statementContext):
@@ -79,7 +102,10 @@ class Listener(GrammarListener):
         elif(ctx.FLOAT_CONSTANT() is not None):
             self.generator.printf(str(ctx.FLOAT_CONSTANT()))
         elif(ctx.ID() is not None):
-            self.generator.printf_id(str(ctx.ID()))
+            if(self.declarations[str(ctx.ID())] == 0):
+                self.generator.printf_id_int(str(ctx.ID()))
+            elif(self.declarations[str(ctx.ID())] == 1):
+                self.generator.printf_id_float(str(ctx.ID()))
 
 
 
@@ -172,8 +198,18 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#additive_expression.
     def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        
-        pass
+        if(ctx.ADD()):
+            while(self.stack.size() > 1):
+                a = self.popVariable()
+                b = self.popVariable()
+                self.stack.push(str(b + a))
+                print(f"{b} + {a} = {b+a}")
+        elif(ctx.SUB()):
+            while(self.stack.size() > 1):
+                a = self.popVariable()
+                b = self.popVariable()
+                self.stack.push(str(b - a))
+                print(f"{b} - {a} = {b-a}")
 
     # Enter a parse tree produced by GrammarParser#multiplicative_expression.
     def enterMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
@@ -181,8 +217,24 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#multiplicative_expression.
     def exitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
-        pass
-
+        if(ctx.MUL()):
+                while(self.stack.size() > 1):
+                    a = self.popVariable()
+                    b = self.popVariable()
+                    self.stack.push(str(b * a))
+                    print(f"{b} * {a} = {b*a}")
+        elif(ctx.DIV()):
+            while(self.stack.size() > 1):
+                    a = self.popVariable()
+                    b = self.popVariable()
+                    self.stack.push(str(b / a))
+                    print(f"{b} / {a} = {b/a}")
+        elif(ctx.MOD()):
+            while(self.stack.size() > 1):
+                    a = self.popVariable()
+                    b = self.popVariable()
+                    self.stack.push(str(b % a))
+                    print(f"{b} % {a} = {b%a}")
 
     # Enter a parse tree produced by GrammarParser#unary_expression.
     def enterUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
@@ -190,7 +242,9 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#unary_expression.
     def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
-        pass
+        if(ctx.SUB()):
+            self.stack.push("-" + self.stack.pop())
+
 
     # Enter a parse tree produced by GrammarParser#primary_expression.
     def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
@@ -200,6 +254,7 @@ class Listener(GrammarListener):
     def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         if(ctx.INT_CONSTANT()):
             self.stack.push(str(ctx.INT_CONSTANT()))
+            print(ctx.INT_CONSTANT())
         elif(ctx.FLOAT_CONSTANT()):
             self.stack.push(str(ctx.FLOAT_CONSTANT()))
 

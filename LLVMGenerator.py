@@ -30,10 +30,16 @@ class LLVMGenerator():
         self.main_text += f"false{b}:\n"
         pass
 
-    def printf_id(self, id):
+    def printf_id_int(self, id):
         self.main_text += f"%{self.reg} = load i32, i32* %{id}\n"
         self.reg += 1
         self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 %{self.reg-1})\n"
+        self.reg += 1
+
+    def printf_id_float(self, id):
+        self.main_text += f"%{self.reg} = load float, float* %{id}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i64 0, i64 0), float %{self.reg-1})\n"
         self.reg += 1
     
     def printf(self, id):
@@ -57,8 +63,11 @@ class LLVMGenerator():
     def declare_bool(self, id):
         self.main_text += f"%{id} = alloca i32"
 
-    def assign(self, id, value):
+    def assignInt(self, id, value):
         self.main_text += f"store i32 {value}, i32* %{id}\n"
+
+    def assignFloat(self, id, value):
+        self.main_text += f"store float {value}, float* %{id}\n"
 
     def generate(self):
         text = ""

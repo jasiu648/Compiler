@@ -1,1 +1,8 @@
-print(900000000000000);
+int a = - 2 * 3;
+print(a);
+int c = 30 % 3;
+print(c);
+int d = - 2 + 3;
+print(d);
+int e = 2 - 3;
+print(e);
