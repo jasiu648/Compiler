@@ -13,7 +13,7 @@ class Listener(GrammarListener):
     declarations = {}
     variables = {}
     stack = Stack()
-
+    global_scope = True
     generator = LLVMGenerator()
     
     
@@ -68,7 +68,6 @@ class Listener(GrammarListener):
     def exitAssignment(self, ctx:GrammarParser.AssignmentContext):
         pass
 
-
     # Enter a parse tree produced by GrammarParser#print_statement.
     def enterPrint_statement(self, ctx:GrammarParser.Print_statementContext):
         pass
@@ -100,10 +99,12 @@ class Listener(GrammarListener):
 
     # Enter a parse tree produced by GrammarParser#if_statement.
     def enterIf_statement(self, ctx:GrammarParser.If_statementContext):
+        print(ctx.boolean_expression())
         self.generator.if_start()
 
     # Exit a parse tree produced by GrammarParser#if_statement.
     def exitIf_statement(self, ctx:GrammarParser.If_statementContext):
+        print(ctx.boolean_expression())
         self.generator.if_end()
 
 
@@ -118,11 +119,11 @@ class Listener(GrammarListener):
 
     # Enter a parse tree produced by GrammarParser#function_declaration.
     def enterFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
-        pass
+        self.generator.func_decl_int(str(ctx.ID()))
 
     # Exit a parse tree produced by GrammarParser#function_declaration.
     def exitFunction_declaration(self, ctx:GrammarParser.Function_declarationContext):
-        pass
+        self.generator.func_return_int()
 
 
     # Enter a parse tree produced by GrammarParser#parameters.
