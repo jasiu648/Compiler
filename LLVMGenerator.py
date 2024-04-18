@@ -1,8 +1,28 @@
+from utils import *
+
 class LLVMGenerator():
 
     header_text = ""
     main_text = ""
     reg = 1
+    br = 0
+    brstack = Stack()
+
+    def icmp(self, id, value):
+        pass
+    
+    def if_start(self):
+        self.br += 1
+        self.main_text += f"br i1 {self.reg - 1}, label %true{self.br}, label %false{self.br}\n"
+        self.main_text += f"true{self.br}:\n"
+        self.brstack.push(self.br)
+        pass
+
+    def if_end(self):
+        b = self.brstack.pop()
+        self.main_text += f"br label %false{b}\n"
+        self.main_text += f"false{b}:\n"
+        pass
 
     def printf_id(self, id):
         self.main_text += f"%{self.reg} = load i32, i32* %{id}\n"
@@ -27,6 +47,9 @@ class LLVMGenerator():
 
     def declare_float(self, id):
         self.main_text += f"%{id} = alloca float\n"
+
+    def declare_bool(self, id):
+        self.main_text += f"%{id} = alloca i32"
 
     def assign(self, id, value):
         self.main_text += f"store i32 {value}, i32* %{id}\n"

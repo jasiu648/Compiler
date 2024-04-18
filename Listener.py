@@ -1,41 +1,11 @@
 from antlr4 import *
 from GrammarListener import *
 from LLVMGenerator import *
+from utils import *
 if "." in __name__:
     from .GrammarParser import GrammarParser
 else:
     from GrammarParser import GrammarParser
-
-class Stack:
-    def __init__(self):
-        self.items = []
-
-    def push(self, item):
-        self.items.append(item)
-
-    def pop(self):
-        if not self.is_empty():
-            return self.items.pop()
-        else:
-            raise IndexError("pop from an empty stack")
-
-    def peek(self):
-        if not self.is_empty():
-            return self.items[-1]
-        else:
-            raise IndexError("peek from an empty stack")
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-    def size(self):
-        return len(self.items)
-
-    def add_item(dictionary, key, value):
-        if key in dictionary:
-            raise ValueError("Variable of name {key} already exists")
-        else:
-            dictionary[key] = value
 
 
 class Listener(GrammarListener):
@@ -124,17 +94,17 @@ class Listener(GrammarListener):
 
         if(id not in self.variables):
             self.variables[id] = 1
-            self.generator.declare(id)
+            self.generator.declare_int(id)
         self.generator.read(id)
 
 
     # Enter a parse tree produced by GrammarParser#if_statement.
     def enterIf_statement(self, ctx:GrammarParser.If_statementContext):
-        pass
+        self.generator.if_start()
 
     # Exit a parse tree produced by GrammarParser#if_statement.
     def exitIf_statement(self, ctx:GrammarParser.If_statementContext):
-        pass
+        self.generator.if_end()
 
 
     # Enter a parse tree produced by GrammarParser#while_loop.
@@ -143,15 +113,6 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#while_loop.
     def exitWhile_loop(self, ctx:GrammarParser.While_loopContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#for_loop.
-    def enterFor_loop(self, ctx:GrammarParser.For_loopContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#for_loop.
-    def exitFor_loop(self, ctx:GrammarParser.For_loopContext):
         pass
 
 

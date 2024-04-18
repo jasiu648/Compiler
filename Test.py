@@ -4,10 +4,11 @@ from GrammarLexer import GrammarLexer
 from GrammarParser import GrammarParser
 from GrammarListener import GrammarListener
 from Listener import Listener
+import sys
 
 def main():
     # Load the input file
-    input_stream = FileStream("input.txt")
+    input_stream = FileStream(sys.argv[1])
 
     # Create lexer and parser
     lexer = GrammarLexer(input_stream)
