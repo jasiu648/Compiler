@@ -8,30 +8,26 @@ class LLVMGenerator():
     br = 0
     brstack = Stack()
 
-    
-    def func_decl_int(self, id):
-        self.header_text += f"define i32 @{id} nouwind {{\n"
-
-    def func_return_int(self):
-        self.header_text += f"ret i32 0 }}\n"
+    def unary_minus(self):
+        pass
 
     def icmp_eq(self):
         self.main_text += f"%{self.reg} = icmp eq i32 %{self.reg - 2}, %{self.reg -1}\n"
         self.reg += 1
-        
+
+    # IF Statement
     def if_start(self):
         self.br += 1
         self.main_text += f"br i1 {self.reg - 1}, label %true{self.br}, label %false{self.br}\n"
         self.main_text += f"true{self.br}:\n"
         self.brstack.push(self.br)
-        pass
 
     def if_end(self):
         b = self.brstack.pop()
         self.main_text += f"br label %false{b}\n"
         self.main_text += f"false{b}:\n"
-        pass
 
+    # ReadWrite
     def printf_id(self, id):
         self.main_text += f"%{self.reg} = load i32, i32* %{id}\n"
         self.reg += 1
@@ -50,6 +46,7 @@ class LLVMGenerator():
         self.main_text += f"%{self.reg} = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @strs, i32 0, i32 0), i32* %{id})\n"
         self.reg += 1
 
+    # Declarations
     def declare_int(self, id):
         self.main_text += f"%{id} = alloca i32\n"
 
@@ -62,6 +59,13 @@ class LLVMGenerator():
     def assign(self, id, value):
         self.main_text += f"store i32 {value}, i32* %{id}\n"
 
+    def func_decl_int(self, id):
+        self.header_text += f"define i32 @{id} nouwind {{\n"
+
+    def func_return_int(self):
+        self.header_text += f"ret i32 0 }}\n"
+        
+    # Generating code
     def generate(self):
         text = ""
         text += "declare i32 @printf(i8*, ...)\n"

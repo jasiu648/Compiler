@@ -112,7 +112,6 @@ class Listener(GrammarListener):
         pass
 
     def enterIf_block(self, ctx:GrammarParser.If_blockContext):
-        self.generator.icmp_eq()
         self.generator.if_start()
 
     # Exit a parse tree produced by GrammarParser#if_block.
@@ -197,7 +196,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#unary_expression.
     def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
-        pass
+        if(ctx.SUB()):
+            self.generator.unary_minus()
 
     # Enter a parse tree produced by GrammarParser#primary_expression.
     def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
@@ -209,6 +209,10 @@ class Listener(GrammarListener):
             self.stack.push(str(ctx.INT_CONSTANT()))
         elif(ctx.FLOAT_CONSTANT()):
             self.stack.push(str(ctx.FLOAT_CONSTANT()))
+        elif(ctx.ID()):
+            print("id")
+        elif(ctx.function_call()):
+            print("function call")
 
     # Enter a parse tree produced by GrammarParser#function_call.
     def enterFunction_call(self, ctx:GrammarParser.Function_callContext):
