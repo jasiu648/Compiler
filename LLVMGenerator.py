@@ -7,6 +7,7 @@ class LLVMGenerator():
     reg = 1
     br = 0
     brstack = Stack()
+    vars = {}
 
     def unary_minus(self):
         pass
@@ -29,7 +30,8 @@ class LLVMGenerator():
 
     # ReadWrite
     def printf_id(self, id):
-        self.main_text += f"%{self.reg} = load i32, i32* %{id}\n"
+        index = self.vars[id]
+        self.main_text += f"%{self.reg} = load i32, i32* %{index}\n"
         self.reg += 1
         self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 %{self.reg-1})\n"
         self.reg += 1
@@ -41,14 +43,16 @@ class LLVMGenerator():
             self.main_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strp, i32 0, i32 0), i32 {id})\n"
         self.reg += 1
 
-    def read(self, id):
-        
+    def read(self, id):   
         self.main_text += f"%{self.reg} = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @strs, i32 0, i32 0), i32* %{id})\n"
         self.reg += 1
 
     # Declarations
     def declare_int(self, id):
-        self.main_text += f"%{id} = alloca i32\n"
+        self.main_text += f"%{self.reg} = alloca i32\n"
+        self.vars[id] = self.reg
+        self.reg += 1
+
 
     def declare_float(self, id):
         self.main_text += f"%{id} = alloca float\n"
@@ -57,7 +61,8 @@ class LLVMGenerator():
         self.main_text += f"%{id} = alloca i32"
 
     def assign(self, id, value):
-        self.main_text += f"store i32 {value}, i32* %{id}\n"
+        val = self.vars[id]
+        self.main_text += f"store i32 {value}, ptr %{val}\n"
 
     def func_decl_int(self, id):
         self.header_text += f"define i32 @{id} nouwind {{\n"
