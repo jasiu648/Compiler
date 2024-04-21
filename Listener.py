@@ -53,8 +53,10 @@ class Listener(GrammarListener):
 
         if(ctx.ASSIGN() is None):
             return
-        print("ASSIGN")
-
+        
+        value = self.stack.pop()
+        self.generator.assign(id, value)
+        pass
         
 
     # Enter a parse tree produced by GrammarParser#type.
@@ -72,6 +74,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#assignment.
     def exitAssignment(self, ctx:GrammarParser.AssignmentContext):
+        value = self.stack.pop()
+        self.generator.assign(str(ctx.ID()), value)
         pass
 
     # Enter a parse tree produced by GrammarParser#print_statement.
@@ -112,7 +116,6 @@ class Listener(GrammarListener):
         pass
 
     def enterIf_block(self, ctx:GrammarParser.If_blockContext):
-        self.generator.icmp_eq()
         self.generator.if_start()
 
     # Exit a parse tree produced by GrammarParser#if_block.
@@ -164,22 +167,23 @@ class Listener(GrammarListener):
         pass
 
 
-    # Enter a parse tree produced by GrammarParser#expression.
-    def enterExpression(self, ctx:GrammarParser.ExpressionContext):
+    def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         pass
 
-    # Exit a parse tree produced by GrammarParser#expression.
-    def exitExpression(self, ctx:GrammarParser.ExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by GrammarParser#additive_expression.
-    def enterAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        pass
-
-    # Exit a parse tree produced by GrammarParser#additive_expression.
-    def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
+    # Exit a parse tree produced by GrammarParser#primary_expression.
+    def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         
+        if(ctx.INT_CONSTANT()):
+            value = str(ctx.INT_CONSTANT())
+            self.stack.push(value)
+
+
+    # Enter a parse tree produced by GrammarParser#unary_expression.
+    def enterUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#unary_expression.
+    def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
         pass
 
     # Enter a parse tree produced by GrammarParser#multiplicative_expression.
@@ -191,24 +195,58 @@ class Listener(GrammarListener):
         pass
 
 
-    # Enter a parse tree produced by GrammarParser#unary_expression.
-    def enterUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
+    # Enter a parse tree produced by GrammarParser#additive_expression.
+    def enterAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
         pass
 
-    # Exit a parse tree produced by GrammarParser#unary_expression.
-    def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
+    # Exit a parse tree produced by GrammarParser#additive_expression.
+    def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
         pass
 
-    # Enter a parse tree produced by GrammarParser#primary_expression.
-    def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
+
+    # Enter a parse tree produced by GrammarParser#relational_expression.
+    def enterRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):
         pass
 
-    # Exit a parse tree produced by GrammarParser#primary_expression.
-    def exitPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
-        if(ctx.INT_CONSTANT()):
-            self.stack.push(str(ctx.INT_CONSTANT()))
-        elif(ctx.FLOAT_CONSTANT()):
-            self.stack.push(str(ctx.FLOAT_CONSTANT()))
+    # Exit a parse tree produced by GrammarParser#relational_expression.
+    def exitRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#equality_expression.
+    def enterEquality_expression(self, ctx:GrammarParser.Equality_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#equality_expression.
+    def exitEquality_expression(self, ctx:GrammarParser.Equality_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#logical_and_expression.
+    def enterLogical_and_expression(self, ctx:GrammarParser.Logical_and_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#logical_and_expression.
+    def exitLogical_and_expression(self, ctx:GrammarParser.Logical_and_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#logical_or_expression.
+    def enterLogical_or_expression(self, ctx:GrammarParser.Logical_or_expressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#logical_or_expression.
+    def exitLogical_or_expression(self, ctx:GrammarParser.Logical_or_expressionContext):
+        pass
+
+
+    # Enter a parse tree produced by GrammarParser#expression.
+    def enterExpression(self, ctx:GrammarParser.ExpressionContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#expression.
+    def exitExpression(self, ctx:GrammarParser.ExpressionContext):
+        pass
 
     # Enter a parse tree produced by GrammarParser#function_call.
     def enterFunction_call(self, ctx:GrammarParser.Function_callContext):
