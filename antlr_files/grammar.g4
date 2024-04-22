@@ -51,7 +51,7 @@ statement : variable_declaration
           | if_statement
           | while_loop
           | function_declaration
-          | RETURN expression SEMICOLON
+          | return_statement
           | block
           | function_call ;
 
@@ -82,6 +82,8 @@ parameters : parameter (COMMA parameter)* ;
 parameter : type ID ;
 
 block : LBRACE statement* RBRACE ;
+
+return_statement : RETURN expression SEMICOLON ;
 
 primary_expression : INT_CONSTANT
                     | FLOAT_CONSTANT

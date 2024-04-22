@@ -7,17 +7,44 @@ class LLVMGenerator():
     reg = 1
     br = 0
     brstack = Stack()
+    stack = Stack()
     vars = {}
 
-    def unary_minus(self):
-        self.main_text += f"%{self.reg} = load i32, ptr %{self.reg - 1}\n"
+    def add_int(self):
+        address1 = self.stack.pop()
+        address2 = self.stack.pop()
+        self.main_text += f"%{self.reg} = load i32, ptr %{address1}\n"
         self.reg += 1
-        self.main_text += f"%{self.reg} = sub nsw i32 0, %{self.reg - 1}\n"
+        self.main_text += f"%{self.reg} = load i32, ptr %{address2}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = add nsw i32 %{self.reg - 1}, %{self.reg - 2}\n"
+        self.stack.push(self.reg)
+        self.reg += 1
+
+    def multiplicate_int(self):
+        address1 = self.stack.pop()
+        address2 = self.stack.pop()
+        self.main_text += f"%{self.reg} = load i32, ptr %{address1}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = load i32, ptr %{address2}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = mul nsw i32 %{self.reg - 1}, %{self.reg - 2}\n"
+        self.stack.push(self.reg)
+        self.reg += 1
+        
+
+    def unary_minus(self):
+        address = self.stack.pop()
+        self.main_text += f"%{self.reg} = load i32, ptr %{address}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = sub nsw i32 0, %{address}\n"
+        self.stack.push(self.reg)
         self.reg += 1
     
     def load_int(self, value):
         self.main_text += f"%{self.reg} = alloca i32\n"
         self.main_text += f"store i32 {value}, ptr %{self.reg}\n"
+        self.stack.push(self.reg)
         self.reg += 1
 
     def load_float(self, value):

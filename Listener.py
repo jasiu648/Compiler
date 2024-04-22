@@ -205,7 +205,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#multiplicative_expression.
     def exitMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):
-        pass
+        if(ctx.MUL()):
+            self.generator.multiplicate_int()
 
 
     # Enter a parse tree produced by GrammarParser#additive_expression.
@@ -214,8 +215,8 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#additive_expression.
     def exitAdditive_expression(self, ctx:GrammarParser.Additive_expressionContext):
-        pass
-
+        if(ctx.ADD()):
+            self.generator.add_int()
 
     # Enter a parse tree produced by GrammarParser#relational_expression.
     def enterRelational_expression(self, ctx:GrammarParser.Relational_expressionContext):

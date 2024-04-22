@@ -8,24 +8,25 @@ define dso_local i32 @main() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca float, align 4
-  %7 = alloca float, align 4
   store i32 1, ptr %1, align 4
   store i32 2, ptr %2, align 4
-  %8 = load i32, ptr %1, align 4
-  %9 = add nsw i32 %8, 6
-  store i32 %9, ptr %3, align 4
-  %10 = load i32, ptr %1, align 4
-  %11 = sub nsw i32 0, %10
-  store i32 %11, ptr %4, align 4
-  store i32 -3, ptr %5, align 4
-  store i32 4, ptr %1, align 4
-  store float 5.000000e+00, ptr %6, align 4
-  %12 = load float, ptr %6, align 4
-  %13 = fneg float %12
-  store float %13, ptr %7, align 4
+
+  %4 = load i32, ptr %1, align 4
+  %5 = load i32, ptr %2, align 4
+  %6 = mul nsw i32 %4, %5
+  
+  %7 = load i32, ptr %2, align 4
+  %8 = sub nsw i32 0, %7
+  %9 = load i32, ptr %1, align 4
+  %10 = sub nsw i32 0, %9
+  %11 = mul nsw i32 %8, %10
+  %12 = add nsw i32 %6, %11
+  %13 = load i32, ptr %1, align 4
+  %14 = load i32, ptr %2, align 4
+  %15 = sub nsw i32 0, %14
+  %16 = sdiv i32 %13, %15
+  %17 = add nsw i32 %12, %16
+  store i32 %17, ptr %3, align 4
   ret i32 0
 }
 
