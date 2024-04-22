@@ -54,8 +54,8 @@ class Listener(GrammarListener):
         if(ctx.ASSIGN() is None):
             return
         
-        value = self.stack.pop()
-        self.generator.assign(id, value)
+        #value = self.stack.pop()
+        self.generator.assign(id)
         pass
         
 
@@ -175,7 +175,17 @@ class Listener(GrammarListener):
         
         if(ctx.INT_CONSTANT()):
             value = str(ctx.INT_CONSTANT())
-            self.stack.push(value)
+            self.generator.load_int(value)
+
+        if(ctx.FLOAT_CONSTANT()):
+            value = str(ctx.FLOAT_CONSTANT())
+            self.generator.load_float(value)
+        
+        if(ctx.ID()):
+            id = str(ctx.ID())
+            if(id not in self.variables):
+                print(f"Using undeclared variable {id}")
+            self.stack.push(id)
 
 
     # Enter a parse tree produced by GrammarParser#unary_expression.
@@ -184,7 +194,10 @@ class Listener(GrammarListener):
 
     # Exit a parse tree produced by GrammarParser#unary_expression.
     def exitUnary_expression(self, ctx:GrammarParser.Unary_expressionContext):
-        pass
+        
+        if(ctx.SUB()):
+            self.generator.unary_minus()
+            
 
     # Enter a parse tree produced by GrammarParser#multiplicative_expression.
     def enterMultiplicative_expression(self, ctx:GrammarParser.Multiplicative_expressionContext):

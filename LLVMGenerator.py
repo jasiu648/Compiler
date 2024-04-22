@@ -10,7 +10,20 @@ class LLVMGenerator():
     vars = {}
 
     def unary_minus(self):
-        pass
+        self.main_text += f"%{self.reg} = load i32, ptr %{self.reg - 1}\n"
+        self.reg += 1
+        self.main_text += f"%{self.reg} = sub nsw i32 0, %{self.reg - 1}\n"
+        self.reg += 1
+    
+    def load_int(self, value):
+        self.main_text += f"%{self.reg} = alloca i32\n"
+        self.main_text += f"store i32 {value}, ptr %{self.reg}\n"
+        self.reg += 1
+
+    def load_float(self, value):
+        self.main_text += f"%{self.reg} = alloca float\n"
+        self.main_text += f"store float {value}, ptr %{self.reg}"
+        self.reg += 1
 
     def icmp_eq(self):
         self.main_text += f"%{self.reg} = icmp eq i32 %{self.reg - 2}, %{self.reg -1}\n"
@@ -66,9 +79,9 @@ class LLVMGenerator():
     def declare_bool(self, id):
         self.main_text += f"%{id} = alloca i32"
 
-    def assign(self, id, value):
+    def assign(self, id):
         val = self.vars[id]
-        self.main_text += f"store i32 {value}, ptr %{val}\n"
+        self.main_text += f"store i32 %{self.reg - 2}, ptr %{val}\n"
 
     def func_decl_int(self, id):
         self.header_text += f"define i32 @{id} nouwind {{\n"
