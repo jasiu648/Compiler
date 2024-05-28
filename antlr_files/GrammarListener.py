@@ -152,6 +152,15 @@ class GrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GrammarParser#return_statement.
+    def enterReturn_statement(self, ctx:GrammarParser.Return_statementContext):
+        pass
+
+    # Exit a parse tree produced by GrammarParser#return_statement.
+    def exitReturn_statement(self, ctx:GrammarParser.Return_statementContext):
+        pass
+
+
     # Enter a parse tree produced by GrammarParser#primary_expression.
     def enterPrimary_expression(self, ctx:GrammarParser.Primary_expressionContext):
         pass

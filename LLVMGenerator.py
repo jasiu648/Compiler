@@ -4,31 +4,21 @@ class LLVMGenerator():
 
     header_text = ""
     main_text = ""
+    buffer = ""
     reg = 1
     br = 0
     brstack = Stack()
     stack = Stack()
     vars = {}
 
-    def add_int(self):
+    def operator_int(self, operation):
         address1 = self.stack.pop()
         address2 = self.stack.pop()
         self.main_text += f"%{self.reg} = load i32, ptr %{address1}\n"
         self.reg += 1
         self.main_text += f"%{self.reg} = load i32, ptr %{address2}\n"
         self.reg += 1
-        self.main_text += f"%{self.reg} = add nsw i32 %{self.reg - 1}, %{self.reg - 2}\n"
-        self.stack.push(self.reg)
-        self.reg += 1
-
-    def multiplicate_int(self):
-        address1 = self.stack.pop()
-        address2 = self.stack.pop()
-        self.main_text += f"%{self.reg} = load i32, ptr %{address1}\n"
-        self.reg += 1
-        self.main_text += f"%{self.reg} = load i32, ptr %{address2}\n"
-        self.reg += 1
-        self.main_text += f"%{self.reg} = mul nsw i32 %{self.reg - 1}, %{self.reg - 2}\n"
+        self.main_text += f"%{self.reg} = {operation} nsw i32 %{self.reg - 1}, %{self.reg - 2}\n"
         self.stack.push(self.reg)
         self.reg += 1
         
@@ -114,7 +104,11 @@ class LLVMGenerator():
         self.header_text += f"define i32 @{id} nouwind {{\n"
 
     def func_return_int(self):
+        #function body?
         self.header_text += f"ret i32 0 }}\n"
+    
+    def return_value(self):
+        pass
         
     # Generating code
     def generate(self):

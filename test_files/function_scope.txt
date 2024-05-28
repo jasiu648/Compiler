@@ -1,0 +1,10 @@
+func int64 myFunc {
+    h = "hello from function"
+    print(h)
+}
+
+h = "hello from main"
+myFunc()
+print(h)
+int32 a = 0
+read(a)
