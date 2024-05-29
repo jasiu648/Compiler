@@ -386,6 +386,24 @@ class CSoftListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CSoftParser#parameters.
+    def enterParameters(self, ctx:CSoftParser.ParametersContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#parameters.
+    def exitParameters(self, ctx:CSoftParser.ParametersContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#parameter.
+    def enterParameter(self, ctx:CSoftParser.ParameterContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#parameter.
+    def exitParameter(self, ctx:CSoftParser.ParameterContext):
+        pass
+
+
     # Enter a parse tree produced by CSoftParser#structDecl.
     def enterStructDecl(self, ctx:CSoftParser.StructDeclContext):
         pass

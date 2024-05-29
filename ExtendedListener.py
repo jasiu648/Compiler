@@ -372,7 +372,7 @@ class ExtendedListener(CSoftListener):
                 type = VarType.FLOAT64
             elif type == 'bool':
                 type = VarType.BOOL
-            elif type == 'str':
+            elif type == 'string':
                 type = VarType.STRING
         except AttributeError:
             type = None

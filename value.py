@@ -27,7 +27,7 @@ def string_to_type(string):
         return VarType.FLOAT64
     elif string == 'bool' or string == VarType.BOOL:
         return VarType.BOOL
-    elif string == 'str':
+    elif string == 'string':
         return VarType.STRING
     else:
        return string

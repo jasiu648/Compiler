@@ -1,5 +1,5 @@
-int64 myFunc( ) {
-    h = "hello from function"
+int64 myFunc(string a, int64 b) {
+    string h = "hello from function"
     print(h)
 }
 

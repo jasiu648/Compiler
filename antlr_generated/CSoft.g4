@@ -1,5 +1,6 @@
 grammar CSoft;
 
+COMMA : ',' ;
 LPAREN : '(' ;
 RPAREN : ')' ;
 LBRACE : '{' ;
@@ -86,7 +87,7 @@ repNum: factor
 blockRepeat: statement* 
     ;
 
-function: funType funName LPAREN RPAREN '{' blockFun '}' ;
+function: funType funName LPAREN parameters? RPAREN '{' blockFun '}' ;
 
 blockFun: statement* ;
 
@@ -108,7 +109,9 @@ methodCall: ID '.' ident '()' ;
 
 classAssign: ident '=' CLASS className ;
 
+parameters : parameter (COMMA parameter)* ;
 
+parameter : ident ;
 
 
 structDecl: STRUCT structName '{' blockStruct '}' ;
@@ -131,7 +134,7 @@ funcCall: ID '()'
 
 ident: (type)? ID;
 
-type: 'float32' | 'float64' | 'int32' | 'int64' | 'bool' | 'str';
+type: 'float32' | 'float64' | 'int32' | 'int64' | 'bool' | 'string';
 
 funType: type 
     ;

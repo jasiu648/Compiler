@@ -1,4 +1,3 @@
-import os
 from antlr4 import *
 from ExtendedListener import *
 from antlr_generated.CSoftLexer import CSoftLexer
@@ -15,5 +14,4 @@ listener = ExtendedListener()
 
 walker = ParseTreeWalker()
 walker.walk(listener, tree)
-
 
