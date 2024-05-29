@@ -10,7 +10,7 @@ class VarType(Enum):
     INT32 = 1
     INT64 = 2
     FLOAT32 = 3
-    FLOAT64 = 4
+    DOUBLE = 4
     BOOL = 5
     STRING = 6
     ARRAY = 7
@@ -23,8 +23,8 @@ def string_to_type(string):
         return VarType.INT64
     elif string == "float32":
         return VarType.FLOAT32
-    elif string == "float64":
-        return VarType.FLOAT64
+    elif string == "double":
+        return VarType.DOUBLE
     elif string == 'bool' or string == VarType.BOOL:
         return VarType.BOOL
     elif string == 'string':
@@ -39,8 +39,8 @@ def type_to_string(var_type):
         return "int64"
     elif var_type == VarType.FLOAT32:
        return "float32"
-    elif var_type == VarType.FLOAT64:
-        return "float64"
+    elif var_type == VarType.DOUBLE:
+        return "double"
     elif var_type == VarType.BOOL:
         return "i1"
     elif var_type == VarType.STRING:
@@ -55,7 +55,7 @@ def get_llvm_type_str(varTp):
         return 'i64'
     elif varTp == VarType.FLOAT32:
         return 'float'
-    elif varTp == VarType.FLOAT64:
+    elif varTp == VarType.DOUBLE:
         return 'double'
     elif varTp == VarType.BOOL:
         return 'i1'
@@ -72,7 +72,7 @@ def llvm_to_type(varTp):
     elif varTp == 'float':
         return VarType.FLOAT32
     elif varTp == 'double':
-        return VarType.FLOAT64
+        return VarType.DOUBLE
     elif varTp == 'i1':
         return VarType.BOOL
     elif varTp == 'i8*':

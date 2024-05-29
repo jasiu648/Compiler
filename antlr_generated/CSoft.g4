@@ -134,7 +134,7 @@ funcCall: ID '()'
 
 ident: (type)? ID;
 
-type: 'float32' | 'float64' | 'int32' | 'int64' | 'bool' | 'string';
+type: 'float32' | 'double' | 'int32' | 'int64' | 'bool' | 'string';
 
 funType: type 
     ;

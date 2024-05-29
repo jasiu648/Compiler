@@ -1,12 +1,11 @@
-int64 myFunc(string a, int64 b) {
-    string h = "hello from function"
+int64 testfunction( ) {
+    string h = "function scope"
     print(h)
 }
 
-h = "hello from main"
-myFunc()
+h = "main scope"
+testfunction()
 print(h)
-int32 a = 5
+
+double a = 6.9
 print(a)
-b = 4
-print(b)

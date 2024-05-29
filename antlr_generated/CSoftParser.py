@@ -142,7 +142,7 @@ class CSoftParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'='", "'['", "']'", "'.'", "'()'", "'float32'", 
-                     "'float64'", "'int32'", "'int64'", "'bool'", "'string'", 
+                     "'double'", "'int32'", "'int64'", "'bool'", "'string'", 
                      "','", "'('", "')'", "'{'", "'}'", "'print'", "'read'", 
                      "'in'", "'rep'", "'if'", "'func'", "'class'", "'struct'", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 

@@ -237,7 +237,7 @@ class ExtendedListener(CSoftListener):
             self.stack.append(Value(value, VarType.INT64))
         elif ctx.FLOAT():
             value = ctx.FLOAT().symbol.text
-            self.stack.append(Value(value, VarType.FLOAT64))
+            self.stack.append(Value(value, VarType.DOUBLE))
         elif ctx.STRING():
             # value = ctx.STRING().symbol.text
             # self.stack.append(Value(value, VarType.STRING))
@@ -368,8 +368,8 @@ class ExtendedListener(CSoftListener):
                 type = VarType.INT64
             elif type == 'float32':
                 type = VarType.FLOAT32
-            elif type == 'float64':
-                type = VarType.FLOAT64
+            elif type == 'double':
+                type = VarType.DOUBLE
             elif type == 'bool':
                 type = VarType.BOOL
             elif type == 'string':
@@ -524,7 +524,7 @@ class ExtendedListener(CSoftListener):
             self.generator.assign_i64(ID, value, global_var)
         elif type == VarType.FLOAT32:
             self.generator.assign_float32(ID, value, global_var)
-        elif type == VarType.FLOAT64:
+        elif type == VarType.DOUBLE:
             self.generator.assign_double(ID, value, global_var)
         elif type == 'bool' or type == VarType.BOOL:
             if value.name == 'true':
@@ -566,8 +566,8 @@ class ExtendedListener(CSoftListener):
             self.generator.read_int64(var)
         elif var_type == VarType.FLOAT32:
             self.generator.read_float32(var)
-        elif var_type == VarType.FLOAT64:
-            self.generator.read_float64(var)
+        elif var_type == VarType.DOUBLE:
+            self.generator.read_double(var)
         elif var_type == 'bool' or var_type == VarType.BOOL:
             self.generator.read_bool(var)
         elif var_type == VarType.STRING:

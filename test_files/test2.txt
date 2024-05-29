@@ -1,13 +1,6 @@
-int a = 10;
-int b = 2;
-int c = a * b;
-print c;
-float d = 10.5;
-float e = 0.5;
-float f = d * e;
-print f;
-f = 2 * d;
-print f;
-f = b * d;
-print f;
-ident: ID (':' type)?;
+double b = 5.5
+double a = 4.4
+c = a + b
+print(b)
+print(a)
+print(c)

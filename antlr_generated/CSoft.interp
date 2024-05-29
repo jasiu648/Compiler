@@ -6,7 +6,7 @@ null
 '.'
 '()'
 'float32'
-'float64'
+'double'
 'int32'
 'int64'
 'bool'
