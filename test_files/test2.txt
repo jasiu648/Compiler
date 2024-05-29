@@ -10,3 +10,4 @@ f = 2 * d;
 print f;
 f = b * d;
 print f;
+ident: ID (':' type)?;

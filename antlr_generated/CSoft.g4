@@ -86,7 +86,7 @@ repNum: factor
 blockRepeat: statement* 
     ;
 
-function: FUNCTION funType funName '{' blockFun '}' ;
+function: funType funName LPAREN RPAREN '{' blockFun '}' ;
 
 blockFun: statement* ;
 
@@ -128,7 +128,8 @@ arrayAccess: ID '[' INT ']';
 funcCall: ID '()' 
     ;
 
-ident: ID (':' type)?;
+
+ident: (type)? ID;
 
 type: 'float32' | 'float64' | 'int32' | 'int64' | 'bool' | 'str';
 

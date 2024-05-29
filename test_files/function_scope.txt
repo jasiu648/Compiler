@@ -1,4 +1,4 @@
-func int64 myFunc {
+int64 myFunc( ) {
     h = "hello from function"
     print(h)
 }
@@ -6,5 +6,7 @@ func int64 myFunc {
 h = "hello from main"
 myFunc()
 print(h)
-int32 a = 0
-read(a)
+int32 a = 5
+print(a)
+b = 4
+print(b)
