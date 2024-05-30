@@ -12,6 +12,9 @@ PRINT : 'print' ;
 READ : 'read' ;
 IF: 'if';
 STRUCT: 'struct' ;
+CLASS: 'class' ;
+type: 'float32' | 'double' | 'int32' | 'int64' | 'bool' | 'string';
+BOOL    : 'true' | 'false';
 
 COMMENT: '#' ~[\r\n]* -> skip;
 
@@ -103,11 +106,11 @@ repNum: factor
 blockRepeat: statement* 
     ;
 
-function: funType funName LPAREN parameters? RPAREN LBRACE blockFun RBRACE ;
+function: funType funName LPAREN (parameters)? RPAREN LBRACE blockFun RBRACE ;
 
 blockFun: statement* ;
 
-classDecl: CLASS className LBRACE blockClass RBRACE  ;
+classDecl: CLASS className '{' blockClass '}'  ;
 
 blockClass: structVarDecl* method*  ;
 
@@ -147,9 +150,6 @@ arrayAccess: ID LBRACKET INT RBRACKET;
 funcCall: ID '()' 
     ;
 
-
-type: 'float32' | 'double' | 'int32' | 'int64' | 'bool' | 'string';
-
 funType: type 
     ;
 
@@ -159,22 +159,13 @@ structName: ID
     ;
 
 
-REPEAT: 'rep';
-
-FUNCTION: 'func'
-    ;
-
-CLASS: 'class'  ;
-
-   
+REPEAT: 'rep';   
 
 INT:   [0-9]+
     ;
 
 FLOAT: [0-9]+ '.' [0-9]+
     ;
-
-BOOL    : 'true' | 'false';
 
 AddOper: '+' | '-'
     ;

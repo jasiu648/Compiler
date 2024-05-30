@@ -1,23 +1,21 @@
-class myClass {
-    attrOne: int64
-    attrTwo: float64
+class testClass {
+    int64 integerField
+    double doubleField
+    bool boolField
 
-    int64 myClass {
-        self.attrOne = 5
-        self.attrTwo = 78.98
+    int64 testClass {
+        self.integerField = 5
+        self.doubleField = 78.98
+        self.boolField = true
     }
 
-    int64 writeAttrOne {
-        d = self.attrOne
-        write d
-    }
-
-    int64 writeAttrTwo {
-        c = self.attrTwo
-        write c
+    int64 writeClass {
+        a = self.integerField
+        ab = self.doubleField
+        print(a)
+        print(ab)
     }
 }
 
-o = class myClass
-o.writeAttrOne()
-o.writeAttrTwo()
+test = class testClass
+test.writeClass()

@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by CSoftParser.
 class CSoftListener(ParseTreeListener):
 
+    # Enter a parse tree produced by CSoftParser#type.
+    def enterType(self, ctx:CSoftParser.TypeContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#type.
+    def exitType(self, ctx:CSoftParser.TypeContext):
+        pass
+
+
     # Enter a parse tree produced by CSoftParser#prog.
     def enterProg(self, ctx:CSoftParser.ProgContext):
         pass
@@ -491,15 +500,6 @@ class CSoftListener(ParseTreeListener):
 
     # Exit a parse tree produced by CSoftParser#funcCall.
     def exitFuncCall(self, ctx:CSoftParser.FuncCallContext):
-        pass
-
-
-    # Enter a parse tree produced by CSoftParser#type.
-    def enterType(self, ctx:CSoftParser.TypeContext):
-        pass
-
-    # Exit a parse tree produced by CSoftParser#type.
-    def exitType(self, ctx:CSoftParser.TypeContext):
         pass
 
 

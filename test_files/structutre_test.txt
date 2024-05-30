@@ -1,15 +1,17 @@
-struct myStr { 
-    double fieldOne
-    double fieldTwo
+struct testStructure { 
+    int64 integerField
+    double doubleField
+    
 }
 
-s = struct myStr
+test = struct testStructure
 
-s.fieldOne = 4.0
-s.fieldTwo = 3.14
+test.integerField = 1
+test.doubleField = 1.0
 
-a = s.fieldOne
+a = test.integerField
 print(a)
 
-b = s.fieldTwo
+b = test.doubleField
 print(b)
+

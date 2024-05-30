@@ -14,27 +14,38 @@ declare void @llvm.memcpy.p0i8.p0i8.i64(i8* noalias nocapture writeonly, i8* noa
 @falseStr = constant [6 x i8] c"false\00"
 @strps = constant [4 x i8] c"%s\0A\00"
 @str_ptr = constant [2 x i8]c"\0A\00" 
-%myStr = type {double, double}
-@s = global %myStr zeroinitializer
-@a = global double 0.0
-@b = global double 0.0
+@a = global [3 x i64] zeroinitializer
+@b  = global i64 0
+@c  = global i64 0
+@d  = global i64 0
 define i32 @main() nounwind{
-%1 = getelementptr %myStr, %myStr* @s, i32 0, i32 0
-store double 4.0, double* %1
-%2 = getelementptr %myStr, %myStr* @s, i32 0, i32 1
-store double 3.14, double* %2
-%3 = getelementptr %myStr, %myStr* @s, i32 0, i32 0
-%4 = load double, double* %3
-store double %4, double* @a
-%5 = load double, double* @a
-%6 = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), double %5)
-%7 = getelementptr [2 x i8], [2 x i8]* @str_ptr, i32 0, i32 0
-call i32 (i8*, ...) @printf(i8* %7)
-%9 = getelementptr %myStr, %myStr* @s, i32 0, i32 1
-%10 = load double, double* %9
-store double %10, double* @b
-%11 = load double, double* @b
-%12 = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), double %11)
-%13 = getelementptr [2 x i8], [2 x i8]* @str_ptr, i32 0, i32 0
-call i32 (i8*, ...) @printf(i8* %13)
+%1 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 0
+store i64 1, ptr %1
+%2 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 1
+store i64 2, ptr %2
+%3 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 2
+store i64 3, ptr %3
+%4 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 0
+%5 = load i64, i64* %4
+store i64 %5, i64* @b
+%6 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 2
+%7 = load i64, i64* %6
+store i64 %7, i64* @c
+%8 = load i64, i64* @b
+%9 = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpl, i32 0, i32 0), i64 %8)
+%10 = getelementptr [2 x i8], [2 x i8]* @str_ptr, i32 0, i32 0
+call i32 (i8*, ...) @printf(i8* %10)
+%12 = load i64, i64* @c
+%13 = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpl, i32 0, i32 0), i64 %12)
+%14 = getelementptr [2 x i8], [2 x i8]* @str_ptr, i32 0, i32 0
+call i32 (i8*, ...) @printf(i8* %14)
+%16 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 2
+store i64 4, ptr %16
+%17 = getelementptr inbounds[3 x i64], ptr @a, i64 0, i64 2
+%18 = load i64, i64* %17
+store i64 %18, i64* @d
+%19 = load i64, i64* @d
+%20 = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpl, i32 0, i32 0), i64 %19)
+%21 = getelementptr [2 x i8], [2 x i8]* @str_ptr, i32 0, i32 0
+call i32 (i8*, ...) @printf(i8* %21)
 ret i32 0 }

@@ -1,8 +1,9 @@
 int64 testfunction( ) {
-    string h = "function scope"
-    print(h)
+    string scope = "function scope"
+    print(scope)
 }
 
-h = "main scope"
+scope = "main scope"
 testfunction()
-print(h)
+print(scope)
+testfunction()
