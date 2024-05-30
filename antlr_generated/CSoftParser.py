@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,37,360,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,36,360,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
@@ -55,7 +55,7 @@ def serializedATN():
         0,0,0,94,97,1,0,0,0,95,93,1,0,0,0,95,96,1,0,0,0,96,98,1,0,0,0,97,
         95,1,0,0,0,98,99,5,0,0,1,99,3,1,0,0,0,100,126,3,10,5,0,101,126,3,
         12,6,0,102,126,3,16,8,0,103,104,3,6,3,0,104,105,5,7,0,0,105,106,
-        3,16,8,0,106,126,1,0,0,0,107,108,5,23,0,0,108,109,5,15,0,0,109,110,
+        3,16,8,0,106,126,1,0,0,0,107,108,5,24,0,0,108,109,5,15,0,0,109,110,
         5,28,0,0,110,111,5,16,0,0,111,112,5,7,0,0,112,126,3,16,8,0,113,114,
         3,6,3,0,114,115,5,7,0,0,115,116,3,14,7,0,116,126,1,0,0,0,117,126,
         3,36,18,0,118,126,3,32,16,0,119,126,3,42,21,0,120,126,3,68,34,0,
@@ -65,28 +65,28 @@ def serializedATN():
         1,0,0,0,125,119,1,0,0,0,125,120,1,0,0,0,125,121,1,0,0,0,125,122,
         1,0,0,0,125,123,1,0,0,0,125,124,1,0,0,0,126,5,1,0,0,0,127,129,3,
         0,0,0,128,127,1,0,0,0,128,129,1,0,0,0,129,130,1,0,0,0,130,131,5,
-        23,0,0,131,7,1,0,0,0,132,133,3,6,3,0,133,134,5,7,0,0,134,135,3,16,
-        8,0,135,9,1,0,0,0,136,137,5,17,0,0,137,138,5,11,0,0,138,139,5,23,
+        24,0,0,131,7,1,0,0,0,132,133,3,6,3,0,133,134,5,7,0,0,134,135,3,16,
+        8,0,135,9,1,0,0,0,136,137,5,17,0,0,137,138,5,11,0,0,138,139,5,24,
         0,0,139,140,5,12,0,0,140,11,1,0,0,0,141,142,5,18,0,0,142,143,5,11,
-        0,0,143,144,5,23,0,0,144,145,5,12,0,0,145,13,1,0,0,0,146,147,5,15,
+        0,0,143,144,5,24,0,0,144,145,5,12,0,0,145,13,1,0,0,0,146,147,5,15,
         0,0,147,152,3,30,15,0,148,149,5,9,0,0,149,151,3,30,15,0,150,148,
         1,0,0,0,151,154,1,0,0,0,152,150,1,0,0,0,152,153,1,0,0,0,153,155,
         1,0,0,0,154,152,1,0,0,0,155,156,5,16,0,0,156,15,1,0,0,0,157,158,
-        3,18,9,0,158,159,5,36,0,0,159,160,3,18,9,0,160,163,1,0,0,0,161,163,
+        3,18,9,0,158,159,5,35,0,0,159,160,3,18,9,0,160,163,1,0,0,0,161,163,
         3,18,9,0,162,157,1,0,0,0,162,161,1,0,0,0,163,17,1,0,0,0,164,165,
-        3,20,10,0,165,166,5,37,0,0,166,167,3,20,10,0,167,170,1,0,0,0,168,
+        3,20,10,0,165,166,5,36,0,0,166,167,3,20,10,0,167,170,1,0,0,0,168,
         170,3,20,10,0,169,164,1,0,0,0,169,168,1,0,0,0,170,19,1,0,0,0,171,
-        172,3,22,11,0,172,173,5,35,0,0,173,174,3,22,11,0,174,177,1,0,0,0,
+        172,3,22,11,0,172,173,5,34,0,0,173,174,3,22,11,0,174,177,1,0,0,0,
         175,177,3,22,11,0,176,171,1,0,0,0,176,175,1,0,0,0,177,21,1,0,0,0,
-        178,179,3,24,12,0,179,180,5,34,0,0,180,181,3,24,12,0,181,184,1,0,
+        178,179,3,24,12,0,179,180,5,33,0,0,180,181,3,24,12,0,181,184,1,0,
         0,0,182,184,3,24,12,0,183,178,1,0,0,0,183,182,1,0,0,0,184,23,1,0,
-        0,0,185,186,3,26,13,0,186,187,5,31,0,0,187,188,3,26,13,0,188,191,
+        0,0,185,186,3,26,13,0,186,187,5,30,0,0,187,188,3,26,13,0,188,191,
         1,0,0,0,189,191,3,26,13,0,190,185,1,0,0,0,190,189,1,0,0,0,191,25,
-        1,0,0,0,192,193,3,28,14,0,193,194,5,32,0,0,194,195,3,28,14,0,195,
+        1,0,0,0,192,193,3,28,14,0,193,194,5,31,0,0,194,195,3,28,14,0,195,
         198,1,0,0,0,196,198,3,28,14,0,197,192,1,0,0,0,197,196,1,0,0,0,198,
-        27,1,0,0,0,199,200,5,33,0,0,200,203,3,30,15,0,201,203,3,30,15,0,
+        27,1,0,0,0,199,200,5,32,0,0,200,203,3,30,15,0,201,203,3,30,15,0,
         202,199,1,0,0,0,202,201,1,0,0,0,203,29,1,0,0,0,204,214,5,28,0,0,
-        205,214,5,29,0,0,206,214,5,24,0,0,207,214,5,30,0,0,208,214,5,23,
+        205,214,5,29,0,0,206,214,5,25,0,0,207,214,5,22,0,0,208,214,5,24,
         0,0,209,214,3,80,40,0,210,214,3,82,41,0,211,214,3,78,39,0,212,214,
         3,60,30,0,213,204,1,0,0,0,213,205,1,0,0,0,213,206,1,0,0,0,213,207,
         1,0,0,0,213,208,1,0,0,0,213,209,1,0,0,0,213,210,1,0,0,0,213,211,
@@ -94,7 +94,7 @@ def serializedATN():
         5,11,0,0,217,218,3,16,8,0,218,219,5,12,0,0,219,220,5,13,0,0,220,
         221,3,34,17,0,221,222,5,14,0,0,222,33,1,0,0,0,223,225,3,4,2,0,224,
         223,1,0,0,0,225,228,1,0,0,0,226,224,1,0,0,0,226,227,1,0,0,0,227,
-        35,1,0,0,0,228,226,1,0,0,0,229,230,5,26,0,0,230,231,3,38,19,0,231,
+        35,1,0,0,0,228,226,1,0,0,0,229,230,5,27,0,0,230,231,3,38,19,0,231,
         232,5,13,0,0,232,233,3,40,20,0,233,234,5,14,0,0,234,37,1,0,0,0,235,
         236,3,30,15,0,236,39,1,0,0,0,237,239,3,4,2,0,238,237,1,0,0,0,239,
         242,1,0,0,0,240,238,1,0,0,0,240,241,1,0,0,0,241,41,1,0,0,0,242,240,
@@ -111,8 +111,8 @@ def serializedATN():
         3,54,27,0,279,280,3,56,28,0,280,281,5,13,0,0,281,282,3,52,26,0,282,
         283,5,14,0,0,283,51,1,0,0,0,284,286,3,4,2,0,285,284,1,0,0,0,286,
         289,1,0,0,0,287,285,1,0,0,0,287,288,1,0,0,0,288,53,1,0,0,0,289,287,
-        1,0,0,0,290,291,3,0,0,0,291,55,1,0,0,0,292,293,5,23,0,0,293,57,1,
-        0,0,0,294,295,5,23,0,0,295,59,1,0,0,0,296,297,5,23,0,0,297,298,5,
+        1,0,0,0,290,291,3,0,0,0,291,55,1,0,0,0,292,293,5,24,0,0,293,57,1,
+        0,0,0,294,295,5,24,0,0,295,59,1,0,0,0,296,297,5,24,0,0,297,298,5,
         10,0,0,298,299,3,6,3,0,299,300,5,8,0,0,300,61,1,0,0,0,301,302,3,
         6,3,0,302,303,5,7,0,0,303,304,5,21,0,0,304,305,3,58,29,0,305,63,
         1,0,0,0,306,311,3,66,33,0,307,308,5,9,0,0,308,310,3,66,33,0,309,
@@ -123,12 +123,12 @@ def serializedATN():
         327,1,0,0,0,325,323,1,0,0,0,325,326,1,0,0,0,326,71,1,0,0,0,327,325,
         1,0,0,0,328,329,3,6,3,0,329,73,1,0,0,0,330,331,3,6,3,0,331,332,5,
         7,0,0,332,333,5,20,0,0,333,334,3,88,44,0,334,75,1,0,0,0,335,336,
-        5,23,0,0,336,337,5,10,0,0,337,338,3,6,3,0,338,339,5,7,0,0,339,340,
-        3,16,8,0,340,77,1,0,0,0,341,342,5,23,0,0,342,343,5,10,0,0,343,344,
-        3,6,3,0,344,79,1,0,0,0,345,346,5,23,0,0,346,347,5,15,0,0,347,348,
-        5,28,0,0,348,349,5,16,0,0,349,81,1,0,0,0,350,351,5,23,0,0,351,352,
+        5,24,0,0,336,337,5,10,0,0,337,338,3,6,3,0,338,339,5,7,0,0,339,340,
+        3,16,8,0,340,77,1,0,0,0,341,342,5,24,0,0,342,343,5,10,0,0,343,344,
+        3,6,3,0,344,79,1,0,0,0,345,346,5,24,0,0,346,347,5,15,0,0,347,348,
+        5,28,0,0,348,349,5,16,0,0,349,81,1,0,0,0,350,351,5,24,0,0,351,352,
         5,8,0,0,352,83,1,0,0,0,353,354,3,0,0,0,354,85,1,0,0,0,355,356,5,
-        23,0,0,356,87,1,0,0,0,357,358,5,23,0,0,358,89,1,0,0,0,21,95,125,
+        24,0,0,356,87,1,0,0,0,357,358,5,24,0,0,358,89,1,0,0,0,21,95,125,
         128,152,162,169,176,183,190,197,202,213,226,240,247,257,269,275,
         287,311,325
     ]
@@ -147,18 +147,18 @@ class CSoftParser ( Parser ):
                      "'bool'", "'string'", "'='", "'()'", "','", "'.'", 
                      "'('", "')'", "'{'", "'}'", "'['", "']'", "'print'", 
                      "'read'", "'if'", "'struct'", "'class'", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "'rep'", "'func'", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'!'", "<INVALID>", "'&&'", "'||'", "'^'" ]
+                     "'rep'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "'!'", "<INVALID>", "'&&'", "'||'", "'^'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "COMMA", "DOT", "LPAREN", "RPAREN", "LBRACE", 
                       "RBRACE", "LBRACKET", "RBRACKET", "PRINT", "READ", 
-                      "IF", "STRUCT", "CLASS", "COMMENT", "ID", "STRING", 
-                      "WS", "REPEAT", "FUNCTION", "INT", "FLOAT", "BOOL", 
-                      "AddOper", "MultOper", "NegOper", "RelOper", "AndOper", 
-                      "OrOper", "XorOper" ]
+                      "IF", "STRUCT", "CLASS", "BOOL", "COMMENT", "ID", 
+                      "STRING", "WS", "REPEAT", "INT", "FLOAT", "AddOper", 
+                      "MultOper", "NegOper", "RelOper", "AndOper", "OrOper", 
+                      "XorOper" ]
 
     RULE_type = 0
     RULE_prog = 1
@@ -239,22 +239,21 @@ class CSoftParser ( Parser ):
     IF=19
     STRUCT=20
     CLASS=21
-    COMMENT=22
-    ID=23
-    STRING=24
-    WS=25
-    REPEAT=26
-    FUNCTION=27
+    BOOL=22
+    COMMENT=23
+    ID=24
+    STRING=25
+    WS=26
+    REPEAT=27
     INT=28
     FLOAT=29
-    BOOL=30
-    AddOper=31
-    MultOper=32
-    NegOper=33
-    RelOper=34
-    AndOper=35
-    OrOper=36
-    XorOper=37
+    AddOper=30
+    MultOper=31
+    NegOper=32
+    RelOper=33
+    AndOper=34
+    OrOper=35
+    XorOper=36
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -283,6 +282,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitType" ):
                 listener.exitType(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitType" ):
+                return visitor.visitType(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -338,6 +343,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitProg" ):
                 listener.exitProg(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProg" ):
+                return visitor.visitProg(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -351,7 +362,7 @@ class CSoftParser ( Parser ):
             self.state = 95
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 10565320830) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 5293080702) != 0):
                 self.state = 92
                 self.statement()
                 self.state = 97
@@ -404,6 +415,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitStructDeclaration" ):
                 listener.exitStructDeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructDeclaration" ):
+                return visitor.visitStructDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ReadContext(StatementContext):
 
@@ -423,6 +440,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitRead" ):
                 listener.exitRead(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRead" ):
+                return visitor.visitRead(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class RepeatStatementContext(StatementContext):
 
@@ -441,6 +464,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitRepeatStatement" ):
                 listener.exitRepeatStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRepeatStatement" ):
+                return visitor.visitRepeatStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ElementAssignContext(StatementContext):
@@ -469,6 +498,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitElementAssign" ):
                 listener.exitElementAssign(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElementAssign" ):
+                return visitor.visitElementAssign(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ExprressionContext(StatementContext):
 
@@ -487,6 +522,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitExprression" ):
                 listener.exitExprression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExprression" ):
+                return visitor.visitExprression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class StructAssignmetContext(StatementContext):
@@ -507,6 +548,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitStructAssignmet" ):
                 listener.exitStructAssignmet(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructAssignmet" ):
+                return visitor.visitStructAssignmet(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class IfStatementContext(StatementContext):
 
@@ -525,6 +572,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIfStatement" ):
                 listener.exitIfStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatement" ):
+                return visitor.visitIfStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ClassDeclarationContext(StatementContext):
@@ -545,6 +598,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitClassDeclaration" ):
                 listener.exitClassDeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassDeclaration" ):
+                return visitor.visitClassDeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class PrintContext(StatementContext):
 
@@ -563,6 +622,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitPrint" ):
                 listener.exitPrint(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrint" ):
+                return visitor.visitPrint(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ClassAssignmentContext(StatementContext):
@@ -583,6 +648,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitClassAssignment" ):
                 listener.exitClassAssignment(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassAssignment" ):
+                return visitor.visitClassAssignment(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class FuncDeclContext(StatementContext):
 
@@ -601,6 +672,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitFuncDecl" ):
                 listener.exitFuncDecl(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFuncDecl" ):
+                return visitor.visitFuncDecl(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class AssignContext(StatementContext):
@@ -624,6 +701,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitAssign" ):
                 listener.exitAssign(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssign" ):
+                return visitor.visitAssign(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ArrAssignContext(StatementContext):
 
@@ -646,6 +729,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitArrAssign" ):
                 listener.exitArrAssign(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrAssign" ):
+                return visitor.visitArrAssign(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class StructFieldAssignmentContext(StatementContext):
 
@@ -664,6 +753,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStructFieldAssignment" ):
                 listener.exitStructFieldAssignment(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructFieldAssignment" ):
+                return visitor.visitStructFieldAssignment(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -826,6 +921,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitIdent" ):
                 listener.exitIdent(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdent" ):
+                return visitor.visitIdent(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -881,6 +982,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitAssignment" ):
                 listener.exitAssignment(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignment" ):
+                return visitor.visitAssignment(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -934,6 +1041,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitPrint_statement" ):
                 listener.exitPrint_statement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrint_statement" ):
+                return visitor.visitPrint_statement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -990,6 +1103,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitRead_statement" ):
                 listener.exitRead_statement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRead_statement" ):
+                return visitor.visitRead_statement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1053,6 +1172,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitArrayAssign" ):
                 listener.exitArrayAssign(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayAssign" ):
+                return visitor.visitArrayAssign(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1119,6 +1244,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitExpr" ):
                 listener.exitExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpr" ):
+                return visitor.visitExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1183,6 +1314,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCondXorStm" ):
                 listener.exitCondXorStm(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCondXorStm" ):
+                return visitor.visitCondXorStm(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1249,6 +1386,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitCondStmAnd" ):
                 listener.exitCondStmAnd(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCondStmAnd" ):
+                return visitor.visitCondStmAnd(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1313,6 +1456,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCondStmRel" ):
                 listener.exitCondStmRel(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCondStmRel" ):
+                return visitor.visitCondStmRel(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1379,6 +1528,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitAddExpr" ):
                 listener.exitAddExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAddExpr" ):
+                return visitor.visitAddExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1444,6 +1599,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitMultExpr" ):
                 listener.exitMultExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultExpr" ):
+                return visitor.visitMultExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1506,6 +1667,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitNegFactor" ):
                 listener.exitNegFactor(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitNegFactor" ):
+                return visitor.visitNegFactor(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1517,14 +1684,14 @@ class CSoftParser ( Parser ):
             self.state = 202
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [33]:
+            if token in [32]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 199
                 self.match(CSoftParser.NegOper)
                 self.state = 200
                 self.factor()
                 pass
-            elif token in [23, 24, 28, 29, 30]:
+            elif token in [22, 24, 25, 28, 29]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 201
                 self.factor()
@@ -1589,6 +1756,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitFactor" ):
                 listener.exitFactor(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFactor" ):
+                return visitor.visitFactor(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1706,6 +1879,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitIfStm" ):
                 listener.exitIfStm(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStm" ):
+                return visitor.visitIfStm(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1763,6 +1942,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitBlockIf" ):
                 listener.exitBlockIf(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockIf" ):
+                return visitor.visitBlockIf(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1776,7 +1961,7 @@ class CSoftParser ( Parser ):
             self.state = 226
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 10565320830) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 5293080702) != 0):
                 self.state = 223
                 self.statement()
                 self.state = 228
@@ -1826,6 +2011,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitRepeatStm" ):
                 listener.exitRepeatStm(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRepeatStm" ):
+                return visitor.visitRepeatStm(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1877,6 +2068,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitRepNum" ):
                 listener.exitRepNum(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRepNum" ):
+                return visitor.visitRepNum(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1922,6 +2119,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitBlockRepeat" ):
                 listener.exitBlockRepeat(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockRepeat" ):
+                return visitor.visitBlockRepeat(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1935,7 +2138,7 @@ class CSoftParser ( Parser ):
             self.state = 240
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 10565320830) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 5293080702) != 0):
                 self.state = 237
                 self.statement()
                 self.state = 242
@@ -1997,6 +2200,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitFunction" ):
                 listener.exitFunction(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunction" ):
+                return visitor.visitFunction(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2016,7 +2225,7 @@ class CSoftParser ( Parser ):
             self.state = 247
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 8388734) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 16777342) != 0):
                 self.state = 246
                 self.parameters()
 
@@ -2063,6 +2272,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitBlockFun" ):
                 listener.exitBlockFun(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockFun" ):
+                return visitor.visitBlockFun(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2076,7 +2291,7 @@ class CSoftParser ( Parser ):
             self.state = 257
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 10565320830) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 5293080702) != 0):
                 self.state = 254
                 self.statement()
                 self.state = 259
@@ -2126,6 +2341,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitClassDecl" ):
                 listener.exitClassDecl(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassDecl" ):
+                return visitor.visitClassDecl(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2186,6 +2407,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitBlockClass" ):
                 listener.exitBlockClass(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockClass" ):
+                return visitor.visitBlockClass(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2263,6 +2490,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitMethod" ):
                 listener.exitMethod(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethod" ):
+                return visitor.visitMethod(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2316,6 +2549,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitBlockMethod" ):
                 listener.exitBlockMethod(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockMethod" ):
+                return visitor.visitBlockMethod(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2329,7 +2568,7 @@ class CSoftParser ( Parser ):
             self.state = 287
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 10565320830) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 5293080702) != 0):
                 self.state = 284
                 self.statement()
                 self.state = 289
@@ -2366,6 +2605,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethodType" ):
                 listener.exitMethodType(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodType" ):
+                return visitor.visitMethodType(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2408,6 +2653,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitMethodName" ):
                 listener.exitMethodName(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodName" ):
+                return visitor.visitMethodName(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2448,6 +2699,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitClassName" ):
                 listener.exitClassName(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassName" ):
+                return visitor.visitClassName(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2496,6 +2753,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethodCall" ):
                 listener.exitMethodCall(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethodCall" ):
+                return visitor.visitMethodCall(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2551,6 +2814,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitClassAssign" ):
                 listener.exitClassAssign(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassAssign" ):
+                return visitor.visitClassAssign(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2609,6 +2878,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitParameters" ):
                 listener.exitParameters(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParameters" ):
+                return visitor.visitParameters(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2663,6 +2938,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitParameter" ):
                 listener.exitParameter(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParameter" ):
+                return visitor.visitParameter(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2719,6 +3000,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitStructDecl" ):
                 listener.exitStructDecl(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructDecl" ):
+                return visitor.visitStructDecl(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2772,6 +3059,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitBlockStruct" ):
                 listener.exitBlockStruct(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockStruct" ):
+                return visitor.visitBlockStruct(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2785,7 +3078,7 @@ class CSoftParser ( Parser ):
             self.state = 325
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 8388734) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 16777342) != 0):
                 self.state = 322
                 self.structVarDecl()
                 self.state = 327
@@ -2822,6 +3115,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStructVarDecl" ):
                 listener.exitStructVarDecl(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructVarDecl" ):
+                return visitor.visitStructVarDecl(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2871,6 +3170,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStructAssign" ):
                 listener.exitStructAssign(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructAssign" ):
+                return visitor.visitStructAssign(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2930,6 +3235,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitStructFieldAssign" ):
                 listener.exitStructFieldAssign(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructFieldAssign" ):
+                return visitor.visitStructFieldAssign(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -2986,6 +3297,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitStructFieldAccess" ):
                 listener.exitStructFieldAccess(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructFieldAccess" ):
+                return visitor.visitStructFieldAccess(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -3040,6 +3357,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitArrayAccess" ):
                 listener.exitArrayAccess(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayAccess" ):
+                return visitor.visitArrayAccess(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -3087,6 +3410,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitFuncCall" ):
                 listener.exitFuncCall(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFuncCall" ):
+                return visitor.visitFuncCall(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -3131,6 +3460,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitFunType" ):
                 listener.exitFunType(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunType" ):
+                return visitor.visitFunType(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -3172,6 +3507,12 @@ class CSoftParser ( Parser ):
             if hasattr( listener, "exitFunName" ):
                 listener.exitFunName(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunName" ):
+                return visitor.visitFunName(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -3212,6 +3553,12 @@ class CSoftParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitStructName" ):
                 listener.exitStructName(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStructName" ):
+                return visitor.visitStructName(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
