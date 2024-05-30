@@ -1,5 +1,7 @@
 grammar CSoft;
 
+
+COMMENT: '#' ~[\r\n]* -> skip;
 COMMA : ',' ;
 LPAREN : '(' ;
 RPAREN : ')' ;
@@ -170,7 +172,7 @@ BOOL    : 'true' | 'false';
 AddOper: '+' | '-'
     ;
 
-MultOper: '*' | '/'
+MultOper: '*' | '/' | '%'
     ;
 
 NegOper: '!'
@@ -188,7 +190,7 @@ OrOper: '||'
 XorOper: '^^'
     ;
 
-ID:   [a-zA-Z]+
+ID : [a-zA-Z_][a-zA-Z0-9_]*
    ;
 
 STRING :  '"' [a-zA-Z0-9 \t\n*+-]+ '"';

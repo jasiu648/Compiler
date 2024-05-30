@@ -389,6 +389,8 @@ class LLVMGenerator():
         
         if oper == '*':
             return self._multiply(left, right)
+        elif oper == '%':
+            return self.modulo(left, right)
         else:
             return self._divide(left, right)
 
@@ -412,11 +414,16 @@ class LLVMGenerator():
             self.reg += 1
             return VarType.INT64
 
+    def modulo(self, left, right):
+        self.code_text += "%" + str(self.reg) + " = srem i64 " + str(left.name) + ", " + str(right.name) + "\n"
+        self.reg += 1
+        return VarType.INT64
+    
     def unary_operation(self, factor):
         self.xor_operation(factor, Value('true', 3), None, None)
 
 
-    def write_operation(self, identifier, line, sym):
+    def print_operation(self, identifier, line, sym):
         value = self.get_value(identifier, line)
         if value.type == VarType.INT32 or value.type == VarType.INT64:
             self.code_text += f"%{self.reg} = load {self.get_llvm_type(value.type)}, {self.get_llvm_type(value.type)}* {sym}{identifier}\n" #tu add @ or %
@@ -456,7 +463,7 @@ class LLVMGenerator():
 
     def if_end(self):
         b = self.br_stack.pop()
-        self.code_text += "br label %false"+ str(b) +"\n"
+        self.code_text += f"br label %false"+ str(b) +"\n"
         self.code_text += "false" + str(b) + ":\n"
     
     
@@ -770,8 +777,8 @@ class LLVMGenerator():
         self.result_code += self.code_text
 
     def generate_code(self):
-        text = "\n\n\n"
-        text += "declare i32 @printf(ptr, ...)\n"
+        
+        text = "declare i32 @printf(ptr, ...)\n"
         text += "declare i32 @__isoc99_scanf(i8*, ...)\n"
         text += "declare void @llvm.memcpy.p0i8.p0i8.i64(i8* noalias nocapture writeonly, i8* noalias nocapture readonly, i64, i1 immarg)\n"
         text += "@strpi = constant [4 x i8] c\"%d\\0A\\00\"\n"

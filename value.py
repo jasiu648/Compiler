@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class Value:
     def __init__(self, name, type):
         self.name = name
@@ -32,6 +31,7 @@ def string_to_type(string):
     else:
        return string
 
+# can be deleted
 def type_to_string(var_type):
     if var_type == VarType.INT32:
         return "int32"
@@ -47,6 +47,7 @@ def type_to_string(var_type):
         return "i8"
     else:
        raise Exception(f"Unsuported type - {var_type}")
+
 
 def get_llvm_type_str(varTp):
     if varTp == VarType.INT32:

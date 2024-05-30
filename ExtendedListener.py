@@ -470,7 +470,7 @@ class ExtendedListener(CSoftListener):
             if len(temp) != 0:
                 sym = '%' 
       
-        self.generator.write_operation(ident, ctx.start.line, sym)
+        self.generator.print_operation(ident, ctx.start.line, sym)
     
     def exitAssign(self, ctx:CSoftParser.AssignContext):
         ID = ctx.ident().ID().symbol.text

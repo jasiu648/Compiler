@@ -1,5 +1,13 @@
 x = 4
 if (x == 4) {
-    y = "if statement is working properly"
+    y = "If statement is working properly"
     print(y)
+    if(x > 3){
+        z = "Nested if is also working properly"
+        print(z)
+    }
+    if(x > 4){
+        w = "This should not be displayed"
+        print(w)
+    }
 }

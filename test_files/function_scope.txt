@@ -6,6 +6,3 @@ int64 testfunction( ) {
 h = "main scope"
 testfunction()
 print(h)
-
-double a = 6.9
-print(a)

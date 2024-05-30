@@ -1,6 +1,2 @@
-double b = 5.5
-double a = 4.4
-c = a + b
-print(b)
+float32 a = 5.0
 print(a)
-print(c)

@@ -1,0 +1,36 @@
+# Dodawanie
+a1 = 2
+a2 = 2
+a3 = a1 + a2
+print(a3)
+
+# Odejmowanie
+b1 = 21.37
+b2 = 6.9
+b3 = b1 - b2
+print(b3)
+
+# Mnozenie
+c1 = 3
+c2 = 4.5
+c3 = c1 * c2
+print(c3)
+
+# Dzielenie calkowitoliczbowe
+d1 = 10
+d2 = 2
+d3 = d1 / d2
+print(d3)
+
+# Dzielenie z ulamkiem
+
+d4 = 44.4
+d5 = 11.4
+d6 = d4 / d5
+print(d6)
+
+# Modulo
+e1 = 3
+e2 = 5
+e3 = e1 % e2
+print(e3)
