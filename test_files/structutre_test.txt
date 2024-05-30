@@ -1,0 +1,15 @@
+struct myStr { 
+    double fieldOne
+    double fieldTwo
+}
+
+s = struct myStr
+
+s.fieldOne = 4.0
+s.fieldTwo = 3.14
+
+a = s.fieldOne
+print(a)
+
+b = s.fieldTwo
+print(b)

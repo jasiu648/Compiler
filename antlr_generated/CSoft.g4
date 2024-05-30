@@ -1,14 +1,25 @@
 grammar CSoft;
 
-
-COMMENT: '#' ~[\r\n]* -> skip;
 COMMA : ',' ;
+DOT : '.' ;
 LPAREN : '(' ;
 RPAREN : ')' ;
 LBRACE : '{' ;
 RBRACE : '}' ;
+LBRACKET : '[' ;
+RBRACKET: ']' ;
 PRINT : 'print' ;
 READ : 'read' ;
+IF: 'if';
+STRUCT: 'struct' ;
+
+COMMENT: '#' ~[\r\n]* -> skip;
+
+ID : [a-zA-Z_][a-zA-Z0-9_]*;
+
+STRING :  '"' [a-zA-Z0-9 \t\n*+-]+ '"';
+
+WS : [ \t\r\n]+ -> skip;
 
 prog: statement*  EOF 
     ;
@@ -17,7 +28,7 @@ statement: print_statement		#print
 	| read_statement  		#read
     | expr              # exprression
  	| ident '=' expr		#assign
-    | ID '[' INT ']' '=' expr #elementAssign
+    | ID LBRACKET INT RBRACKET '=' expr #elementAssign
     | ident '=' arrayAssign  #arrAssign
     | repeatStm                #repeatStatement
     | ifStm                 #ifStatement
@@ -28,12 +39,15 @@ statement: print_statement		#print
     | classDecl             #classDeclaration
     | classAssign           #classAssignment
     ;
+ident: (type)? ID;
+
+assignment : ident '=' expr;
 
 print_statement : PRINT LPAREN ID RPAREN ;
 
 read_statement : READ LPAREN ID RPAREN ;
 
-arrayAssign: '[' factor (',' factor)* ']';
+arrayAssign: LBRACKET factor (COMMA factor)* RBRACKET;
 
 expr: condXorStm OrOper condXorStm 
     | condXorStm
@@ -76,11 +90,11 @@ factor: INT
     ;
 
 
-ifStm: IF '(' expr ')' '{' blockIf '}' ;
+ifStm: IF LPAREN expr RPAREN LBRACE blockIf RBRACE ;
 
 blockIf: statement* ;
 
-repeatStm: REPEAT repNum '{' blockRepeat '}'  
+repeatStm: REPEAT repNum LBRACE blockRepeat RBRACE  
     ;
 
 repNum: factor 
@@ -89,15 +103,15 @@ repNum: factor
 blockRepeat: statement* 
     ;
 
-function: funType funName LPAREN parameters? RPAREN '{' blockFun '}' ;
+function: funType funName LPAREN parameters? RPAREN LBRACE blockFun RBRACE ;
 
 blockFun: statement* ;
 
-classDecl: CLASS className '{' blockClass '}'  ;
+classDecl: CLASS className LBRACE blockClass RBRACE  ;
 
 blockClass: structVarDecl* method*  ;
 
-method: methodType methodName '{' blockMethod '}'  ;
+method: methodType methodName LBRACE blockMethod RBRACE  ;
 
 blockMethod: statement*  ;
 
@@ -124,17 +138,15 @@ structVarDecl: ident ;
 
 structAssign: ident '=' STRUCT structName;
 
-structFieldAssign: ID '.' ident '=' expr ;
+structFieldAssign: ID DOT ident '=' expr ;
 
-structFieldAccess: ID '.' ident ;
+structFieldAccess: ID DOT ident ;
 
-arrayAccess: ID '[' INT ']';
+arrayAccess: ID LBRACKET INT RBRACKET;
 
 funcCall: ID '()' 
     ;
 
-
-ident: (type)? ID;
 
 type: 'float32' | 'double' | 'int32' | 'int64' | 'bool' | 'string';
 
@@ -147,18 +159,13 @@ structName: ID
     ;
 
 
-IN: 'in';
-
 REPEAT: 'rep';
-
-IF: 'if';
 
 FUNCTION: 'func'
     ;
 
 CLASS: 'class'  ;
 
-STRUCT: 'struct' ;
    
 
 INT:   [0-9]+
@@ -187,12 +194,6 @@ AndOper: '&&'
 OrOper: '||'
     ;
 
-XorOper: '^^'
+XorOper: '^'
     ;
 
-ID : [a-zA-Z_][a-zA-Z0-9_]*
-   ;
-
-STRING :  '"' [a-zA-Z0-9 \t\n*+-]+ '"';
-
-WS : [ \t\r\n]+ -> skip;

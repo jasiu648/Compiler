@@ -8,7 +8,7 @@ Język CSoft:
 5. Pozwala na dodawanie komentarzy jednoliniowych, poprzedzone symbolem '#'
 6. Wskazuje błędy podczas analizy leksykalno-składniowej
 7. Obsługuje tablice liczb całkowitych i zmiennoprzecinkowych
-8. Obsługuje wyrażenia logiczne wykorzystując 'short-circuit evaluation'
+8. Obsługuje wyrażenia logiczne
 9. Pozwala na tworzenie instrukcji warunkowej if
 10. Pozwala na tworzenie pętli while
 11. Pozwala na definiowanie własnych struktur i klas

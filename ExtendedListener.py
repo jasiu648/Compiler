@@ -1,9 +1,7 @@
 from antlr4 import ParseTreeWalker
 from antlr_generated.CSoftListener import CSoftListener
 from antlr_generated.CSoftParser import CSoftParser
-# from llvm_generator import LLVMGenerator
 from llvm_generator import LLVMGenerator
-# from listener.value import Value, VarType, string_to_type, type_to_string, get_llvm_type_str
 from value import Value, VarType, string_to_type, type_to_string, get_llvm_type_str, llvm_to_type
 
 

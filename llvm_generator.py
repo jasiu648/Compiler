@@ -1,4 +1,5 @@
-from value import VarType, Value, get_llvm_type_str, llvm_to_type
+from value import VarType, Value, get_llvm_type_str
+from utils import Stack
 
 class LLVMGenerator():
 
@@ -6,7 +7,7 @@ class LLVMGenerator():
         self.reg = 1
         self.mreg = 1
         self.br = 0
-        self.br_stack = []
+        self.br_stack = Stack()
         self.label_count = 0
         self.code_text = ""
         self.symbol_table = {}
@@ -459,7 +460,7 @@ class LLVMGenerator():
         self.br += 1
         self.code_text += "br i1 %"+str(self.reg-1)+", label %true"+ str(self.br) +", label %false"+ str(self.br) +"\n"
         self.code_text += "true"+ str(self.br) +":\n"
-        self.br_stack.append(self.br)
+        self.br_stack.push(self.br)
 
     def if_end(self):
         b = self.br_stack.pop()
@@ -487,7 +488,7 @@ class LLVMGenerator():
 
         self.code_text += f"br i1 %{str(self.reg-1)}, label %true{str(self.br)}, label %false{str(self.br)}\n"
         self.code_text += f"true{str(self.br)}:\n"
-        self.br_stack.append(self.br)
+        self.br_stack.push(self.br)
         
 
 

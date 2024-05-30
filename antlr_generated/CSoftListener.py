@@ -143,6 +143,24 @@ class CSoftListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CSoftParser#ident.
+    def enterIdent(self, ctx:CSoftParser.IdentContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#ident.
+    def exitIdent(self, ctx:CSoftParser.IdentContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#assignment.
+    def enterAssignment(self, ctx:CSoftParser.AssignmentContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#assignment.
+    def exitAssignment(self, ctx:CSoftParser.AssignmentContext):
+        pass
+
+
     # Enter a parse tree produced by CSoftParser#print_statement.
     def enterPrint_statement(self, ctx:CSoftParser.Print_statementContext):
         pass
@@ -473,15 +491,6 @@ class CSoftListener(ParseTreeListener):
 
     # Exit a parse tree produced by CSoftParser#funcCall.
     def exitFuncCall(self, ctx:CSoftParser.FuncCallContext):
-        pass
-
-
-    # Enter a parse tree produced by CSoftParser#ident.
-    def enterIdent(self, ctx:CSoftParser.IdentContext):
-        pass
-
-    # Exit a parse tree produced by CSoftParser#ident.
-    def exitIdent(self, ctx:CSoftParser.IdentContext):
         pass
 
 
