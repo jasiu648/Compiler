@@ -1,7 +1,7 @@
-from utils import VarType, Value, get_llvm_type_str
+from utils import VariableType, ValueType, get_llvm_type_str
 from utils import Stack
 
-class LLVMGenerator():
+class CodeGenerator():
 
     def __init__(self):
         self.reg = 1
@@ -110,16 +110,6 @@ class LLVMGenerator():
         self.code_text += f"%{resultReg} = phi i1 [1, %{finalTrue}], [0, %{finalFalse}]\n"
 
     def neg_operation(self, factor):
-        # right = Value('true', 3)
-        
-        # left = self.store_var_bool_op(left)
-        # right = self.store_var_bool_op(right)
-
-
-        # left = str(self.reg - 4)
-        # right = str(self.reg - 1)
-        # self.code_text += "%" + str(self.reg) + " = xor i1 %" + left + ", %" + right + "\n"
-        # self.reg += 1
         pass
 
 
@@ -179,214 +169,143 @@ class LLVMGenerator():
         left = self.symbol_table[left]
         right = self.symbol_table[right]
         if operator == "+":            
-            if left.type == VarType.INT and right.type == VarType.INT :
+            if left.type == VariableType.INT and right.type == VariableType.INT :
                 self.code_text += "%" + str(self.reg) + " = add i32 " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.INT
-            elif left.type == VarType.LONG and right.type == VarType.LONG:
+                return VariableType.INT
+            elif left.type == VariableType.LONG and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = add i64 " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.LONG
-            elif left.type == VarType.FLOAT32 and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = fadd float " + left.name + ", " + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.DOUBLE and right.type == VarType.DOUBLE:
+                return VariableType.LONG
+
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = fadd double " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
+                return VariableType.DOUBLE
 
 
-            elif left.type == VarType.INT and right.type == VarType.LONG:
+            elif left.type == VariableType.INT and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = sext i32 " + left.name + " to i64\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = add i64 " + "%" + str(self.reg - 1) + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.LONG
+                return VariableType.LONG
 
-            elif left.type == VarType.LONG and right.type == VarType.INT:
+            elif left.type == VariableType.LONG and right.type == VariableType.INT:
                 self.code_text += "%" + str(self.reg) + " = sext i32 " + right.name + " to i64\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = add i64 " + left.name + ", %" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.LONG
-
-
-
-            elif left.type == VarType.INT and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = sitofp i32 " + left.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fadd float " + "%" + str(self.reg - 1) + "," + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.LONG and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = sitofp i64 " + left.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fadd float " + "%" + str(self.reg - 1) + "," + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-
-            elif left.type == VarType.INT and right.type == VarType.DOUBLE:
+                return VariableType.LONG
+            
+            elif left.type == VariableType.INT and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = sitofp i32 " + left.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fadd double " + "%" + str(self.reg - 1) + "," + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
-            elif left.type == VarType.LONG and right.type == VarType.DOUBLE:
+                return VariableType.DOUBLE
+            elif left.type == VariableType.LONG and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = sitofp i64 " + left.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fadd double " + "%" + str(self.reg - 1) + "," + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
-
-           
-
-            elif left.type == VarType.FLOAT32 and right.type == VarType.INT:
-                self.code_text += "%" + str(self.reg) + " = sitofp i32 " + right.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fadd float " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.FLOAT32 and right.type == VarType.LONG:
-                self.code_text += "%" + str(self.reg) + " = sitofp i64 " + right.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fadd float " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-
-            elif left.type == VarType.DOUBLE and right.type == VarType.INT:
+                return VariableType.DOUBLE
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.INT:
                 self.code_text += "%" + str(self.reg) + " = sitofp i32 " + right.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fadd double " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
-            elif left.type == VarType.DOUBLE and right.type == VarType.LONG:
+                return VariableType.DOUBLE
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = sitofp i64 " + right.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fadd double " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
+                return VariableType.DOUBLE
 
         elif operator == "-":
             #takie same
-            if left.type == VarType.INT and right.type == VarType.INT :
+            if left.type == VariableType.INT and right.type == VariableType.INT :
                 self.code_text += "%" + str(self.reg) + " = sub i32 " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.INT
-            elif left.type == VarType.LONG and right.type == VarType.LONG:
+                return VariableType.INT
+            elif left.type == VariableType.LONG and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = sub i64 " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.LONG
-            elif left.type == VarType.FLOAT32 and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = fsub float " + left.name + ", " + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.DOUBLE and right.type == VarType.DOUBLE:
+                return VariableType.LONG
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = fsub double " + left.name + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
+                return VariableType.DOUBLE
 
             
             
-            elif left.type == VarType.INT and right.type == VarType.LONG:
+            elif left.type == VariableType.INT and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = sext i32 " + left.name + " to i64\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = sub i64 " + "%" + str(self.reg - 1) + ", " + right.name + "\n"
                 self.reg += 1
-                return VarType.LONG
+                return VariableType.LONG
 
-            elif left.type == VarType.LONG and right.type == VarType.INT:
+            elif left.type == VariableType.LONG and right.type == VariableType.INT:
                 self.code_text += "%" + str(self.reg) + " = sext i32 " + right.name + " to i64\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = sub i64 " + left.name + ", %" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.LONG
+                return VariableType.LONG
 
-            elif left.type == VarType.INT and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = sitofp i32 " + left.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fsub float " + "%" + str(self.reg - 1) + "," + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.LONG and right.type == VarType.FLOAT32:
-                self.code_text += "%" + str(self.reg) + " = sitofp i64 " + left.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fsub float " + "%" + str(self.reg - 1) + "," + right.name + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-
-            elif left.type == VarType.INT and right.type == VarType.DOUBLE:
+            elif left.type == VariableType.INT and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = sitofp i32 " + left.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fsub double " + "%" + str(self.reg - 1) + "," + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
-            elif left.type == VarType.LONG and right.type == VarType.DOUBLE:
+                return VariableType.DOUBLE
+            elif left.type == VariableType.LONG and right.type == VariableType.DOUBLE:
                 self.code_text += "%" + str(self.reg) + " = sitofp i64 " + left.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fsub double " + "%" + str(self.reg - 1) + "," + right.name + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
+                return VariableType.DOUBLE
 
      
 
-            elif left.type == VarType.FLOAT32 and right.type == VarType.INT:
-                self.code_text += "%" + str(self.reg) + " = sitofp i32 " + right.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fsub float " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
-            elif left.type == VarType.FLOAT32 and right.type == VarType.LONG:
-                self.code_text += "%" + str(self.reg) + " = sitofp i64 " + right.name + " to float\n"
-                self.reg += 1
-                self.code_text += "%" + str(self.reg) + " = fsub float " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
-                self.reg += 1
-                return VarType.FLOAT32
 
-            elif left.type == VarType.DOUBLE and right.type == VarType.INT:
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.INT:
                 self.code_text += "%" + str(self.reg) + " = sitofp i32 " + right.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fsub double " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
-            elif left.type == VarType.DOUBLE and right.type == VarType.LONG:
+                return VariableType.DOUBLE
+            elif left.type == VariableType.DOUBLE and right.type == VariableType.LONG:
                 self.code_text += "%" + str(self.reg) + " = sitofp i64 " + right.name + " to double\n"
                 self.reg += 1
                 self.code_text += "%" + str(self.reg) + " = fsub double " + left.name + ", " + "%" + str(self.reg - 1) + "\n"
                 self.reg += 1
-                return VarType.DOUBLE
+                return VariableType.DOUBLE
             
 
     def mult_operation(self, left, right, oper):
         left = self.symbol_table[left]
         right = self.symbol_table[right]
-        # 32 -> 64
-        if left.type == VarType.FLOAT32:
-            self.increase_type(left.name, get_llvm_type_str(left.type),"double")
-            left.type = VarType.DOUBLE
-            left.name = '%' + str(self.reg - 1)
-        elif left.type == VarType.INT:
+       
+        if left.type == VariableType.INT:
             self.increase_type(left.name, get_llvm_type_str(left.type), "i64")
-            left.type = VarType.LONG
+            left.type = VariableType.LONG
             left.name = '%' + str(self.reg - 1)
-        if right.type == VarType.FLOAT32:
-            self.increase_type(right.name, get_llvm_type_str(right.type),"double")
-            right.type = VarType.DOUBLE
-            right.name = '%' + str(self.reg - 1)
-        elif right.type == VarType.INT:
+        if right.type == VariableType.INT:
             self.increase_type(right.name, get_llvm_type_str(right.type), "i64")
-            right.type = VarType.LONG
+            right.type = VariableType.LONG
             right.name = '%' + str(self.reg - 1)
         
         # if left.type != right.type
-        if left.type == VarType.DOUBLE and right.type == VarType.LONG:
+        if left.type == VariableType.DOUBLE and right.type == VariableType.LONG:
             self.int_to_float(right.name, get_llvm_type_str(right.type), 'double')
             right.name = '%' + str(self.reg - 1)
-            right.type = VarType.DOUBLE
-        elif left.type == VarType.LONG and right.type == VarType.DOUBLE:
+            right.type = VariableType.DOUBLE
+        elif left.type == VariableType.LONG and right.type == VariableType.DOUBLE:
             self.int_to_float(left.name, get_llvm_type_str(left.type), 'double')
             left.name = '%' + str(self.reg - 1)
-            left.type = VarType.DOUBLE
+            left.type = VariableType.DOUBLE
         
         if oper == '*':
             return self._multiply(left, right)
@@ -396,53 +315,53 @@ class LLVMGenerator():
             return self._divide(left, right)
 
     def _multiply(self, left, right):
-        if left.type == VarType.DOUBLE:
+        if left.type == VariableType.DOUBLE:
             self.code_text += "%" + str(self.reg) + " = fmul double " + str(left.name) + ", " + str(right.name) + "\n"
             self.reg += 1
-            return VarType.DOUBLE
+            return VariableType.DOUBLE
         else:
             self.code_text += "%" + str(self.reg) + " = mul i64 " + str(left.name) + ", " + str(right.name) + "\n"
             self.reg += 1
-            return VarType.LONG
+            return VariableType.LONG
 
     def _divide(self, left, right):
-        if left.type == VarType.DOUBLE:
+        if left.type == VariableType.DOUBLE:
             self.code_text += "%" + str(self.reg) + " = fdiv double " + str(left.name) + ", " + str(right.name) + "\n"
             self.reg += 1
-            return VarType.DOUBLE
+            return VariableType.DOUBLE
         else:
             self.code_text += "%" + str(self.reg) + " = sdiv i64 " + str(left.name) + ", " + str(right.name) + "\n"
             self.reg += 1
-            return VarType.LONG
+            return VariableType.LONG
 
     def modulo(self, left, right):
         self.code_text += "%" + str(self.reg) + " = srem i64 " + str(left.name) + ", " + str(right.name) + "\n"
         self.reg += 1
-        return VarType.LONG
+        return VariableType.LONG
     
     def unary_operation(self, factor):
-        self.xor_operation(factor, Value('true', 3), None, None)
+        self.xor_operation(factor, ValueType('true', 3), None, None)
 
 
     def print_operation(self, identifier, line, sym):
         value = self.get_value(identifier, line)
-        if value.type == VarType.INT or value.type == VarType.LONG:
+        if value.type == VariableType.INT or value.type == VariableType.LONG:
             self.code_text += f"%{self.reg} = load {self.get_llvm_type(value.type)}, {self.get_llvm_type(value.type)}* {sym}{identifier}\n" #tu add @ or %
             self.reg += 1
             self.code_text += f"%{self.reg} = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpl, i32 0, i32 0), {self.get_llvm_type(value.type)} %{self.reg - 1})\n"
             
           
-        elif value.type == VarType.FLOAT32 or value.type == VarType.DOUBLE:
+        elif value.type == VariableType.DOUBLE:
             self.code_text += f"%{self.reg} = load {self.get_llvm_type(value.type)}, {self.get_llvm_type(value.type)}* {sym}{identifier}\n"
             self.reg += 1
             self.code_text += f"%{self.reg} = call i32 (ptr, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), {self.get_llvm_type(value.type)} %{self.reg - 1})\n"
           
-        elif value.type == VarType.STRING:
+        elif value.type == VariableType.STRING:
             self.code_text += f"%{self.reg} = load {self.get_llvm_type(value.type)}*, {self.get_llvm_type(value.type)}** %{value.name}\n"
             self.reg += 1
             self.code_text += f"%{self.reg} = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strps, i32 0, i32 0), {self.get_llvm_type(value.type)}* %{self.reg - 1})\n"
      
-        elif value.type == VarType.BOOL:
+        elif value.type == VariableType.BOOL:
             self.code_text += f"%{self.reg} = load i1, i1* {sym}{identifier}\n"
             self.reg += 1
             bool_str = f"{self.reg}"
@@ -536,10 +455,6 @@ class LLVMGenerator():
         self.code_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpl, i32 0, i32 0), i64* " + str(ident) + ")\n"
         self.reg += 1
 
-    def read_float32(self, ident):
-        self.code_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @strf, i32 0, i32 0), float* " + str(ident) + ")\n"
-        self.reg += 1
-
     def read_double(self, ident):
         self.code_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strlf, i32 0, i32 0), double* " + str(ident) + ")\n"
         self.reg += 1
@@ -572,7 +487,7 @@ class LLVMGenerator():
     def assign_string(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_string(ident, global_var)
-            value = self.check_types(VarType.STRING, value)
+            value = self.check_types(VariableType.STRING, value)
         self.code_text += "store i8* %"+str(self.reg-1)+", i8** "+str(ident)+"\n"   
 
  
@@ -590,32 +505,22 @@ class LLVMGenerator():
     def assign_i32(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_INT(ident, global_var)
-            value = self.check_types(VarType.INT, value)
+            value = self.check_types(VariableType.INT, value)
         self.code_text += "store i32 " + str(value.name) + ", i32* " + str(ident) + "\n"
     
     # assign i64 value
     def assign_i64(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_LONG(ident, global_var)
-            value = self.check_types(VarType.LONG, value)
+            value = self.check_types(VariableType.LONG, value)
         self.code_text += "store i64 " + str(value.name) + ", i64* " + str(ident) + "\n"
     
-    # assign float32 value
-    def assign_float32(self, ident, value, global_var):
-        if ident not in self.symbol_table.keys():
-            self.declare_float32(ident, global_var)
-            value = self.check_types(VarType.FLOAT32, value)
-        import struct
-        p = struct.pack('>d', float(value.name))
-        hex_rep = p.hex()
-        formatted = '0x' + hex_rep.upper()
-        self.code_text += "store float " + str(formatted) + ", float* " + str(ident) + "\n"
 
     # assign double value
     def assign_double(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_double(ident, global_var)
-            value = self.check_types(VarType.DOUBLE, value)
+            value = self.check_types(VariableType.DOUBLE, value)
         self.code_text += "store double " + str(value.name) + ", double* " + str(ident) + "\n"
     
     def assign_struct(self, ident, name, is_global):
@@ -637,14 +542,12 @@ class LLVMGenerator():
 
     def check_types(self, type, value):
         if type != value.type and value.name[0] == '%':
-            if type in [VarType.INT, VarType.LONG] and value.type in [VarType.FLOAT32, VarType.DOUBLE]:
+            if type in [VariableType.INT, VariableType.LONG] and value.type in [VariableType.DOUBLE]:
                 self.float_to_int(str(value.name), get_llvm_type_str(value.type),
                                            get_llvm_type_str(type))
-            elif type in [VarType.FLOAT32, VarType.DOUBLE] and value.type in [VarType.INT, VarType.LONG]:
+            elif type in [ VariableType.DOUBLE] and value.type in [VariableType.INT, VariableType.LONG]:
                 self.int_to_float(str(value.name), get_llvm_type_str(value.type),
                                            get_llvm_type_str(type))
-            elif type == VarType.FLOAT32 and value.type == VarType.DOUBLE:
-                self.float32_to_64(str(value.name))
             elif type.value > value.type.value:
                 self.increase_type(str(value.name), get_llvm_type_str(value.type),
                                              get_llvm_type_str(type))
@@ -673,16 +576,6 @@ class LLVMGenerator():
             self.header_text += str(ident) + "  = global i64 0\n"
         else:
             self.code_text += str(ident) + " = alloca i64\n"
-
-
-    def declare_float32(self, ident, global_var):
-        # self.code_text += "%" + str(ident) + " = alloca float\n"
-        if global_var:
-            ident = ident.replace("%", "@") if "%" in ident else ident
-            self.header_text += str(ident) + " = global float 0.0\n"
-        else:
-            self.code_text += str(ident) + " = alloca float\n"
-
 
     def declare_double(self, ident, global_var):
         # self.code_text += "%" + str(ident) + " = alloca double\n"
@@ -729,17 +622,15 @@ class LLVMGenerator():
         self.str += 1
 
     def get_llvm_type(self, var_type):
-        if var_type == VarType.INT:
+        if var_type == VariableType.INT:
             return "i32"
-        elif var_type == VarType.LONG:
+        elif var_type == VariableType.LONG:
             return "i64"
-        elif var_type == VarType.FLOAT32:
-            return "float"
-        elif var_type == VarType.DOUBLE:
+        elif var_type == VariableType.DOUBLE:
             return "double"
-        elif var_type == VarType.BOOL:
+        elif var_type == VariableType.BOOL:
             return "i1"
-        elif var_type == VarType.STRING:
+        elif var_type == VariableType.STRING:
             return "i8"
         
     
@@ -764,10 +655,6 @@ class LLVMGenerator():
 
     def float_to_int(self, name, current, type):
         self.code_text += "%" + str(self.reg) + " = fptosi " + str(current) + " " + str(name) + " to " + str(type) + "\n"
-        self.reg += 1
-    
-    def float32_to_64(self, ident):
-        self.code_text += "%" + str(self.reg) + " = fptrunc double " + str(ident) + " to float\n"
         self.reg += 1
     
     def load(self, ident, type):

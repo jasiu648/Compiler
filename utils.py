@@ -67,66 +67,59 @@ class SymbolTable:
         return f"Symbol Table:\n{symbols_str}"
     
 
-class Value:
+class ValueType:
     def __init__(self, name, type):
         self.name = name
         self.type = type
 
-class VarType(Enum):
+class VariableType(Enum):
     INT = 1
     LONG = 2
-    FLOAT32 = 3
-    DOUBLE = 4
-    BOOL = 5
-    STRING = 6
-    ARRAY = 7
-    STRUCT = 8
+    DOUBLE = 3
+    BOOL = 4
+    STRING = 5
+    ARRAY = 6
+    STRUCT = 7
 
 def string_to_type(string):
     if string == "int":
-        return VarType.INT
+        return VariableType.INT
     elif string == "long":
-        return VarType.LONG
-    elif string == "float32":
-        return VarType.FLOAT32
+        return VariableType.LONG
     elif string == "double":
-        return VarType.DOUBLE
-    elif string == 'bool' or string == VarType.BOOL:
-        return VarType.BOOL
+        return VariableType.DOUBLE
+    elif string == 'bool' or string == VariableType.BOOL:
+        return VariableType.BOOL
     elif string == 'string':
-        return VarType.STRING
+        return VariableType.STRING
     else:
        return string
 
 
 def get_llvm_type_str(varTp):
-    if varTp == VarType.INT:
+    if varTp == VariableType.INT:
         return 'i32'
-    elif varTp == VarType.LONG:
+    elif varTp == VariableType.LONG:
         return 'i64'
-    elif varTp == VarType.FLOAT32:
-        return 'float'
-    elif varTp == VarType.DOUBLE:
+    elif varTp == VariableType.DOUBLE:
         return 'double'
-    elif varTp == VarType.BOOL:
+    elif varTp == VariableType.BOOL:
         return 'i1'
-    elif varTp == VarType.STRING:
+    elif varTp == VariableType.STRING:
         return 'i8*'
     # elif varTp == VarType.ARRAY:
     #     return ''
 
 def llvm_to_type(varTp):
     if varTp == 'i32':
-        return VarType.INT
+        return VariableType.INT
     elif varTp == 'i64':
-        return VarType.LONG
-    elif varTp == 'float':
-        return VarType.FLOAT32
+        return VariableType.LONG
     elif varTp == 'double':
-        return VarType.DOUBLE
+        return VariableType.DOUBLE
     elif varTp == 'i1':
-        return VarType.BOOL
+        return VariableType.BOOL
     elif varTp == 'i8*':
-        return VarType.STRING
+        return VariableType.STRING
     # elif varTp == VarType.ARRAY:
     #     return ''
