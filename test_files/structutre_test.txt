@@ -1,5 +1,5 @@
 struct testStructure { 
-    int64 integerField
+    long integerField
     double doubleField
     
 }

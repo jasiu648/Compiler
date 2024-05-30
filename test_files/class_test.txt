@@ -1,15 +1,15 @@
 class testClass {
-    int64 integerField
+    long integerField
     double doubleField
     bool boolField
 
-    int64 testClass {
-        self.integerField = 5
-        self.doubleField = 78.98
+    long testClass {
+        self.integerField = 10
+        self.doubleField = 10.5
         self.boolField = true
     }
 
-    int64 writeClass {
+    long writeClass {
         a = self.integerField
         ab = self.doubleField
         print(a)

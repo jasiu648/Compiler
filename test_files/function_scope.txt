@@ -1,4 +1,4 @@
-int64 testfunction( ) {
+long testfunction( ) {
     string scope = "function scope"
     print(scope)
 }
@@ -7,3 +7,5 @@ scope = "main scope"
 testfunction()
 print(scope)
 testfunction()
+a = testfunction()
+print(a)

@@ -73,8 +73,8 @@ class Value:
         self.type = type
 
 class VarType(Enum):
-    INT32 = 1
-    INT64 = 2
+    INT = 1
+    LONG = 2
     FLOAT32 = 3
     DOUBLE = 4
     BOOL = 5
@@ -83,10 +83,10 @@ class VarType(Enum):
     STRUCT = 8
 
 def string_to_type(string):
-    if string == "int32":
-        return VarType.INT32
-    elif string == "int64":
-        return VarType.INT64
+    if string == "int":
+        return VarType.INT
+    elif string == "long":
+        return VarType.LONG
     elif string == "float32":
         return VarType.FLOAT32
     elif string == "double":
@@ -100,9 +100,9 @@ def string_to_type(string):
 
 
 def get_llvm_type_str(varTp):
-    if varTp == VarType.INT32:
+    if varTp == VarType.INT:
         return 'i32'
-    elif varTp == VarType.INT64:
+    elif varTp == VarType.LONG:
         return 'i64'
     elif varTp == VarType.FLOAT32:
         return 'float'
@@ -117,9 +117,9 @@ def get_llvm_type_str(varTp):
 
 def llvm_to_type(varTp):
     if varTp == 'i32':
-        return VarType.INT32
+        return VarType.INT
     elif varTp == 'i64':
-        return VarType.INT64
+        return VarType.LONG
     elif varTp == 'float':
         return VarType.FLOAT32
     elif varTp == 'double':

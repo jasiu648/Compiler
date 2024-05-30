@@ -38,7 +38,7 @@ LBRACE : '{' ;
 RBRACE : '}' ;
 SEMICOLON : ';' ;
 COMMA : ',' ;
-ASSIGN : '=' ;
+ASSIGN : ASSIGN ;
 WS : [ \t\r\n]+ -> skip;
 
 // Reguły syntaktyczne

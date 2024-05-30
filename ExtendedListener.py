@@ -236,7 +236,7 @@ class ExtendedListener(CSoftListener):
                 self.stack.append(Value("%" + str(self.generator.reg - 1), temp[0][1]))
         elif ctx.INT():
             value = ctx.INT().symbol.text
-            self.stack.append(Value(value, VarType.INT64))
+            self.stack.append(Value(value, VarType.LONG))
         elif ctx.FLOAT():
             value = ctx.FLOAT().symbol.text
             self.stack.append(Value(value, VarType.DOUBLE))
@@ -364,10 +364,10 @@ class ExtendedListener(CSoftListener):
         ident = ctx.ident().ID().symbol.text
         try:
             type = ctx.ident().type_().getText()
-            if type == 'int32':
-                type = VarType.INT32
-            elif type == 'int64':
-                type = VarType.INT64
+            if type == 'int':
+                type = VarType.INT
+            elif type == 'long':
+                type = VarType.LONG
             elif type == 'float32':
                 type = VarType.FLOAT32
             elif type == 'double':
@@ -520,9 +520,9 @@ class ExtendedListener(CSoftListener):
             ID = "%" + ID
 
 
-        if type == VarType.INT32:
+        if type == VarType.INT:
             self.generator.assign_i32(ID, value, global_var)
-        elif type == VarType.INT64:
+        elif type == VarType.LONG:
             self.generator.assign_i64(ID, value, global_var)
         elif type == VarType.FLOAT32:
             self.generator.assign_float32(ID, value, global_var)
@@ -562,10 +562,10 @@ class ExtendedListener(CSoftListener):
                 print(f"Error on line {str(ctx.start.line)}: Unknown ident")
 
         var_type = temp[0][1]
-        if var_type == VarType.INT32:
-            self.generator.read_int32(var)
-        elif var_type == VarType.INT64:
-            self.generator.read_int64(var)
+        if var_type == VarType.INT:
+            self.generator.read_INT(var)
+        elif var_type == VarType.LONG:
+            self.generator.read_LONG(var)
         elif var_type == VarType.FLOAT32:
             self.generator.read_float32(var)
         elif var_type == VarType.DOUBLE:
@@ -627,7 +627,7 @@ class ExtendedListener(CSoftListener):
     def exitBlockFun(self, ctx: CSoftParser.BlockFunContext):
         temp = [(x, y) for x, y in self.local_variables if x == self.function]
         if len(temp) == 0:
-            self.generator.declare_int32("%"+str(self.function), False)
+            self.generator.declare_INT("%"+str(self.function), False)
             self.generator.assign_func("%"+str(self.function), 0)
 
         self.generator.load("%"+str(self.function), self.funType)
@@ -722,7 +722,7 @@ class ExtendedListener(CSoftListener):
     def exitBlockMethod(self, ctx: CSoftParser.BlockMethodContext):
         temp = [(x, y) for x, y in self.local_variables if x == self.function]
         if len(temp) == 0:
-            self.generator.declare_int32("%"+str(self.function), False)
+            self.generator.declare_INT("%"+str(self.function), False)
             self.generator.assign_func("%"+str(self.function), 0)
 
         self.generator.load("%"+str(self.function), self.funType)

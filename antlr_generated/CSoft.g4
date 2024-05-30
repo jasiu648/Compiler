@@ -13,8 +13,22 @@ READ : 'read' ;
 IF: 'if';
 STRUCT: 'struct' ;
 CLASS: 'class' ;
-type: 'float32' | 'double' | 'int32' | 'int64' | 'bool' | 'string';
+type: 'double' | 'int' | 'long' | 'bool' | 'string';
 BOOL    : 'true' | 'false';
+REPEAT: 'repeat';
+ASSIGN: '=';
+
+INT:   [0-9]+;
+
+FLOAT: [0-9]+ '.' [0-9]+;
+
+AddOper: '+' | '-';
+MultOper: '*' | '/' | '%';
+NegOper: '!';
+RelOper: '==' | '!=' | '<' | '>' | '<=' | '>=';
+AndOper: '&&';
+OrOper: '||';
+XorOper: '^';
 
 COMMENT: '#' ~[\r\n]* -> skip;
 
@@ -30,9 +44,9 @@ prog: statement*  EOF
 statement: print_statement		#print
 	| read_statement  		#read
     | expr              # exprression
- 	| ident '=' expr		#assign
-    | ID LBRACKET INT RBRACKET '=' expr #elementAssign
-    | ident '=' arrayAssign  #arrAssign
+ 	| ident ASSIGN expr		#assign
+    | ID LBRACKET INT RBRACKET ASSIGN expr #elementAssign
+    | ident ASSIGN arrayAssign  #arrAssign
     | repeatStm                #repeatStatement
     | ifStm                 #ifStatement
     | function              #funcDecl
@@ -42,9 +56,10 @@ statement: print_statement		#print
     | classDecl             #classDeclaration
     | classAssign           #classAssignment
     ;
+
 ident: (type)? ID;
 
-assignment : ident '=' expr;
+assignment : ident ASSIGN expr;
 
 print_statement : PRINT LPAREN ID RPAREN ;
 
@@ -97,7 +112,7 @@ ifStm: IF LPAREN expr RPAREN LBRACE blockIf RBRACE ;
 
 blockIf: statement* ;
 
-repeatStm: REPEAT repNum LBRACE blockRepeat RBRACE  
+repeatStm: REPEAT LPAREN repNum RPAREN LBRACE blockRepeat RBRACE  
     ;
 
 repNum: factor 
@@ -124,9 +139,9 @@ methodName: ID ;
 
 className: ID ;
 
-methodCall: ID '.' ident '()' ;
+methodCall: ID DOT ident '()' ;
 
-classAssign: ident '=' CLASS className ;
+classAssign: ident ASSIGN CLASS className ;
 
 parameters : parameter (COMMA parameter)* ;
 
@@ -139,9 +154,9 @@ blockStruct: structVarDecl* ;
 
 structVarDecl: ident ;
 
-structAssign: ident '=' STRUCT structName;
+structAssign: ident ASSIGN STRUCT structName;
 
-structFieldAssign: ID DOT ident '=' expr ;
+structFieldAssign: ID DOT ident ASSIGN expr ;
 
 structFieldAccess: ID DOT ident ;
 
@@ -157,34 +172,4 @@ funName: ID
     ;
 structName: ID
     ;
-
-
-REPEAT: 'rep';   
-
-INT:   [0-9]+
-    ;
-
-FLOAT: [0-9]+ '.' [0-9]+
-    ;
-
-AddOper: '+' | '-'
-    ;
-
-MultOper: '*' | '/' | '%'
-    ;
-
-NegOper: '!'
-    ;
-
-RelOper: '==' | '!=' | '<' | '>' | '<=' | '>='
-    ;
-
-AndOper: '&&'
-    ;
-
-OrOper: '||'
-    ;
-
-XorOper: '^'
-    ;
-
+ 
