@@ -1,13 +1,16 @@
 struct testStructure { 
     long integerField
     double doubleField
-    
+    bool boolField
+    string s
 }
 
 test = struct testStructure
 
 test.integerField = 1
 test.doubleField = 1.0
+test.boolField = true
+
 
 a = test.integerField
 print(a)
@@ -15,3 +18,5 @@ print(a)
 b = test.doubleField
 print(b)
 
+c = test.boolField
+print(c)

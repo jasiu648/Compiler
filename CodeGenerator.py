@@ -406,13 +406,13 @@ class CodeGenerator():
         self.reg += 1
 
     def read_string(self, ident):
-        self.code_buffer += "%"+str(self.str)+" = alloca ["+str(17)+" x i8]\n"
-        ident = str(ident)
-        self.code_buffer += "%"+str(self.reg)+" = getelementptr inbounds ["+str(ident+1)+" x i8], ["+str(ident+1)+" x i8]* %str"+str(self.str)+", i64 0, i64 0\n"
-        self.reg += 1
-        self.code_buffer += "store i8* %"+str(self.reg-1)+", i8** "+id+"\n"
-        self.str += 1
-        self.code_buffer += "%"+str(self.reg)+" = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @strss, i32 0, i32 0), i8* "+str(self.reg-1)+")\n"
+        #self.code_buffer += "%"+str(self.str)+" = alloca ["+str(17)+" x i8]\n"
+        #print(ident)
+        #self.code_buffer += "%"+str(self.reg)+" = getelementptr inbounds ["+str(ident+1)+" x i8], ["+str(ident+1)+" x i8]* %str"+str(self.str)+", i64 0, i64 0\n"
+        #self.reg += 1
+        #self.code_buffer += "store i8* %"+str(self.reg-1)+", i8** "+ident+"\n"
+        #self.str += 1
+        self.code_buffer += "%"+str(self.reg)+" = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @strss, i32 0, i32 0), i8* "+str(ident)+")\n"
         self.reg += 1
 
 # IF Statement operations

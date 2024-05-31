@@ -10,5 +10,6 @@ Język CSoft:
 7. Obsługuje tablice liczb całkowitych i zmiennoprzecinkowych
 8. Obsługuje wyrażenia logiczne AND, OR, XOR, NOT
 9. Pozwala na tworzenie instrukcji warunkowej if
-10. Pozwala na tworzenie pętli repeat
+10. Pozwala na tworzenie pętli repeat i while
 11. Pozwala na definiowanie własnych struktur i klas
+12. Pozwala na tworzenie funkcji

@@ -15,7 +15,18 @@ class testClass {
         print(a)
         print(ab)
     }
+
+    void zeroElems {
+        if(self.boolField)
+        {
+            self.integerField = 0
+            self.doubleField = 0.0
+        }
+    }
+   
 }
 
 test = class testClass
+test.writeClass()
+test.zeroElems()
 test.writeClass()

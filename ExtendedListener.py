@@ -1,7 +1,6 @@
 from antlr4 import ParseTreeWalker
 from antlr_generated.CSoftListener import CSoftListener
 from antlr_generated.CSoftParser import CSoftParser
-
 from CodeGenerator import CodeGenerator
 
 from utils import ValueType, VariableType, string_to_type, get_llvm_type_str, llvm_to_type, Stack
@@ -20,7 +19,7 @@ class ExtendedListener(CSoftListener):
         self.class_variables = []
 
         self.generator = CodeGenerator()
-        self.funType = 'i64'
+        self.functionType = 'i64'
         self.classId = ''
         self.globalScope = True
         self.function = None
@@ -588,16 +587,16 @@ class ExtendedListener(CSoftListener):
     def exitFunType(self, ctx: CSoftParser.FunTypeContext):
         fun_type = ctx.type_().getText()
         type = get_llvm_type_str(string_to_type(fun_type))
-        self.funType = type
+        self.functionType = type
     
     def exitFunName(self, ctx: CSoftParser.FunNameContext):
         name = str(ctx.ID())
-        self.functions.append((name, self.funType))
+        self.functions.append((name, self.functionType))
         self.function = name
-        self.generator.function_start(name, self.funType)
+        self.generator.function_start(name, self.functionType)
     
     def exitFunction(self, ctx:CSoftParser.FunctionContext):
-        self.funType = 'i64'
+        self.functionType = 'i64'
 
     def enterBlockFun(self, ctx: CSoftParser.BlockFunContext):
         self.globalScope = False
@@ -608,8 +607,8 @@ class ExtendedListener(CSoftListener):
             self.generator.declare_INT("%"+str(self.function), False)
             self.generator.assign_function("%"+str(self.function), 0)
 
-        self.generator.load("%"+str(self.function), self.funType)
-        self.generator.function_end(self.funType)
+        self.generator.load("%"+str(self.function), self.functionType)
+        self.generator.function_end(self.functionType)
         self.local_variables = []
         self.globalScope = True
 
@@ -690,9 +689,9 @@ class ExtendedListener(CSoftListener):
             ident = self.classId + '_Create_Default'
         else:
             ident = self.classId + '_' + str(ctx.ID())
-        self.functions.append((ident, self.funType))
+        self.functions.append((ident, self.functionType))
         self.function = ident
-        self.generator.method_start(ident, self.funType, self.classId)
+        self.generator.method_start(ident, self.functionType, self.classId)
 
     def enterBlockMethod(self, ctx: CSoftParser.BlockMethodContext):
         self.globalScope = False
@@ -703,8 +702,8 @@ class ExtendedListener(CSoftListener):
             self.generator.declare_INT("%"+str(self.function), False)
             self.generator.assign_function("%"+str(self.function), 0)
 
-        self.generator.load("%"+str(self.function), self.funType)
-        self.generator.function_end(self.funType)
+        self.generator.load("%"+str(self.function), self.functionType)
+        self.generator.function_end(self.functionType)
         self.local_variables = []
         self.globalScope = True
     
