@@ -1,10 +1,14 @@
-a = true
-b = false 
+bool a = true
+bool b = false 
 
-c = a && b
-d = a || b
-e = a ^ b
+bool c = a && b
+bool d = a || b
+bool e = a ^ b
+bool f = !a
+bool g = !b
 
 print(c)
 print(d)
 print(e)
+print(f)
+print(g)

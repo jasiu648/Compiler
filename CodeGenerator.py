@@ -109,8 +109,14 @@ class CodeGenerator():
         self.code_text += f"%{resultReg} = phi i1 [1, %{finalTrue}], [0, %{finalFalse}]\n"
 
     def neg_operation(self, factor):
+        right = self.symbol_table[factor]
         
-        pass
+        if right.name == "true":
+            self.code_text += f"%{self.reg} = icmp eq i32 0, 1\n"
+        else:
+            self.code_text += f"%{self.reg} = icmp eq i32 0, 0\n"
+        self.reg += 1
+        
 
 
     def xor_operation(self, left, right, sym1, sym2):

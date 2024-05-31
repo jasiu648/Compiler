@@ -473,7 +473,6 @@ class ExtendedListener(CSoftListener):
             type = None
 
         value = self.stack.pop()
-
         temp = [(x, y) for x, y in self.variables if x == ID]
         global_var = self.globalScope
         if len(temp) != 0:
@@ -502,7 +501,7 @@ class ExtendedListener(CSoftListener):
                 else:
                     self.local_variables.append((ID, value.type))
         
-        self.generator.symbol_table[ID] = value  #tu
+        self.generator.symbol_table[ID] = value
 
         if global_var:
             ID = '@' + ID

@@ -107,8 +107,6 @@ def get_llvm_type_str(varTp):
         return 'i1'
     elif varTp == VariableType.STRING:
         return 'i8*'
-    # elif varTp == VarType.ARRAY:
-    #     return ''
 
 def llvm_to_type(varTp):
     if varTp == 'i32':
@@ -121,5 +119,3 @@ def llvm_to_type(varTp):
         return VariableType.BOOL
     elif varTp == 'i8*':
         return VariableType.STRING
-    # elif varTp == VarType.ARRAY:
-    #     return ''
