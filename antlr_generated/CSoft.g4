@@ -13,7 +13,7 @@ READ : 'read' ;
 IF: 'if';
 STRUCT: 'struct' ;
 CLASS: 'class' ;
-type: 'double' | 'int' | 'long' | 'bool' | 'string';
+type: 'double' | 'int' | 'long' | 'bool' | 'string' | 'void';
 BOOL    : 'true' | 'false';
 REPEAT: 'repeat';
 ASSIGN: '=';
@@ -43,7 +43,7 @@ prog: statement*  EOF
 statement: print_statement		#print
 	| read_statement  		#read
     | expr              # exprression
- 	| assignment
+ 	| assignment	#assign
     | ID LBRACKET INT RBRACKET ASSIGN expr #elementAssign
     | ident ASSIGN arrayAssign  #arrAssign
     | repeatStm                #repeatStatement
@@ -124,7 +124,7 @@ function: funType funName LPAREN (parameters)? RPAREN LBRACE blockFun RBRACE ;
 
 blockFun: statement* ;
 
-classDecl: CLASS className '{' blockClass '}'  ;
+classDecl: CLASS className LBRACE blockClass RBRACE  ;
 
 blockClass: structVarDecl* method*  ;
 
@@ -138,7 +138,7 @@ methodName: ID ;
 
 className: ID ;
 
-methodCall: ID DOT ident '()' ;
+methodCall: ID DOT ident LPAREN (arguments)? RPAREN  ;
 
 classAssign: ident ASSIGN CLASS className ;
 
@@ -147,7 +147,7 @@ parameters : parameter (COMMA parameter)* ;
 parameter : ident ;
 
 
-structDecl: STRUCT structName '{' blockStruct '}' ;
+structDecl: STRUCT structName LBRACE blockStruct RBRACE ;
 
 blockStruct: structVarDecl* ;
 
@@ -161,8 +161,12 @@ structFieldAccess: ID DOT ident ;
 
 arrayAccess: ID LBRACKET INT RBRACKET;
 
-funcCall: ID '()' 
+funcCall: ID LPAREN (arguments)? RPAREN 
     ;
+
+arguments : argument (COMMA argument)* ;
+
+argument : ID;
 
 funType: type 
     ;

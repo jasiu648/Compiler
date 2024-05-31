@@ -1,16 +1,16 @@
-long testfunction( ) {
+void testfunction() {
     string scope = "function scope"
     print(scope)
 }
 
-long testfunction2( ){
+void testfunction2(){
     string scope = "function scope2"
     print(scope)
 }
+
 
 scope = "main scope"
 testfunction()
 print(scope)
 testfunction()
-a = testfunction2()
-print(a)
+testfunction2()

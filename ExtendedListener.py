@@ -527,7 +527,6 @@ class ExtendedListener(CSoftListener):
 
 
     def exitProg(self, ctx:CSoftParser.ProgContext):
-        self.generator.finish()
         res = self.generator.generate_code()
         print(res)
         with open("code.ll", "w") as f:

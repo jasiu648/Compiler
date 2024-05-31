@@ -92,6 +92,8 @@ def string_to_type(string):
         return VariableType.BOOL
     elif string == 'string':
         return VariableType.STRING
+    elif string == 'void':
+        return VariableType.INT
     else:
        return string
 

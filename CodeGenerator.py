@@ -347,7 +347,7 @@ class CodeGenerator():
     
 
     def print_operation(self, identifier, line, sym):
-        value = self.get_value(identifier, line)
+        value = self.symbol_table[identifier]
         if value.type == VariableType.INT or value.type == VariableType.LONG:
             self.code_text += f"%{self.reg} = load {self.get_llvm_type(value.type)}, {self.get_llvm_type(value.type)}* {sym}{identifier}\n" #tu add @ or %
             self.reg += 1
@@ -504,14 +504,12 @@ class CodeGenerator():
         self.code_text += "store i32 " + str(value) + ", i32* " + str(ident) + "\n"
 
 
-    # assign i32 value
     def assign_i32(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_INT(ident, global_var)
             value = self.check_types(VariableType.INT, value)
         self.code_text += "store i32 " + str(value.name) + ", i32* " + str(ident) + "\n"
     
-    # assign i64 value
     def assign_i64(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_LONG(ident, global_var)
@@ -519,29 +517,32 @@ class CodeGenerator():
         self.code_text += "store i64 " + str(value.name) + ", i64* " + str(ident) + "\n"
     
 
-    # assign double value
     def assign_double(self, ident, value, global_var):
         if ident not in self.symbol_table.keys():
             self.declare_double(ident, global_var)
             value = self.check_types(VariableType.DOUBLE, value)
         self.code_text += "store double " + str(value.name) + ", double* " + str(ident) + "\n"
     
+
     def assign_struct(self, ident, name, is_global):
         if is_global:
             self.header_text += f"{ident} = global %{name} zeroinitializer\n"
         else:
             self.code_text += f"{ident} = alloca %{name}\n"
     
+
     def assign_struct_field(self, ident, name, index, value, type):
         self.code_text += f"%{self.reg} = getelementptr %{name}, %{name}* {ident}, i32 0, i32 {index}\n"
         self.code_text += f"store {type} {value}, {type}* %{self.reg}\n"
         self.reg += 1
     
+
     def struct_field_access(self, ident, name, index, type):
         self.code_text += f"%{self.reg} = getelementptr %{name}, %{name}* {ident}, i32 0, i32 {index}\n"
         self.reg += 1
         self.code_text += f"%{self.reg} = load {type}, {type}* %{self.reg - 1}\n"
         self.reg += 1
+
 
     def check_types(self, type, value):
         if type != value.type and value.name[0] == '%':
@@ -564,7 +565,7 @@ class CodeGenerator():
         
 
     def declare_INT(self, ident, globalVar=False):
-        # self.code_text += "%" + str(ident) + " = alloca i32\n"
+        
         if globalVar:
             ident = ident.replace("%", "@") if "%" in ident else ident
             self.header_text += str(ident) + " = global i32 0\n"
@@ -573,7 +574,7 @@ class CodeGenerator():
                 
 
     def declare_LONG(self, ident, global_var):
-        # self.code_text += "%" + str(ident) + " = alloca i64\n"
+        
         if global_var:
             ident = ident.replace("%", "@") if "%" in ident else ident
             self.header_text += str(ident) + "  = global i64 0\n"
@@ -581,7 +582,7 @@ class CodeGenerator():
             self.code_text += str(ident) + " = alloca i64\n"
 
     def declare_double(self, ident, global_var):
-        # self.code_text += "%" + str(ident) + " = alloca double\n"
+        
         if global_var:
             ident = ident.replace("%", "@") if "%" in ident else ident
             self.header_text += str(ident) + " = global double 0.0\n"
@@ -590,7 +591,7 @@ class CodeGenerator():
 
 
     def declare_bool(self, ident, global_var):
-        # self.code_text += "%" + str(ident) + " = alloca i1\n"
+        
         if global_var:
             ident = ident.replace("%", "@") if "%" in ident else ident
             self.header_text += str(ident) + " = global i1 0\n"
@@ -599,7 +600,7 @@ class CodeGenerator():
 
 
     def declare_string(self, ident, global_var):
-        # self.code_text += "%" + str(ident) + " = alloca i8*\n"
+        
         if global_var:
             ident = ident.replace("%", "@") if "%" in ident else ident
             self.header_text += str(ident) + " = global [1 x i8] c\"\\00\"\n"
@@ -636,13 +637,7 @@ class CodeGenerator():
         elif var_type == VariableType.STRING:
             return "i8"
         
-    
 
-    def get_value(self, identifier, line):
-        if identifier in self.symbol_table:
-            return self.symbol_table[identifier]
-        else:
-            print(f"Error on line {str(line)}: variable does not exist.")
 
     def increase_type(self, name, current, type):
         self.code_text += "%" + str(self.reg) + " = sext " + str(current) + " " + str(name) + " to " + str(type) + "\n"
@@ -664,8 +659,6 @@ class CodeGenerator():
         self.code_text += "%" + str(self.reg) + " = load " + str(type) + ", ptr " + str(ident) + "\n"
         self.reg += 1
 
-    def finish(self):
-        self.result_code += self.code_text
 
     def generate_code(self):
         
@@ -684,6 +677,7 @@ class CodeGenerator():
         text += "@strps = constant [4 x i8] c\"%s\\0A\\00\"\n"
         text += self.header_text
         text += "define i32 @main() nounwind{\n"
+        self.result_code += self.code_text
         text += self.result_code
         text += "ret i32 0 }\n"
         return text

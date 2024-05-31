@@ -284,6 +284,16 @@ class CSoftVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CSoftParser#arguments.
+    def visitArguments(self, ctx:CSoftParser.ArgumentsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CSoftParser#argument.
+    def visitArgument(self, ctx:CSoftParser.ArgumentContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CSoftParser#funType.
     def visitFunType(self, ctx:CSoftParser.FunTypeContext):
         return self.visitChildren(ctx)

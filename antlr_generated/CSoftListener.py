@@ -503,6 +503,24 @@ class CSoftListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CSoftParser#arguments.
+    def enterArguments(self, ctx:CSoftParser.ArgumentsContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#arguments.
+    def exitArguments(self, ctx:CSoftParser.ArgumentsContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#argument.
+    def enterArgument(self, ctx:CSoftParser.ArgumentContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#argument.
+    def exitArgument(self, ctx:CSoftParser.ArgumentContext):
+        pass
+
+
     # Enter a parse tree produced by CSoftParser#funType.
     def enterFunType(self, ctx:CSoftParser.FunTypeContext):
         pass
