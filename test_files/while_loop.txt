@@ -1,0 +1,6 @@
+x = 0
+while (x < 5) {
+    z = "While loop is working properly"
+    print(z)
+    read(x)
+}

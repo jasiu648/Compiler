@@ -561,6 +561,15 @@ class ExtendedListener(CSoftListener):
     def exitBlockIf(self, ctx: CSoftParser.BlockIfContext):
         self.generator.if_end()
         
+    def enterWhileLoop(self, ctx: CSoftParser.WhileLoopContext):
+        self.generator.whileL_start()
+
+    def enterBlockWhile(self, ctx: CSoftParser.BlockWhileContext):
+        self.generator.while_start()
+
+    def exitBlockWhile(self, ctx: CSoftParser.BlockWhileContext):
+        self.generator.while_end()
+        
     def exitBlockRepeat(self, ctx: CSoftParser.BlockRepeatContext):
         self.generator.repeat_end()
     

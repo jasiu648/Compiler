@@ -16,6 +16,7 @@ CLASS: 'class' ;
 type: 'double' | 'int' | 'long' | 'bool' | 'string' | 'void';
 BOOL    : 'true' | 'false';
 REPEAT: 'repeat';
+WHILE: 'while' ;
 ASSIGN: '=';
 
 INT:   [0-9]+;
@@ -48,6 +49,7 @@ statement: print_statement		    #print
     | ident ASSIGN arrayAssign      #arrAssign
     | repeatStm                     #repeatStatement
     | ifStm                         #ifStatement
+    | whileL                        #whileLoop
     | function                      #funcDecl
     | structDecl                    #structDeclaration
     | structFieldAssign             #structFieldAssignment
@@ -113,6 +115,10 @@ factor: INT
 ifStm: IF LPAREN expr RPAREN LBRACE blockIf RBRACE ;
 
 blockIf: statement* ;
+
+whileL: WHILE LPAREN expr RPAREN LBRACE blockWhile RBRACE ;
+
+blockWhile: statement* ;
 
 repeatStm: REPEAT LPAREN repNum RPAREN LBRACE blockRepeat RBRACE  
     ;

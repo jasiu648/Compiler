@@ -170,7 +170,7 @@ class CodeGenerator():
             op = "sge"
         
         l = self.symbol_table[left].name
-        self.code_buffer += "%"+ str(self.reg) + " = icmp " + op + " i32 " + str(l) + ", " + str(right) + "\n"
+        self.code_buffer += "%"+ str(self.reg) + " = icmp " + op + " i64 " + "%" + str(self.reg -1) + ", " + str(right) + "\n"
         self.reg += 1
 
 # Additive and Multiplicative operations
@@ -458,6 +458,29 @@ class CodeGenerator():
         right = self.br_stack.pop()
         self.code_buffer += "br label %cond" + str(right) + "\n"
         self.code_buffer += "false" + str(right) + ":\n"
+
+# While loop
+
+    def whileL_start(self):
+            self.br += 1
+            loop_label = self.br
+            self.code_buffer += f"br label %loop{loop_label}\n"
+            self.code_buffer += f"loop{loop_label}:\n"
+
+    def while_start(self):
+        loop_label = self.br
+        cond_label = self.br + 1
+        self.code_buffer += f"br i1 %"+str(self.reg-1)+ f", label %cond{cond_label}" + f", label %end{loop_label}" +"\n"
+        self.code_buffer += f"cond{cond_label}:\n"
+        self.br_stack.push(loop_label)
+        self.br_stack.push(cond_label)
+        self.br += 1  
+
+    def while_end(self):
+        cond_label = self.br_stack.pop()
+        loop_label = self.br_stack.pop()
+        self.code_buffer += f"br label %loop{loop_label}\n"
+        self.code_buffer += f"end{loop_label}:\n"
 
 # Functions and methods
 
