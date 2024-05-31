@@ -11,4 +11,5 @@ Język CSoft:
 8. Obsługuje wyrażenia logiczne AND, OR, XOR, NOT
 9. Pozwala na tworzenie instrukcji warunkowej if
 10. Pozwala na tworzenie pętli repeat
-11. Pozwala na definiowanie własnych struktur i klas
+11. Pozwala na tworzenie pętli while
+12. Pozwala na definiowanie własnych struktur i klas
