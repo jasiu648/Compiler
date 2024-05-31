@@ -25,6 +25,8 @@ class ExtendedListener(CSoftListener):
         self.globalScope = True
         self.function = None
 
+        self.result = ""
+
     def exitExpr(self, ctx: CSoftParser.ExprContext):
         
         if ctx.OrOper():
@@ -125,7 +127,7 @@ class ExtendedListener(CSoftListener):
             
             sym = self._get_bool_sym(left)
             
-            self.generator.rel_operation(left, right, ctx.RelOper().symbol.text, sym)
+            self.generator.relation_operation(left, right, ctx.RelOper().symbol.text, sym)
             self.stack.push(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
     
     def _get_bool_sym(self, ident):
@@ -168,7 +170,7 @@ class ExtendedListener(CSoftListener):
                 else:
                     right = self.stack.pop()
                 
-                type = self.generator.add_operation(left, right, ctx.AddOper().symbol.text)
+                type = self.generator.additive_operation(left, right, ctx.AddOper().symbol.text)
                 self.stack.push(ValueType("%" + str(self.generator.reg - 1), type))
 
     def exitMultExpr(self, ctx: CSoftParser.MultExprContext):
@@ -200,7 +202,7 @@ class ExtendedListener(CSoftListener):
                 else:
                     right = self.stack.pop()
                     
-                type = self.generator.mult_operation(left, right, ctx.MultOper().symbol.text)
+                type = self.generator.multiplicative_operation(left, right, ctx.MultOper().symbol.text)
                 self.stack.push(ValueType("%" +str(self.generator.reg - 1), type))
             
         
@@ -339,9 +341,9 @@ class ExtendedListener(CSoftListener):
             temp = [(x, y) for x, y in self.functions if x == classID + '_' + methodID]
             if len(temp) != 0:
                 if not isSelf:
-                    self.generator.call_method(classID, classID + '_' + methodID, ident, temp[0][1])
+                    self.generator.method_call(classID, classID + '_' + methodID, ident, temp[0][1])
                 else:
-                    self.generator.call_method(classID, classID + '_' + methodID, ident, temp[0][1])
+                    self.generator.method_call(classID, classID + '_' + methodID, ident, temp[0][1])
           
             self.stack.push(ValueType("%" + str(self.generator.reg - 1), string_to_type(temp[0][1])))
      
@@ -414,8 +416,8 @@ class ExtendedListener(CSoftListener):
         self.generator.assign_array(ident, type = type, size = arr.name, values = values)
     
     def exitElementAssign(self, ctx: CSoftParser.ElementAssignContext):
-        ident = ctx.ID().symbol.text
-        indx = ctx.INT().symbol.text
+        ident = ctx.arrayElementAssign().ID().symbol.text
+        indx = ctx.arrayElementAssign().INT().symbol.text
 
         temp = [(x, y) for x, y in self.variables if x == ident]
         global_var = True
@@ -510,9 +512,9 @@ class ExtendedListener(CSoftListener):
 
 
         if type == VariableType.INT:
-            self.generator.assign_i32(ID, value, global_var)
+            self.generator.assign_int(ID, value, global_var)
         elif type == VariableType.LONG:
-            self.generator.assign_i64(ID, value, global_var)
+            self.generator.assign_long(ID, value, global_var)
         elif type == VariableType.DOUBLE:
             self.generator.assign_double(ID, value, global_var)
         elif type == 'bool' or type == VariableType.BOOL:
@@ -526,14 +528,6 @@ class ExtendedListener(CSoftListener):
             self.generator.assign_string(ID, value, global_var)
 
 
-    def exitProg(self, ctx:CSoftParser.ProgContext):
-        res = self.generator.generate_code()
-        print(res)
-        with open("code.ll", "w") as f:
-            f.write(res)
-    
-   
-        
     def exitRead(self, ctx:CSoftParser.ReadContext):
 
         var = ctx.read_statement().ID().symbol.text
@@ -600,7 +594,7 @@ class ExtendedListener(CSoftListener):
         name = str(ctx.ID())
         self.functions.append((name, self.funType))
         self.function = name
-        self.generator.func_start(name, self.funType)
+        self.generator.function_start(name, self.funType)
     
     def exitFunction(self, ctx:CSoftParser.FunctionContext):
         self.funType = 'i64'
@@ -612,10 +606,10 @@ class ExtendedListener(CSoftListener):
         temp = [(x, y) for x, y in self.local_variables if x == self.function]
         if len(temp) == 0:
             self.generator.declare_INT("%"+str(self.function), False)
-            self.generator.assign_func("%"+str(self.function), 0)
+            self.generator.assign_function("%"+str(self.function), 0)
 
         self.generator.load("%"+str(self.function), self.funType)
-        self.generator.func_end(self.funType)
+        self.generator.function_end(self.funType)
         self.local_variables = []
         self.globalScope = True
 
@@ -685,7 +679,7 @@ class ExtendedListener(CSoftListener):
         
         temp = [(x, y) for x, y in self.functions if x == classID + '_Create_Default']
         if len(temp) != 0:
-            self.generator.call_method(classID, classID + '_Create_Default', ID, temp[0][1])
+            self.generator.method_call(classID, classID + '_Create_Default', ID, temp[0][1])
         else:
             raise Exception(ctx.start.line, "constructor not defined")
         
@@ -707,10 +701,10 @@ class ExtendedListener(CSoftListener):
         temp = [(x, y) for x, y in self.local_variables if x == self.function]
         if len(temp) == 0:
             self.generator.declare_INT("%"+str(self.function), False)
-            self.generator.assign_func("%"+str(self.function), 0)
+            self.generator.assign_function("%"+str(self.function), 0)
 
         self.generator.load("%"+str(self.function), self.funType)
-        self.generator.func_end(self.funType)
+        self.generator.function_end(self.funType)
         self.local_variables = []
         self.globalScope = True
     
@@ -818,6 +812,9 @@ class ExtendedListener(CSoftListener):
             structID = '%this'
         self.generator.assign_struct_field(structID, structName, i, value.name, type)
 
-  
+    def exitProg(self, ctx:CSoftParser.ProgContext):
+        self.result = self.generator.generate_code()
+        print(self.result)
+        
 
 del CSoftParser

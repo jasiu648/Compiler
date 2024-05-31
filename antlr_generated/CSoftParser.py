@@ -10,135 +10,136 @@ else:
 
 def serializedATN():
     return [
-        4,1,35,381,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,35,386,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
         2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,33,
         7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,39,
         2,40,7,40,2,41,7,41,2,42,7,42,2,43,7,43,2,44,7,44,2,45,7,45,2,46,
-        7,46,1,0,1,0,1,1,5,1,98,8,1,10,1,12,1,101,9,1,1,1,1,1,1,2,1,2,1,
-        2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
-        2,1,2,1,2,1,2,3,2,127,8,2,1,3,3,3,130,8,3,1,3,1,3,1,4,1,4,1,4,1,
-        4,1,5,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,5,7,152,
-        8,7,10,7,12,7,155,9,7,1,7,1,7,1,8,1,8,1,8,1,8,1,8,3,8,164,8,8,1,
-        9,1,9,1,9,1,9,1,9,3,9,171,8,9,1,10,1,10,1,10,1,10,1,10,3,10,178,
-        8,10,1,11,1,11,1,11,1,11,1,11,3,11,185,8,11,1,12,1,12,1,12,1,12,
-        1,12,3,12,192,8,12,1,13,1,13,1,13,1,13,1,13,3,13,199,8,13,1,14,1,
-        14,1,14,3,14,204,8,14,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,
-        15,3,15,215,8,15,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,17,5,
-        17,226,8,17,10,17,12,17,229,9,17,1,18,1,18,1,18,1,18,1,18,1,18,1,
-        18,1,18,1,19,1,19,1,20,5,20,242,8,20,10,20,12,20,245,9,20,1,21,1,
-        21,1,21,1,21,3,21,251,8,21,1,21,1,21,1,21,1,21,1,21,1,22,5,22,259,
-        8,22,10,22,12,22,262,9,22,1,23,1,23,1,23,1,23,1,23,1,23,1,24,5,24,
-        271,8,24,10,24,12,24,274,9,24,1,24,5,24,277,8,24,10,24,12,24,280,
-        9,24,1,25,1,25,1,25,1,25,1,25,1,25,1,26,5,26,289,8,26,10,26,12,26,
-        292,9,26,1,27,1,27,1,28,1,28,1,29,1,29,1,30,1,30,1,30,1,30,1,30,
-        3,30,305,8,30,1,30,1,30,1,31,1,31,1,31,1,31,1,31,1,32,1,32,1,32,
-        5,32,317,8,32,10,32,12,32,320,9,32,1,33,1,33,1,34,1,34,1,34,1,34,
-        1,34,1,34,1,35,5,35,331,8,35,10,35,12,35,334,9,35,1,36,1,36,1,37,
-        1,37,1,37,1,37,1,37,1,38,1,38,1,38,1,38,1,38,1,38,1,39,1,39,1,39,
-        1,39,1,40,1,40,1,40,1,40,1,40,1,41,1,41,1,41,3,41,361,8,41,1,41,
-        1,41,1,42,1,42,1,42,5,42,368,8,42,10,42,12,42,371,9,42,1,43,1,43,
-        1,44,1,44,1,45,1,45,1,46,1,46,1,46,0,0,47,0,2,4,6,8,10,12,14,16,
-        18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,
-        62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,0,1,1,0,1,6,376,
-        0,94,1,0,0,0,2,99,1,0,0,0,4,126,1,0,0,0,6,129,1,0,0,0,8,133,1,0,
-        0,0,10,137,1,0,0,0,12,142,1,0,0,0,14,147,1,0,0,0,16,163,1,0,0,0,
-        18,170,1,0,0,0,20,177,1,0,0,0,22,184,1,0,0,0,24,191,1,0,0,0,26,198,
-        1,0,0,0,28,203,1,0,0,0,30,214,1,0,0,0,32,216,1,0,0,0,34,227,1,0,
-        0,0,36,230,1,0,0,0,38,238,1,0,0,0,40,243,1,0,0,0,42,246,1,0,0,0,
-        44,260,1,0,0,0,46,263,1,0,0,0,48,272,1,0,0,0,50,281,1,0,0,0,52,290,
-        1,0,0,0,54,293,1,0,0,0,56,295,1,0,0,0,58,297,1,0,0,0,60,299,1,0,
-        0,0,62,308,1,0,0,0,64,313,1,0,0,0,66,321,1,0,0,0,68,323,1,0,0,0,
-        70,332,1,0,0,0,72,335,1,0,0,0,74,337,1,0,0,0,76,342,1,0,0,0,78,348,
-        1,0,0,0,80,352,1,0,0,0,82,357,1,0,0,0,84,364,1,0,0,0,86,372,1,0,
-        0,0,88,374,1,0,0,0,90,376,1,0,0,0,92,378,1,0,0,0,94,95,7,0,0,0,95,
-        1,1,0,0,0,96,98,3,4,2,0,97,96,1,0,0,0,98,101,1,0,0,0,99,97,1,0,0,
-        0,99,100,1,0,0,0,100,102,1,0,0,0,101,99,1,0,0,0,102,103,5,0,0,1,
-        103,3,1,0,0,0,104,127,3,10,5,0,105,127,3,12,6,0,106,127,3,16,8,0,
-        107,127,3,8,4,0,108,109,5,33,0,0,109,110,5,13,0,0,110,111,5,23,0,
-        0,111,112,5,14,0,0,112,113,5,22,0,0,113,127,3,16,8,0,114,115,3,6,
-        3,0,115,116,5,22,0,0,116,117,3,14,7,0,117,127,1,0,0,0,118,127,3,
-        36,18,0,119,127,3,32,16,0,120,127,3,42,21,0,121,127,3,68,34,0,122,
-        127,3,76,38,0,123,127,3,74,37,0,124,127,3,46,23,0,125,127,3,62,31,
-        0,126,104,1,0,0,0,126,105,1,0,0,0,126,106,1,0,0,0,126,107,1,0,0,
-        0,126,108,1,0,0,0,126,114,1,0,0,0,126,118,1,0,0,0,126,119,1,0,0,
-        0,126,120,1,0,0,0,126,121,1,0,0,0,126,122,1,0,0,0,126,123,1,0,0,
-        0,126,124,1,0,0,0,126,125,1,0,0,0,127,5,1,0,0,0,128,130,3,0,0,0,
-        129,128,1,0,0,0,129,130,1,0,0,0,130,131,1,0,0,0,131,132,5,33,0,0,
-        132,7,1,0,0,0,133,134,3,6,3,0,134,135,5,22,0,0,135,136,3,16,8,0,
-        136,9,1,0,0,0,137,138,5,15,0,0,138,139,5,9,0,0,139,140,5,33,0,0,
-        140,141,5,10,0,0,141,11,1,0,0,0,142,143,5,16,0,0,143,144,5,9,0,0,
-        144,145,5,33,0,0,145,146,5,10,0,0,146,13,1,0,0,0,147,148,5,13,0,
-        0,148,153,3,30,15,0,149,150,5,7,0,0,150,152,3,30,15,0,151,149,1,
-        0,0,0,152,155,1,0,0,0,153,151,1,0,0,0,153,154,1,0,0,0,154,156,1,
-        0,0,0,155,153,1,0,0,0,156,157,5,14,0,0,157,15,1,0,0,0,158,159,3,
-        18,9,0,159,160,5,30,0,0,160,161,3,18,9,0,161,164,1,0,0,0,162,164,
-        3,18,9,0,163,158,1,0,0,0,163,162,1,0,0,0,164,17,1,0,0,0,165,166,
-        3,20,10,0,166,167,5,31,0,0,167,168,3,20,10,0,168,171,1,0,0,0,169,
-        171,3,20,10,0,170,165,1,0,0,0,170,169,1,0,0,0,171,19,1,0,0,0,172,
-        173,3,22,11,0,173,174,5,29,0,0,174,175,3,22,11,0,175,178,1,0,0,0,
-        176,178,3,22,11,0,177,172,1,0,0,0,177,176,1,0,0,0,178,21,1,0,0,0,
-        179,180,3,24,12,0,180,181,5,28,0,0,181,182,3,24,12,0,182,185,1,0,
-        0,0,183,185,3,24,12,0,184,179,1,0,0,0,184,183,1,0,0,0,185,23,1,0,
-        0,0,186,187,3,26,13,0,187,188,5,25,0,0,188,189,3,26,13,0,189,192,
-        1,0,0,0,190,192,3,26,13,0,191,186,1,0,0,0,191,190,1,0,0,0,192,25,
-        1,0,0,0,193,194,3,28,14,0,194,195,5,26,0,0,195,196,3,28,14,0,196,
-        199,1,0,0,0,197,199,3,28,14,0,198,193,1,0,0,0,198,197,1,0,0,0,199,
-        27,1,0,0,0,200,201,5,27,0,0,201,204,3,30,15,0,202,204,3,30,15,0,
-        203,200,1,0,0,0,203,202,1,0,0,0,204,29,1,0,0,0,205,215,5,23,0,0,
-        206,215,5,24,0,0,207,215,5,34,0,0,208,215,5,20,0,0,209,215,5,33,
-        0,0,210,215,3,80,40,0,211,215,3,82,41,0,212,215,3,78,39,0,213,215,
-        3,60,30,0,214,205,1,0,0,0,214,206,1,0,0,0,214,207,1,0,0,0,214,208,
-        1,0,0,0,214,209,1,0,0,0,214,210,1,0,0,0,214,211,1,0,0,0,214,212,
-        1,0,0,0,214,213,1,0,0,0,215,31,1,0,0,0,216,217,5,17,0,0,217,218,
-        5,9,0,0,218,219,3,16,8,0,219,220,5,10,0,0,220,221,5,11,0,0,221,222,
-        3,34,17,0,222,223,5,12,0,0,223,33,1,0,0,0,224,226,3,4,2,0,225,224,
-        1,0,0,0,226,229,1,0,0,0,227,225,1,0,0,0,227,228,1,0,0,0,228,35,1,
-        0,0,0,229,227,1,0,0,0,230,231,5,21,0,0,231,232,5,9,0,0,232,233,3,
-        38,19,0,233,234,5,10,0,0,234,235,5,11,0,0,235,236,3,40,20,0,236,
-        237,5,12,0,0,237,37,1,0,0,0,238,239,3,30,15,0,239,39,1,0,0,0,240,
-        242,3,4,2,0,241,240,1,0,0,0,242,245,1,0,0,0,243,241,1,0,0,0,243,
-        244,1,0,0,0,244,41,1,0,0,0,245,243,1,0,0,0,246,247,3,88,44,0,247,
-        248,3,90,45,0,248,250,5,9,0,0,249,251,3,64,32,0,250,249,1,0,0,0,
-        250,251,1,0,0,0,251,252,1,0,0,0,252,253,5,10,0,0,253,254,5,11,0,
-        0,254,255,3,44,22,0,255,256,5,12,0,0,256,43,1,0,0,0,257,259,3,4,
-        2,0,258,257,1,0,0,0,259,262,1,0,0,0,260,258,1,0,0,0,260,261,1,0,
-        0,0,261,45,1,0,0,0,262,260,1,0,0,0,263,264,5,19,0,0,264,265,3,58,
-        29,0,265,266,5,11,0,0,266,267,3,48,24,0,267,268,5,12,0,0,268,47,
-        1,0,0,0,269,271,3,72,36,0,270,269,1,0,0,0,271,274,1,0,0,0,272,270,
-        1,0,0,0,272,273,1,0,0,0,273,278,1,0,0,0,274,272,1,0,0,0,275,277,
-        3,50,25,0,276,275,1,0,0,0,277,280,1,0,0,0,278,276,1,0,0,0,278,279,
-        1,0,0,0,279,49,1,0,0,0,280,278,1,0,0,0,281,282,3,54,27,0,282,283,
-        3,56,28,0,283,284,5,11,0,0,284,285,3,52,26,0,285,286,5,12,0,0,286,
-        51,1,0,0,0,287,289,3,4,2,0,288,287,1,0,0,0,289,292,1,0,0,0,290,288,
-        1,0,0,0,290,291,1,0,0,0,291,53,1,0,0,0,292,290,1,0,0,0,293,294,3,
-        0,0,0,294,55,1,0,0,0,295,296,5,33,0,0,296,57,1,0,0,0,297,298,5,33,
-        0,0,298,59,1,0,0,0,299,300,5,33,0,0,300,301,5,8,0,0,301,302,3,6,
-        3,0,302,304,5,9,0,0,303,305,3,84,42,0,304,303,1,0,0,0,304,305,1,
-        0,0,0,305,306,1,0,0,0,306,307,5,10,0,0,307,61,1,0,0,0,308,309,3,
-        6,3,0,309,310,5,22,0,0,310,311,5,19,0,0,311,312,3,58,29,0,312,63,
-        1,0,0,0,313,318,3,66,33,0,314,315,5,7,0,0,315,317,3,66,33,0,316,
-        314,1,0,0,0,317,320,1,0,0,0,318,316,1,0,0,0,318,319,1,0,0,0,319,
-        65,1,0,0,0,320,318,1,0,0,0,321,322,3,6,3,0,322,67,1,0,0,0,323,324,
-        5,18,0,0,324,325,3,92,46,0,325,326,5,11,0,0,326,327,3,70,35,0,327,
-        328,5,12,0,0,328,69,1,0,0,0,329,331,3,72,36,0,330,329,1,0,0,0,331,
-        334,1,0,0,0,332,330,1,0,0,0,332,333,1,0,0,0,333,71,1,0,0,0,334,332,
-        1,0,0,0,335,336,3,6,3,0,336,73,1,0,0,0,337,338,3,6,3,0,338,339,5,
-        22,0,0,339,340,5,18,0,0,340,341,3,92,46,0,341,75,1,0,0,0,342,343,
-        5,33,0,0,343,344,5,8,0,0,344,345,3,6,3,0,345,346,5,22,0,0,346,347,
-        3,16,8,0,347,77,1,0,0,0,348,349,5,33,0,0,349,350,5,8,0,0,350,351,
-        3,6,3,0,351,79,1,0,0,0,352,353,5,33,0,0,353,354,5,13,0,0,354,355,
-        5,23,0,0,355,356,5,14,0,0,356,81,1,0,0,0,357,358,5,33,0,0,358,360,
-        5,9,0,0,359,361,3,84,42,0,360,359,1,0,0,0,360,361,1,0,0,0,361,362,
-        1,0,0,0,362,363,5,10,0,0,363,83,1,0,0,0,364,369,3,86,43,0,365,366,
-        5,7,0,0,366,368,3,86,43,0,367,365,1,0,0,0,368,371,1,0,0,0,369,367,
-        1,0,0,0,369,370,1,0,0,0,370,85,1,0,0,0,371,369,1,0,0,0,372,373,5,
-        33,0,0,373,87,1,0,0,0,374,375,3,0,0,0,375,89,1,0,0,0,376,377,5,33,
-        0,0,377,91,1,0,0,0,378,379,5,33,0,0,379,93,1,0,0,0,24,99,126,129,
-        153,163,170,177,184,191,198,203,214,227,243,250,260,272,278,290,
-        304,318,332,360,369
+        7,46,2,47,7,47,1,0,1,0,1,1,5,1,100,8,1,10,1,12,1,103,9,1,1,1,1,1,
+        1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+        1,2,1,2,1,2,3,2,126,8,2,1,3,3,3,129,8,3,1,3,1,3,1,4,1,4,1,4,1,4,
+        1,4,1,4,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,
+        1,8,1,8,1,8,1,8,5,8,157,8,8,10,8,12,8,160,9,8,1,8,1,8,1,9,1,9,1,
+        9,1,9,1,9,3,9,169,8,9,1,10,1,10,1,10,1,10,1,10,3,10,176,8,10,1,11,
+        1,11,1,11,1,11,1,11,3,11,183,8,11,1,12,1,12,1,12,1,12,1,12,3,12,
+        190,8,12,1,13,1,13,1,13,1,13,1,13,3,13,197,8,13,1,14,1,14,1,14,1,
+        14,1,14,3,14,204,8,14,1,15,1,15,1,15,3,15,209,8,15,1,16,1,16,1,16,
+        1,16,1,16,1,16,1,16,1,16,1,16,3,16,220,8,16,1,17,1,17,1,17,1,17,
+        1,17,1,17,1,17,1,17,1,18,5,18,231,8,18,10,18,12,18,234,9,18,1,19,
+        1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,20,1,20,1,21,5,21,247,8,21,
+        10,21,12,21,250,9,21,1,22,1,22,1,22,1,22,3,22,256,8,22,1,22,1,22,
+        1,22,1,22,1,22,1,23,5,23,264,8,23,10,23,12,23,267,9,23,1,24,1,24,
+        1,24,1,24,1,24,1,24,1,25,5,25,276,8,25,10,25,12,25,279,9,25,1,25,
+        5,25,282,8,25,10,25,12,25,285,9,25,1,26,1,26,1,26,1,26,1,26,1,26,
+        1,27,5,27,294,8,27,10,27,12,27,297,9,27,1,28,1,28,1,29,1,29,1,30,
+        1,30,1,31,1,31,1,31,1,31,1,31,3,31,310,8,31,1,31,1,31,1,32,1,32,
+        1,32,1,32,1,32,1,33,1,33,1,33,5,33,322,8,33,10,33,12,33,325,9,33,
+        1,34,1,34,1,35,1,35,1,35,1,35,1,35,1,35,1,36,5,36,336,8,36,10,36,
+        12,36,339,9,36,1,37,1,37,1,38,1,38,1,38,1,38,1,38,1,39,1,39,1,39,
+        1,39,1,39,1,39,1,40,1,40,1,40,1,40,1,41,1,41,1,41,1,41,1,41,1,42,
+        1,42,1,42,3,42,366,8,42,1,42,1,42,1,43,1,43,1,43,5,43,373,8,43,10,
+        43,12,43,376,9,43,1,44,1,44,1,45,1,45,1,46,1,46,1,47,1,47,1,47,0,
+        0,48,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,
+        44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,
+        88,90,92,94,0,1,1,0,1,6,380,0,96,1,0,0,0,2,101,1,0,0,0,4,125,1,0,
+        0,0,6,128,1,0,0,0,8,132,1,0,0,0,10,138,1,0,0,0,12,142,1,0,0,0,14,
+        147,1,0,0,0,16,152,1,0,0,0,18,168,1,0,0,0,20,175,1,0,0,0,22,182,
+        1,0,0,0,24,189,1,0,0,0,26,196,1,0,0,0,28,203,1,0,0,0,30,208,1,0,
+        0,0,32,219,1,0,0,0,34,221,1,0,0,0,36,232,1,0,0,0,38,235,1,0,0,0,
+        40,243,1,0,0,0,42,248,1,0,0,0,44,251,1,0,0,0,46,265,1,0,0,0,48,268,
+        1,0,0,0,50,277,1,0,0,0,52,286,1,0,0,0,54,295,1,0,0,0,56,298,1,0,
+        0,0,58,300,1,0,0,0,60,302,1,0,0,0,62,304,1,0,0,0,64,313,1,0,0,0,
+        66,318,1,0,0,0,68,326,1,0,0,0,70,328,1,0,0,0,72,337,1,0,0,0,74,340,
+        1,0,0,0,76,342,1,0,0,0,78,347,1,0,0,0,80,353,1,0,0,0,82,357,1,0,
+        0,0,84,362,1,0,0,0,86,369,1,0,0,0,88,377,1,0,0,0,90,379,1,0,0,0,
+        92,381,1,0,0,0,94,383,1,0,0,0,96,97,7,0,0,0,97,1,1,0,0,0,98,100,
+        3,4,2,0,99,98,1,0,0,0,100,103,1,0,0,0,101,99,1,0,0,0,101,102,1,0,
+        0,0,102,104,1,0,0,0,103,101,1,0,0,0,104,105,5,0,0,1,105,3,1,0,0,
+        0,106,126,3,12,6,0,107,126,3,14,7,0,108,126,3,18,9,0,109,126,3,10,
+        5,0,110,111,3,8,4,0,111,112,3,18,9,0,112,126,1,0,0,0,113,114,3,6,
+        3,0,114,115,5,22,0,0,115,116,3,16,8,0,116,126,1,0,0,0,117,126,3,
+        38,19,0,118,126,3,34,17,0,119,126,3,44,22,0,120,126,3,70,35,0,121,
+        126,3,78,39,0,122,126,3,76,38,0,123,126,3,48,24,0,124,126,3,64,32,
+        0,125,106,1,0,0,0,125,107,1,0,0,0,125,108,1,0,0,0,125,109,1,0,0,
+        0,125,110,1,0,0,0,125,113,1,0,0,0,125,117,1,0,0,0,125,118,1,0,0,
+        0,125,119,1,0,0,0,125,120,1,0,0,0,125,121,1,0,0,0,125,122,1,0,0,
+        0,125,123,1,0,0,0,125,124,1,0,0,0,126,5,1,0,0,0,127,129,3,0,0,0,
+        128,127,1,0,0,0,128,129,1,0,0,0,129,130,1,0,0,0,130,131,5,33,0,0,
+        131,7,1,0,0,0,132,133,5,33,0,0,133,134,5,13,0,0,134,135,5,23,0,0,
+        135,136,5,14,0,0,136,137,5,22,0,0,137,9,1,0,0,0,138,139,3,6,3,0,
+        139,140,5,22,0,0,140,141,3,18,9,0,141,11,1,0,0,0,142,143,5,15,0,
+        0,143,144,5,9,0,0,144,145,5,33,0,0,145,146,5,10,0,0,146,13,1,0,0,
+        0,147,148,5,16,0,0,148,149,5,9,0,0,149,150,5,33,0,0,150,151,5,10,
+        0,0,151,15,1,0,0,0,152,153,5,13,0,0,153,158,3,32,16,0,154,155,5,
+        7,0,0,155,157,3,32,16,0,156,154,1,0,0,0,157,160,1,0,0,0,158,156,
+        1,0,0,0,158,159,1,0,0,0,159,161,1,0,0,0,160,158,1,0,0,0,161,162,
+        5,14,0,0,162,17,1,0,0,0,163,164,3,20,10,0,164,165,5,30,0,0,165,166,
+        3,20,10,0,166,169,1,0,0,0,167,169,3,20,10,0,168,163,1,0,0,0,168,
+        167,1,0,0,0,169,19,1,0,0,0,170,171,3,22,11,0,171,172,5,31,0,0,172,
+        173,3,22,11,0,173,176,1,0,0,0,174,176,3,22,11,0,175,170,1,0,0,0,
+        175,174,1,0,0,0,176,21,1,0,0,0,177,178,3,24,12,0,178,179,5,29,0,
+        0,179,180,3,24,12,0,180,183,1,0,0,0,181,183,3,24,12,0,182,177,1,
+        0,0,0,182,181,1,0,0,0,183,23,1,0,0,0,184,185,3,26,13,0,185,186,5,
+        28,0,0,186,187,3,26,13,0,187,190,1,0,0,0,188,190,3,26,13,0,189,184,
+        1,0,0,0,189,188,1,0,0,0,190,25,1,0,0,0,191,192,3,28,14,0,192,193,
+        5,25,0,0,193,194,3,28,14,0,194,197,1,0,0,0,195,197,3,28,14,0,196,
+        191,1,0,0,0,196,195,1,0,0,0,197,27,1,0,0,0,198,199,3,30,15,0,199,
+        200,5,26,0,0,200,201,3,30,15,0,201,204,1,0,0,0,202,204,3,30,15,0,
+        203,198,1,0,0,0,203,202,1,0,0,0,204,29,1,0,0,0,205,206,5,27,0,0,
+        206,209,3,32,16,0,207,209,3,32,16,0,208,205,1,0,0,0,208,207,1,0,
+        0,0,209,31,1,0,0,0,210,220,5,23,0,0,211,220,5,24,0,0,212,220,5,34,
+        0,0,213,220,5,20,0,0,214,220,5,33,0,0,215,220,3,82,41,0,216,220,
+        3,84,42,0,217,220,3,80,40,0,218,220,3,62,31,0,219,210,1,0,0,0,219,
+        211,1,0,0,0,219,212,1,0,0,0,219,213,1,0,0,0,219,214,1,0,0,0,219,
+        215,1,0,0,0,219,216,1,0,0,0,219,217,1,0,0,0,219,218,1,0,0,0,220,
+        33,1,0,0,0,221,222,5,17,0,0,222,223,5,9,0,0,223,224,3,18,9,0,224,
+        225,5,10,0,0,225,226,5,11,0,0,226,227,3,36,18,0,227,228,5,12,0,0,
+        228,35,1,0,0,0,229,231,3,4,2,0,230,229,1,0,0,0,231,234,1,0,0,0,232,
+        230,1,0,0,0,232,233,1,0,0,0,233,37,1,0,0,0,234,232,1,0,0,0,235,236,
+        5,21,0,0,236,237,5,9,0,0,237,238,3,40,20,0,238,239,5,10,0,0,239,
+        240,5,11,0,0,240,241,3,42,21,0,241,242,5,12,0,0,242,39,1,0,0,0,243,
+        244,3,32,16,0,244,41,1,0,0,0,245,247,3,4,2,0,246,245,1,0,0,0,247,
+        250,1,0,0,0,248,246,1,0,0,0,248,249,1,0,0,0,249,43,1,0,0,0,250,248,
+        1,0,0,0,251,252,3,90,45,0,252,253,3,92,46,0,253,255,5,9,0,0,254,
+        256,3,66,33,0,255,254,1,0,0,0,255,256,1,0,0,0,256,257,1,0,0,0,257,
+        258,5,10,0,0,258,259,5,11,0,0,259,260,3,46,23,0,260,261,5,12,0,0,
+        261,45,1,0,0,0,262,264,3,4,2,0,263,262,1,0,0,0,264,267,1,0,0,0,265,
+        263,1,0,0,0,265,266,1,0,0,0,266,47,1,0,0,0,267,265,1,0,0,0,268,269,
+        5,19,0,0,269,270,3,60,30,0,270,271,5,11,0,0,271,272,3,50,25,0,272,
+        273,5,12,0,0,273,49,1,0,0,0,274,276,3,74,37,0,275,274,1,0,0,0,276,
+        279,1,0,0,0,277,275,1,0,0,0,277,278,1,0,0,0,278,283,1,0,0,0,279,
+        277,1,0,0,0,280,282,3,52,26,0,281,280,1,0,0,0,282,285,1,0,0,0,283,
+        281,1,0,0,0,283,284,1,0,0,0,284,51,1,0,0,0,285,283,1,0,0,0,286,287,
+        3,56,28,0,287,288,3,58,29,0,288,289,5,11,0,0,289,290,3,54,27,0,290,
+        291,5,12,0,0,291,53,1,0,0,0,292,294,3,4,2,0,293,292,1,0,0,0,294,
+        297,1,0,0,0,295,293,1,0,0,0,295,296,1,0,0,0,296,55,1,0,0,0,297,295,
+        1,0,0,0,298,299,3,0,0,0,299,57,1,0,0,0,300,301,5,33,0,0,301,59,1,
+        0,0,0,302,303,5,33,0,0,303,61,1,0,0,0,304,305,5,33,0,0,305,306,5,
+        8,0,0,306,307,3,6,3,0,307,309,5,9,0,0,308,310,3,86,43,0,309,308,
+        1,0,0,0,309,310,1,0,0,0,310,311,1,0,0,0,311,312,5,10,0,0,312,63,
+        1,0,0,0,313,314,3,6,3,0,314,315,5,22,0,0,315,316,5,19,0,0,316,317,
+        3,60,30,0,317,65,1,0,0,0,318,323,3,68,34,0,319,320,5,7,0,0,320,322,
+        3,68,34,0,321,319,1,0,0,0,322,325,1,0,0,0,323,321,1,0,0,0,323,324,
+        1,0,0,0,324,67,1,0,0,0,325,323,1,0,0,0,326,327,3,6,3,0,327,69,1,
+        0,0,0,328,329,5,18,0,0,329,330,3,94,47,0,330,331,5,11,0,0,331,332,
+        3,72,36,0,332,333,5,12,0,0,333,71,1,0,0,0,334,336,3,74,37,0,335,
+        334,1,0,0,0,336,339,1,0,0,0,337,335,1,0,0,0,337,338,1,0,0,0,338,
+        73,1,0,0,0,339,337,1,0,0,0,340,341,3,6,3,0,341,75,1,0,0,0,342,343,
+        3,6,3,0,343,344,5,22,0,0,344,345,5,18,0,0,345,346,3,94,47,0,346,
+        77,1,0,0,0,347,348,5,33,0,0,348,349,5,8,0,0,349,350,3,6,3,0,350,
+        351,5,22,0,0,351,352,3,18,9,0,352,79,1,0,0,0,353,354,5,33,0,0,354,
+        355,5,8,0,0,355,356,3,6,3,0,356,81,1,0,0,0,357,358,5,33,0,0,358,
+        359,5,13,0,0,359,360,5,23,0,0,360,361,5,14,0,0,361,83,1,0,0,0,362,
+        363,5,33,0,0,363,365,5,9,0,0,364,366,3,86,43,0,365,364,1,0,0,0,365,
+        366,1,0,0,0,366,367,1,0,0,0,367,368,5,10,0,0,368,85,1,0,0,0,369,
+        374,3,88,44,0,370,371,5,7,0,0,371,373,3,88,44,0,372,370,1,0,0,0,
+        373,376,1,0,0,0,374,372,1,0,0,0,374,375,1,0,0,0,375,87,1,0,0,0,376,
+        374,1,0,0,0,377,378,5,33,0,0,378,89,1,0,0,0,379,380,3,0,0,0,380,
+        91,1,0,0,0,381,382,5,33,0,0,382,93,1,0,0,0,383,384,5,33,0,0,384,
+        95,1,0,0,0,24,101,125,128,158,168,175,182,189,196,203,208,219,232,
+        248,255,265,277,283,295,309,323,337,365,374
     ]
 
 class CSoftParser ( Parser ):
@@ -170,61 +171,62 @@ class CSoftParser ( Parser ):
     RULE_prog = 1
     RULE_statement = 2
     RULE_ident = 3
-    RULE_assignment = 4
-    RULE_print_statement = 5
-    RULE_read_statement = 6
-    RULE_arrayAssign = 7
-    RULE_expr = 8
-    RULE_condXorStm = 9
-    RULE_condStmAnd = 10
-    RULE_condStmRel = 11
-    RULE_addExpr = 12
-    RULE_multExpr = 13
-    RULE_negFactor = 14
-    RULE_factor = 15
-    RULE_ifStm = 16
-    RULE_blockIf = 17
-    RULE_repeatStm = 18
-    RULE_repNum = 19
-    RULE_blockRepeat = 20
-    RULE_function = 21
-    RULE_blockFun = 22
-    RULE_classDecl = 23
-    RULE_blockClass = 24
-    RULE_method = 25
-    RULE_blockMethod = 26
-    RULE_methodType = 27
-    RULE_methodName = 28
-    RULE_className = 29
-    RULE_methodCall = 30
-    RULE_classAssign = 31
-    RULE_parameters = 32
-    RULE_parameter = 33
-    RULE_structDecl = 34
-    RULE_blockStruct = 35
-    RULE_structVarDecl = 36
-    RULE_structAssign = 37
-    RULE_structFieldAssign = 38
-    RULE_structFieldAccess = 39
-    RULE_arrayAccess = 40
-    RULE_funcCall = 41
-    RULE_arguments = 42
-    RULE_argument = 43
-    RULE_funType = 44
-    RULE_funName = 45
-    RULE_structName = 46
+    RULE_arrayElementAssign = 4
+    RULE_assignment = 5
+    RULE_print_statement = 6
+    RULE_read_statement = 7
+    RULE_arrayAssign = 8
+    RULE_expr = 9
+    RULE_condXorStm = 10
+    RULE_condStmAnd = 11
+    RULE_condStmRel = 12
+    RULE_addExpr = 13
+    RULE_multExpr = 14
+    RULE_negFactor = 15
+    RULE_factor = 16
+    RULE_ifStm = 17
+    RULE_blockIf = 18
+    RULE_repeatStm = 19
+    RULE_repNum = 20
+    RULE_blockRepeat = 21
+    RULE_function = 22
+    RULE_blockFun = 23
+    RULE_classDecl = 24
+    RULE_blockClass = 25
+    RULE_method = 26
+    RULE_blockMethod = 27
+    RULE_methodType = 28
+    RULE_methodName = 29
+    RULE_className = 30
+    RULE_methodCall = 31
+    RULE_classAssign = 32
+    RULE_parameters = 33
+    RULE_parameter = 34
+    RULE_structDecl = 35
+    RULE_blockStruct = 36
+    RULE_structVarDecl = 37
+    RULE_structAssign = 38
+    RULE_structFieldAssign = 39
+    RULE_structFieldAccess = 40
+    RULE_arrayAccess = 41
+    RULE_funcCall = 42
+    RULE_arguments = 43
+    RULE_argument = 44
+    RULE_funType = 45
+    RULE_funName = 46
+    RULE_structName = 47
 
-    ruleNames =  [ "type", "prog", "statement", "ident", "assignment", "print_statement", 
-                   "read_statement", "arrayAssign", "expr", "condXorStm", 
-                   "condStmAnd", "condStmRel", "addExpr", "multExpr", "negFactor", 
-                   "factor", "ifStm", "blockIf", "repeatStm", "repNum", 
-                   "blockRepeat", "function", "blockFun", "classDecl", "blockClass", 
-                   "method", "blockMethod", "methodType", "methodName", 
-                   "className", "methodCall", "classAssign", "parameters", 
-                   "parameter", "structDecl", "blockStruct", "structVarDecl", 
-                   "structAssign", "structFieldAssign", "structFieldAccess", 
-                   "arrayAccess", "funcCall", "arguments", "argument", "funType", 
-                   "funName", "structName" ]
+    ruleNames =  [ "type", "prog", "statement", "ident", "arrayElementAssign", 
+                   "assignment", "print_statement", "read_statement", "arrayAssign", 
+                   "expr", "condXorStm", "condStmAnd", "condStmRel", "addExpr", 
+                   "multExpr", "negFactor", "factor", "ifStm", "blockIf", 
+                   "repeatStm", "repNum", "blockRepeat", "function", "blockFun", 
+                   "classDecl", "blockClass", "method", "blockMethod", "methodType", 
+                   "methodName", "className", "methodCall", "classAssign", 
+                   "parameters", "parameter", "structDecl", "blockStruct", 
+                   "structVarDecl", "structAssign", "structFieldAssign", 
+                   "structFieldAccess", "arrayAccess", "funcCall", "arguments", 
+                   "argument", "funType", "funName", "structName" ]
 
     EOF = Token.EOF
     T__0=1
@@ -307,7 +309,7 @@ class CSoftParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 94
+            self.state = 96
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 126) != 0)):
                 self._errHandler.recoverInline(self)
@@ -367,17 +369,17 @@ class CSoftParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 99
+            self.state = 101
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 25933348990) != 0):
-                self.state = 96
+                self.state = 98
                 self.statement()
-                self.state = 101
+                self.state = 103
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 102
+            self.state = 104
             self.match(CSoftParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -486,16 +488,9 @@ class CSoftParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def ID(self):
-            return self.getToken(CSoftParser.ID, 0)
-        def LBRACKET(self):
-            return self.getToken(CSoftParser.LBRACKET, 0)
-        def INT(self):
-            return self.getToken(CSoftParser.INT, 0)
-        def RBRACKET(self):
-            return self.getToken(CSoftParser.RBRACKET, 0)
-        def ASSIGN(self):
-            return self.getToken(CSoftParser.ASSIGN, 0)
+        def arrayElementAssign(self):
+            return self.getTypedRuleContext(CSoftParser.ArrayElementAssignContext,0)
+
         def expr(self):
             return self.getTypedRuleContext(CSoftParser.ExprContext,0)
 
@@ -776,118 +771,110 @@ class CSoftParser ( Parser ):
         localctx = CSoftParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_statement)
         try:
-            self.state = 126
+            self.state = 125
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,1,self._ctx)
             if la_ == 1:
                 localctx = CSoftParser.PrintContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 104
+                self.state = 106
                 self.print_statement()
                 pass
 
             elif la_ == 2:
                 localctx = CSoftParser.ReadContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 105
+                self.state = 107
                 self.read_statement()
                 pass
 
             elif la_ == 3:
                 localctx = CSoftParser.ExprressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 106
+                self.state = 108
                 self.expr()
                 pass
 
             elif la_ == 4:
                 localctx = CSoftParser.AssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 107
+                self.state = 109
                 self.assignment()
                 pass
 
             elif la_ == 5:
                 localctx = CSoftParser.ElementAssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 108
-                self.match(CSoftParser.ID)
-                self.state = 109
-                self.match(CSoftParser.LBRACKET)
                 self.state = 110
-                self.match(CSoftParser.INT)
+                self.arrayElementAssign()
                 self.state = 111
-                self.match(CSoftParser.RBRACKET)
-                self.state = 112
-                self.match(CSoftParser.ASSIGN)
-                self.state = 113
                 self.expr()
                 pass
 
             elif la_ == 6:
                 localctx = CSoftParser.ArrAssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 114
+                self.state = 113
                 self.ident()
-                self.state = 115
+                self.state = 114
                 self.match(CSoftParser.ASSIGN)
-                self.state = 116
+                self.state = 115
                 self.arrayAssign()
                 pass
 
             elif la_ == 7:
                 localctx = CSoftParser.RepeatStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
-                self.state = 118
+                self.state = 117
                 self.repeatStm()
                 pass
 
             elif la_ == 8:
                 localctx = CSoftParser.IfStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 8)
-                self.state = 119
+                self.state = 118
                 self.ifStm()
                 pass
 
             elif la_ == 9:
                 localctx = CSoftParser.FuncDeclContext(self, localctx)
                 self.enterOuterAlt(localctx, 9)
-                self.state = 120
+                self.state = 119
                 self.function()
                 pass
 
             elif la_ == 10:
                 localctx = CSoftParser.StructDeclarationContext(self, localctx)
                 self.enterOuterAlt(localctx, 10)
-                self.state = 121
+                self.state = 120
                 self.structDecl()
                 pass
 
             elif la_ == 11:
                 localctx = CSoftParser.StructFieldAssignmentContext(self, localctx)
                 self.enterOuterAlt(localctx, 11)
-                self.state = 122
+                self.state = 121
                 self.structFieldAssign()
                 pass
 
             elif la_ == 12:
                 localctx = CSoftParser.StructAssignmetContext(self, localctx)
                 self.enterOuterAlt(localctx, 12)
-                self.state = 123
+                self.state = 122
                 self.structAssign()
                 pass
 
             elif la_ == 13:
                 localctx = CSoftParser.ClassDeclarationContext(self, localctx)
                 self.enterOuterAlt(localctx, 13)
-                self.state = 124
+                self.state = 123
                 self.classDecl()
                 pass
 
             elif la_ == 14:
                 localctx = CSoftParser.ClassAssignmentContext(self, localctx)
                 self.enterOuterAlt(localctx, 14)
-                self.state = 125
+                self.state = 124
                 self.classAssign()
                 pass
 
@@ -942,16 +929,83 @@ class CSoftParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 129
+            self.state = 128
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & 126) != 0):
-                self.state = 128
+                self.state = 127
                 self.type_()
 
 
-            self.state = 131
+            self.state = 130
             self.match(CSoftParser.ID)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ArrayElementAssignContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(CSoftParser.ID, 0)
+
+        def LBRACKET(self):
+            return self.getToken(CSoftParser.LBRACKET, 0)
+
+        def INT(self):
+            return self.getToken(CSoftParser.INT, 0)
+
+        def RBRACKET(self):
+            return self.getToken(CSoftParser.RBRACKET, 0)
+
+        def ASSIGN(self):
+            return self.getToken(CSoftParser.ASSIGN, 0)
+
+        def getRuleIndex(self):
+            return CSoftParser.RULE_arrayElementAssign
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArrayElementAssign" ):
+                listener.enterArrayElementAssign(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArrayElementAssign" ):
+                listener.exitArrayElementAssign(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayElementAssign" ):
+                return visitor.visitArrayElementAssign(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def arrayElementAssign(self):
+
+        localctx = CSoftParser.ArrayElementAssignContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_arrayElementAssign)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 132
+            self.match(CSoftParser.ID)
+            self.state = 133
+            self.match(CSoftParser.LBRACKET)
+            self.state = 134
+            self.match(CSoftParser.INT)
+            self.state = 135
+            self.match(CSoftParser.RBRACKET)
+            self.state = 136
+            self.match(CSoftParser.ASSIGN)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1002,14 +1056,14 @@ class CSoftParser ( Parser ):
     def assignment(self):
 
         localctx = CSoftParser.AssignmentContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_assignment)
+        self.enterRule(localctx, 10, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 133
+            self.state = 138
             self.ident()
-            self.state = 134
+            self.state = 139
             self.match(CSoftParser.ASSIGN)
-            self.state = 135
+            self.state = 140
             self.expr()
         except RecognitionException as re:
             localctx.exception = re
@@ -1062,16 +1116,16 @@ class CSoftParser ( Parser ):
     def print_statement(self):
 
         localctx = CSoftParser.Print_statementContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_print_statement)
+        self.enterRule(localctx, 12, self.RULE_print_statement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 137
+            self.state = 142
             self.match(CSoftParser.PRINT)
-            self.state = 138
+            self.state = 143
             self.match(CSoftParser.LPAREN)
-            self.state = 139
+            self.state = 144
             self.match(CSoftParser.ID)
-            self.state = 140
+            self.state = 145
             self.match(CSoftParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -1124,16 +1178,16 @@ class CSoftParser ( Parser ):
     def read_statement(self):
 
         localctx = CSoftParser.Read_statementContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_read_statement)
+        self.enterRule(localctx, 14, self.RULE_read_statement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 142
+            self.state = 147
             self.match(CSoftParser.READ)
-            self.state = 143
+            self.state = 148
             self.match(CSoftParser.LPAREN)
-            self.state = 144
+            self.state = 149
             self.match(CSoftParser.ID)
-            self.state = 145
+            self.state = 150
             self.match(CSoftParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -1193,27 +1247,27 @@ class CSoftParser ( Parser ):
     def arrayAssign(self):
 
         localctx = CSoftParser.ArrayAssignContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_arrayAssign)
+        self.enterRule(localctx, 16, self.RULE_arrayAssign)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 147
+            self.state = 152
             self.match(CSoftParser.LBRACKET)
-            self.state = 148
-            self.factor()
             self.state = 153
+            self.factor()
+            self.state = 158
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==7:
-                self.state = 149
+                self.state = 154
                 self.match(CSoftParser.COMMA)
-                self.state = 150
-                self.factor()
                 self.state = 155
+                self.factor()
+                self.state = 160
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 156
+            self.state = 161
             self.match(CSoftParser.RBRACKET)
         except RecognitionException as re:
             localctx.exception = re
@@ -1264,24 +1318,24 @@ class CSoftParser ( Parser ):
     def expr(self):
 
         localctx = CSoftParser.ExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_expr)
+        self.enterRule(localctx, 18, self.RULE_expr)
         try:
-            self.state = 163
+            self.state = 168
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 158
+                self.state = 163
                 self.condXorStm()
-                self.state = 159
+                self.state = 164
                 self.match(CSoftParser.OrOper)
-                self.state = 160
+                self.state = 165
                 self.condXorStm()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 162
+                self.state = 167
                 self.condXorStm()
                 pass
 
@@ -1335,24 +1389,24 @@ class CSoftParser ( Parser ):
     def condXorStm(self):
 
         localctx = CSoftParser.CondXorStmContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_condXorStm)
+        self.enterRule(localctx, 20, self.RULE_condXorStm)
         try:
-            self.state = 170
+            self.state = 175
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 165
+                self.state = 170
                 self.condStmAnd()
-                self.state = 166
+                self.state = 171
                 self.match(CSoftParser.XorOper)
-                self.state = 167
+                self.state = 172
                 self.condStmAnd()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 169
+                self.state = 174
                 self.condStmAnd()
                 pass
 
@@ -1406,24 +1460,24 @@ class CSoftParser ( Parser ):
     def condStmAnd(self):
 
         localctx = CSoftParser.CondStmAndContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_condStmAnd)
+        self.enterRule(localctx, 22, self.RULE_condStmAnd)
         try:
-            self.state = 177
+            self.state = 182
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 172
+                self.state = 177
                 self.condStmRel()
-                self.state = 173
+                self.state = 178
                 self.match(CSoftParser.AndOper)
-                self.state = 174
+                self.state = 179
                 self.condStmRel()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 176
+                self.state = 181
                 self.condStmRel()
                 pass
 
@@ -1477,24 +1531,24 @@ class CSoftParser ( Parser ):
     def condStmRel(self):
 
         localctx = CSoftParser.CondStmRelContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_condStmRel)
+        self.enterRule(localctx, 24, self.RULE_condStmRel)
         try:
-            self.state = 184
+            self.state = 189
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 179
+                self.state = 184
                 self.addExpr()
-                self.state = 180
+                self.state = 185
                 self.match(CSoftParser.RelOper)
-                self.state = 181
+                self.state = 186
                 self.addExpr()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 183
+                self.state = 188
                 self.addExpr()
                 pass
 
@@ -1548,24 +1602,24 @@ class CSoftParser ( Parser ):
     def addExpr(self):
 
         localctx = CSoftParser.AddExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_addExpr)
+        self.enterRule(localctx, 26, self.RULE_addExpr)
         try:
-            self.state = 191
+            self.state = 196
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 186
+                self.state = 191
                 self.multExpr()
-                self.state = 187
+                self.state = 192
                 self.match(CSoftParser.AddOper)
-                self.state = 188
+                self.state = 193
                 self.multExpr()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 190
+                self.state = 195
                 self.multExpr()
                 pass
 
@@ -1619,24 +1673,24 @@ class CSoftParser ( Parser ):
     def multExpr(self):
 
         localctx = CSoftParser.MultExprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_multExpr)
+        self.enterRule(localctx, 28, self.RULE_multExpr)
         try:
-            self.state = 198
+            self.state = 203
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 193
+                self.state = 198
                 self.negFactor()
-                self.state = 194
+                self.state = 199
                 self.match(CSoftParser.MultOper)
-                self.state = 195
+                self.state = 200
                 self.negFactor()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 197
+                self.state = 202
                 self.negFactor()
                 pass
 
@@ -1687,21 +1741,21 @@ class CSoftParser ( Parser ):
     def negFactor(self):
 
         localctx = CSoftParser.NegFactorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_negFactor)
+        self.enterRule(localctx, 30, self.RULE_negFactor)
         try:
-            self.state = 203
+            self.state = 208
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [27]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 200
+                self.state = 205
                 self.match(CSoftParser.NegOper)
-                self.state = 201
+                self.state = 206
                 self.factor()
                 pass
             elif token in [20, 23, 24, 33, 34]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 202
+                self.state = 207
                 self.factor()
                 pass
             else:
@@ -1777,62 +1831,62 @@ class CSoftParser ( Parser ):
     def factor(self):
 
         localctx = CSoftParser.FactorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_factor)
+        self.enterRule(localctx, 32, self.RULE_factor)
         try:
-            self.state = 214
+            self.state = 219
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 205
+                self.state = 210
                 self.match(CSoftParser.INT)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 206
+                self.state = 211
                 self.match(CSoftParser.FLOAT)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 207
+                self.state = 212
                 self.match(CSoftParser.STRING)
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 208
+                self.state = 213
                 self.match(CSoftParser.BOOL)
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 209
+                self.state = 214
                 self.match(CSoftParser.ID)
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 210
+                self.state = 215
                 self.arrayAccess()
                 pass
 
             elif la_ == 7:
                 self.enterOuterAlt(localctx, 7)
-                self.state = 211
+                self.state = 216
                 self.funcCall()
                 pass
 
             elif la_ == 8:
                 self.enterOuterAlt(localctx, 8)
-                self.state = 212
+                self.state = 217
                 self.structFieldAccess()
                 pass
 
             elif la_ == 9:
                 self.enterOuterAlt(localctx, 9)
-                self.state = 213
+                self.state = 218
                 self.methodCall()
                 pass
 
@@ -1899,22 +1953,22 @@ class CSoftParser ( Parser ):
     def ifStm(self):
 
         localctx = CSoftParser.IfStmContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_ifStm)
+        self.enterRule(localctx, 34, self.RULE_ifStm)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 216
-            self.match(CSoftParser.IF)
-            self.state = 217
-            self.match(CSoftParser.LPAREN)
-            self.state = 218
-            self.expr()
-            self.state = 219
-            self.match(CSoftParser.RPAREN)
-            self.state = 220
-            self.match(CSoftParser.LBRACE)
             self.state = 221
-            self.blockIf()
+            self.match(CSoftParser.IF)
             self.state = 222
+            self.match(CSoftParser.LPAREN)
+            self.state = 223
+            self.expr()
+            self.state = 224
+            self.match(CSoftParser.RPAREN)
+            self.state = 225
+            self.match(CSoftParser.LBRACE)
+            self.state = 226
+            self.blockIf()
+            self.state = 227
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1962,17 +2016,17 @@ class CSoftParser ( Parser ):
     def blockIf(self):
 
         localctx = CSoftParser.BlockIfContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_blockIf)
+        self.enterRule(localctx, 36, self.RULE_blockIf)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 227
+            self.state = 232
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 25933348990) != 0):
-                self.state = 224
-                self.statement()
                 self.state = 229
+                self.statement()
+                self.state = 234
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2038,22 +2092,22 @@ class CSoftParser ( Parser ):
     def repeatStm(self):
 
         localctx = CSoftParser.RepeatStmContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_repeatStm)
+        self.enterRule(localctx, 38, self.RULE_repeatStm)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 230
-            self.match(CSoftParser.REPEAT)
-            self.state = 231
-            self.match(CSoftParser.LPAREN)
-            self.state = 232
-            self.repNum()
-            self.state = 233
-            self.match(CSoftParser.RPAREN)
-            self.state = 234
-            self.match(CSoftParser.LBRACE)
             self.state = 235
-            self.blockRepeat()
+            self.match(CSoftParser.REPEAT)
             self.state = 236
+            self.match(CSoftParser.LPAREN)
+            self.state = 237
+            self.repNum()
+            self.state = 238
+            self.match(CSoftParser.RPAREN)
+            self.state = 239
+            self.match(CSoftParser.LBRACE)
+            self.state = 240
+            self.blockRepeat()
+            self.state = 241
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2098,10 +2152,10 @@ class CSoftParser ( Parser ):
     def repNum(self):
 
         localctx = CSoftParser.RepNumContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_repNum)
+        self.enterRule(localctx, 40, self.RULE_repNum)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 238
+            self.state = 243
             self.factor()
         except RecognitionException as re:
             localctx.exception = re
@@ -2149,17 +2203,17 @@ class CSoftParser ( Parser ):
     def blockRepeat(self):
 
         localctx = CSoftParser.BlockRepeatContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_blockRepeat)
+        self.enterRule(localctx, 42, self.RULE_blockRepeat)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 243
+            self.state = 248
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 25933348990) != 0):
-                self.state = 240
-                self.statement()
                 self.state = 245
+                self.statement()
+                self.state = 250
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2230,31 +2284,31 @@ class CSoftParser ( Parser ):
     def function(self):
 
         localctx = CSoftParser.FunctionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_function)
+        self.enterRule(localctx, 44, self.RULE_function)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 246
+            self.state = 251
             self.funType()
-            self.state = 247
+            self.state = 252
             self.funName()
-            self.state = 248
+            self.state = 253
             self.match(CSoftParser.LPAREN)
-            self.state = 250
+            self.state = 255
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & 8589934718) != 0):
-                self.state = 249
+                self.state = 254
                 self.parameters()
 
 
-            self.state = 252
+            self.state = 257
             self.match(CSoftParser.RPAREN)
-            self.state = 253
+            self.state = 258
             self.match(CSoftParser.LBRACE)
-            self.state = 254
+            self.state = 259
             self.blockFun()
-            self.state = 255
+            self.state = 260
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2302,17 +2356,17 @@ class CSoftParser ( Parser ):
     def blockFun(self):
 
         localctx = CSoftParser.BlockFunContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_blockFun)
+        self.enterRule(localctx, 46, self.RULE_blockFun)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 260
+            self.state = 265
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 25933348990) != 0):
-                self.state = 257
-                self.statement()
                 self.state = 262
+                self.statement()
+                self.state = 267
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2372,18 +2426,18 @@ class CSoftParser ( Parser ):
     def classDecl(self):
 
         localctx = CSoftParser.ClassDeclContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_classDecl)
+        self.enterRule(localctx, 48, self.RULE_classDecl)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 263
+            self.state = 268
             self.match(CSoftParser.CLASS)
-            self.state = 264
+            self.state = 269
             self.className()
-            self.state = 265
+            self.state = 270
             self.match(CSoftParser.LBRACE)
-            self.state = 266
+            self.state = 271
             self.blockClass()
-            self.state = 267
+            self.state = 272
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2438,28 +2492,28 @@ class CSoftParser ( Parser ):
     def blockClass(self):
 
         localctx = CSoftParser.BlockClassContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_blockClass)
+        self.enterRule(localctx, 50, self.RULE_blockClass)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 272
+            self.state = 277
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
-                    self.state = 269
+                    self.state = 274
                     self.structVarDecl() 
-                self.state = 274
+                self.state = 279
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
 
-            self.state = 278
+            self.state = 283
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 126) != 0):
-                self.state = 275
-                self.method()
                 self.state = 280
+                self.method()
+                self.state = 285
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2520,18 +2574,18 @@ class CSoftParser ( Parser ):
     def method(self):
 
         localctx = CSoftParser.MethodContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_method)
+        self.enterRule(localctx, 52, self.RULE_method)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 281
+            self.state = 286
             self.methodType()
-            self.state = 282
+            self.state = 287
             self.methodName()
-            self.state = 283
+            self.state = 288
             self.match(CSoftParser.LBRACE)
-            self.state = 284
+            self.state = 289
             self.blockMethod()
-            self.state = 285
+            self.state = 290
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2579,17 +2633,17 @@ class CSoftParser ( Parser ):
     def blockMethod(self):
 
         localctx = CSoftParser.BlockMethodContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_blockMethod)
+        self.enterRule(localctx, 54, self.RULE_blockMethod)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 290
+            self.state = 295
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 25933348990) != 0):
-                self.state = 287
-                self.statement()
                 self.state = 292
+                self.statement()
+                self.state = 297
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2636,10 +2690,10 @@ class CSoftParser ( Parser ):
     def methodType(self):
 
         localctx = CSoftParser.MethodTypeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_methodType)
+        self.enterRule(localctx, 56, self.RULE_methodType)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 293
+            self.state = 298
             self.type_()
         except RecognitionException as re:
             localctx.exception = re
@@ -2683,10 +2737,10 @@ class CSoftParser ( Parser ):
     def methodName(self):
 
         localctx = CSoftParser.MethodNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_methodName)
+        self.enterRule(localctx, 58, self.RULE_methodName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 295
+            self.state = 300
             self.match(CSoftParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -2730,10 +2784,10 @@ class CSoftParser ( Parser ):
     def className(self):
 
         localctx = CSoftParser.ClassNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_className)
+        self.enterRule(localctx, 60, self.RULE_className)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 297
+            self.state = 302
             self.match(CSoftParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -2794,27 +2848,27 @@ class CSoftParser ( Parser ):
     def methodCall(self):
 
         localctx = CSoftParser.MethodCallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_methodCall)
+        self.enterRule(localctx, 62, self.RULE_methodCall)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 299
-            self.match(CSoftParser.ID)
-            self.state = 300
-            self.match(CSoftParser.DOT)
-            self.state = 301
-            self.ident()
-            self.state = 302
-            self.match(CSoftParser.LPAREN)
             self.state = 304
+            self.match(CSoftParser.ID)
+            self.state = 305
+            self.match(CSoftParser.DOT)
+            self.state = 306
+            self.ident()
+            self.state = 307
+            self.match(CSoftParser.LPAREN)
+            self.state = 309
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==33:
-                self.state = 303
+                self.state = 308
                 self.arguments()
 
 
-            self.state = 306
+            self.state = 311
             self.match(CSoftParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -2869,16 +2923,16 @@ class CSoftParser ( Parser ):
     def classAssign(self):
 
         localctx = CSoftParser.ClassAssignContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 62, self.RULE_classAssign)
+        self.enterRule(localctx, 64, self.RULE_classAssign)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 308
+            self.state = 313
             self.ident()
-            self.state = 309
+            self.state = 314
             self.match(CSoftParser.ASSIGN)
-            self.state = 310
+            self.state = 315
             self.match(CSoftParser.CLASS)
-            self.state = 311
+            self.state = 316
             self.className()
         except RecognitionException as re:
             localctx.exception = re
@@ -2932,21 +2986,21 @@ class CSoftParser ( Parser ):
     def parameters(self):
 
         localctx = CSoftParser.ParametersContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 64, self.RULE_parameters)
+        self.enterRule(localctx, 66, self.RULE_parameters)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 313
-            self.parameter()
             self.state = 318
+            self.parameter()
+            self.state = 323
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==7:
-                self.state = 314
+                self.state = 319
                 self.match(CSoftParser.COMMA)
-                self.state = 315
-                self.parameter()
                 self.state = 320
+                self.parameter()
+                self.state = 325
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2993,10 +3047,10 @@ class CSoftParser ( Parser ):
     def parameter(self):
 
         localctx = CSoftParser.ParameterContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 66, self.RULE_parameter)
+        self.enterRule(localctx, 68, self.RULE_parameter)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 321
+            self.state = 326
             self.ident()
         except RecognitionException as re:
             localctx.exception = re
@@ -3054,18 +3108,18 @@ class CSoftParser ( Parser ):
     def structDecl(self):
 
         localctx = CSoftParser.StructDeclContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 68, self.RULE_structDecl)
+        self.enterRule(localctx, 70, self.RULE_structDecl)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 323
+            self.state = 328
             self.match(CSoftParser.STRUCT)
-            self.state = 324
+            self.state = 329
             self.structName()
-            self.state = 325
+            self.state = 330
             self.match(CSoftParser.LBRACE)
-            self.state = 326
+            self.state = 331
             self.blockStruct()
-            self.state = 327
+            self.state = 332
             self.match(CSoftParser.RBRACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -3113,17 +3167,17 @@ class CSoftParser ( Parser ):
     def blockStruct(self):
 
         localctx = CSoftParser.BlockStructContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 70, self.RULE_blockStruct)
+        self.enterRule(localctx, 72, self.RULE_blockStruct)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 332
+            self.state = 337
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 8589934718) != 0):
-                self.state = 329
-                self.structVarDecl()
                 self.state = 334
+                self.structVarDecl()
+                self.state = 339
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -3170,10 +3224,10 @@ class CSoftParser ( Parser ):
     def structVarDecl(self):
 
         localctx = CSoftParser.StructVarDeclContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 72, self.RULE_structVarDecl)
+        self.enterRule(localctx, 74, self.RULE_structVarDecl)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 335
+            self.state = 340
             self.ident()
         except RecognitionException as re:
             localctx.exception = re
@@ -3228,16 +3282,16 @@ class CSoftParser ( Parser ):
     def structAssign(self):
 
         localctx = CSoftParser.StructAssignContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 74, self.RULE_structAssign)
+        self.enterRule(localctx, 76, self.RULE_structAssign)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 337
+            self.state = 342
             self.ident()
-            self.state = 338
+            self.state = 343
             self.match(CSoftParser.ASSIGN)
-            self.state = 339
+            self.state = 344
             self.match(CSoftParser.STRUCT)
-            self.state = 340
+            self.state = 345
             self.structName()
         except RecognitionException as re:
             localctx.exception = re
@@ -3295,18 +3349,18 @@ class CSoftParser ( Parser ):
     def structFieldAssign(self):
 
         localctx = CSoftParser.StructFieldAssignContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 76, self.RULE_structFieldAssign)
+        self.enterRule(localctx, 78, self.RULE_structFieldAssign)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 342
+            self.state = 347
             self.match(CSoftParser.ID)
-            self.state = 343
+            self.state = 348
             self.match(CSoftParser.DOT)
-            self.state = 344
+            self.state = 349
             self.ident()
-            self.state = 345
+            self.state = 350
             self.match(CSoftParser.ASSIGN)
-            self.state = 346
+            self.state = 351
             self.expr()
         except RecognitionException as re:
             localctx.exception = re
@@ -3357,14 +3411,14 @@ class CSoftParser ( Parser ):
     def structFieldAccess(self):
 
         localctx = CSoftParser.StructFieldAccessContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 78, self.RULE_structFieldAccess)
+        self.enterRule(localctx, 80, self.RULE_structFieldAccess)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 348
+            self.state = 353
             self.match(CSoftParser.ID)
-            self.state = 349
+            self.state = 354
             self.match(CSoftParser.DOT)
-            self.state = 350
+            self.state = 355
             self.ident()
         except RecognitionException as re:
             localctx.exception = re
@@ -3417,16 +3471,16 @@ class CSoftParser ( Parser ):
     def arrayAccess(self):
 
         localctx = CSoftParser.ArrayAccessContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 80, self.RULE_arrayAccess)
+        self.enterRule(localctx, 82, self.RULE_arrayAccess)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 352
+            self.state = 357
             self.match(CSoftParser.ID)
-            self.state = 353
+            self.state = 358
             self.match(CSoftParser.LBRACKET)
-            self.state = 354
+            self.state = 359
             self.match(CSoftParser.INT)
-            self.state = 355
+            self.state = 360
             self.match(CSoftParser.RBRACKET)
         except RecognitionException as re:
             localctx.exception = re
@@ -3480,23 +3534,23 @@ class CSoftParser ( Parser ):
     def funcCall(self):
 
         localctx = CSoftParser.FuncCallContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 82, self.RULE_funcCall)
+        self.enterRule(localctx, 84, self.RULE_funcCall)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 357
+            self.state = 362
             self.match(CSoftParser.ID)
-            self.state = 358
+            self.state = 363
             self.match(CSoftParser.LPAREN)
-            self.state = 360
+            self.state = 365
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==33:
-                self.state = 359
+                self.state = 364
                 self.arguments()
 
 
-            self.state = 362
+            self.state = 367
             self.match(CSoftParser.RPAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -3550,21 +3604,21 @@ class CSoftParser ( Parser ):
     def arguments(self):
 
         localctx = CSoftParser.ArgumentsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 84, self.RULE_arguments)
+        self.enterRule(localctx, 86, self.RULE_arguments)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 364
-            self.argument()
             self.state = 369
+            self.argument()
+            self.state = 374
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==7:
-                self.state = 365
+                self.state = 370
                 self.match(CSoftParser.COMMA)
-                self.state = 366
-                self.argument()
                 self.state = 371
+                self.argument()
+                self.state = 376
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -3610,10 +3664,10 @@ class CSoftParser ( Parser ):
     def argument(self):
 
         localctx = CSoftParser.ArgumentContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 86, self.RULE_argument)
+        self.enterRule(localctx, 88, self.RULE_argument)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 372
+            self.state = 377
             self.match(CSoftParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -3658,10 +3712,10 @@ class CSoftParser ( Parser ):
     def funType(self):
 
         localctx = CSoftParser.FunTypeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 88, self.RULE_funType)
+        self.enterRule(localctx, 90, self.RULE_funType)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 374
+            self.state = 379
             self.type_()
         except RecognitionException as re:
             localctx.exception = re
@@ -3705,10 +3759,10 @@ class CSoftParser ( Parser ):
     def funName(self):
 
         localctx = CSoftParser.FunNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 90, self.RULE_funName)
+        self.enterRule(localctx, 92, self.RULE_funName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 376
+            self.state = 381
             self.match(CSoftParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -3752,10 +3806,10 @@ class CSoftParser ( Parser ):
     def structName(self):
 
         localctx = CSoftParser.StructNameContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 92, self.RULE_structName)
+        self.enterRule(localctx, 94, self.RULE_structName)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 378
+            self.state = 383
             self.match(CSoftParser.ID)
         except RecognitionException as re:
             localctx.exception = re

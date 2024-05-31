@@ -3,13 +3,13 @@ class testClass {
     double doubleField
     bool boolField
 
-    long testClass {
+    void testClass {
         self.integerField = 10
         self.doubleField = 10.5
         self.boolField = true
     }
 
-    long writeClass {
+    void writeClass {
         a = self.integerField
         ab = self.doubleField
         print(a)

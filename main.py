@@ -10,8 +10,9 @@ stream = CommonTokenStream(lexer)
 parser = CSoftParser(stream)
 tree = parser.prog()
 
-#print(tree.toStringTree(recog=parser))
 listener = ExtendedListener() 
 walker = ParseTreeWalker()
 walker.walk(listener, tree)
 
+with open("./test_llvm/result.ll", "w") as f:
+    f.write(listener.result)

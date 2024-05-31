@@ -98,26 +98,38 @@ def string_to_type(string):
        return string
 
 
-def get_llvm_type_str(varTp):
-    if varTp == VariableType.INT:
+def get_llvm_type_str(varType):
+    if varType == VariableType.INT:
         return 'i32'
-    elif varTp == VariableType.LONG:
+    elif varType == VariableType.LONG:
         return 'i64'
-    elif varTp == VariableType.DOUBLE:
+    elif varType == VariableType.DOUBLE:
         return 'double'
-    elif varTp == VariableType.BOOL:
+    elif varType == VariableType.BOOL:
         return 'i1'
-    elif varTp == VariableType.STRING:
+    elif varType == VariableType.STRING:
         return 'i8*'
 
-def llvm_to_type(varTp):
-    if varTp == 'i32':
+def llvm_to_type(varType):
+    if varType == 'i32':
         return VariableType.INT
-    elif varTp == 'i64':
+    elif varType == 'i64':
         return VariableType.LONG
-    elif varTp == 'double':
+    elif varType == 'double':
         return VariableType.DOUBLE
-    elif varTp == 'i1':
+    elif varType == 'i1':
         return VariableType.BOOL
-    elif varTp == 'i8*':
+    elif varType == 'i8*':
         return VariableType.STRING
+    
+def get_llvm_type(varType):
+    if varType == VariableType.INT:
+        return "i32"
+    elif varType == VariableType.LONG:
+        return "i64"
+    elif varType == VariableType.DOUBLE:
+        return "double"
+    elif varType == VariableType.BOOL:
+        return "i1"
+    elif varType == VariableType.STRING:
+        return "i8"    

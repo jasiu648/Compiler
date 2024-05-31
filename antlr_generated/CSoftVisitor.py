@@ -94,6 +94,11 @@ class CSoftVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CSoftParser#arrayElementAssign.
+    def visitArrayElementAssign(self, ctx:CSoftParser.ArrayElementAssignContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CSoftParser#assignment.
     def visitAssignment(self, ctx:CSoftParser.AssignmentContext):
         return self.visitChildren(ctx)

@@ -161,6 +161,15 @@ class CSoftListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CSoftParser#arrayElementAssign.
+    def enterArrayElementAssign(self, ctx:CSoftParser.ArrayElementAssignContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#arrayElementAssign.
+    def exitArrayElementAssign(self, ctx:CSoftParser.ArrayElementAssignContext):
+        pass
+
+
     # Enter a parse tree produced by CSoftParser#assignment.
     def enterAssignment(self, ctx:CSoftParser.AssignmentContext):
         pass

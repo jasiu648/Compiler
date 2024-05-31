@@ -40,23 +40,26 @@ WS : [ \t\r\n]+ -> skip;
 prog: statement*  EOF 
     ;
 
-statement: print_statement		#print
-	| read_statement  		#read
-    | expr              # exprression
- 	| assignment	#assign
-    | ID LBRACKET INT RBRACKET ASSIGN expr #elementAssign
-    | ident ASSIGN arrayAssign  #arrAssign
-    | repeatStm                #repeatStatement
-    | ifStm                 #ifStatement
-    | function              #funcDecl
-    | structDecl            #structDeclaration
-    | structFieldAssign     #structFieldAssignment
-    | structAssign          #structAssignmet
-    | classDecl             #classDeclaration
-    | classAssign           #classAssignment
+statement: print_statement		    #print
+	| read_statement  		        #read
+    | expr                          #exprression
+ 	| assignment	                #assign
+    | arrayElementAssign expr       #elementAssign
+    | ident ASSIGN arrayAssign      #arrAssign
+    | repeatStm                     #repeatStatement
+    | ifStm                         #ifStatement
+    | function                      #funcDecl
+    | structDecl                    #structDeclaration
+    | structFieldAssign             #structFieldAssignment
+    | structAssign                  #structAssignmet
+    | classDecl                     #classDeclaration
+    | classAssign                   #classAssignment
     ;
 
 ident: (type)? ID;
+
+
+arrayElementAssign : ID LBRACKET INT RBRACKET ASSIGN;
 
 assignment : ident ASSIGN expr;
 
