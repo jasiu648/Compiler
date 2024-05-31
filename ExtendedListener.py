@@ -4,14 +4,14 @@ from antlr_generated.CSoftParser import CSoftParser
 
 from CodeGenerator import CodeGenerator
 
-from utils import ValueType, VariableType, string_to_type, get_llvm_type_str, llvm_to_type
+from utils import ValueType, VariableType, string_to_type, get_llvm_type_str, llvm_to_type, Stack
 
 
 class ExtendedListener(CSoftListener):
 
     def __init__(self):
 
-        self.stack = []
+        self.stack = Stack()
 
         self.variables = []
         self.local_variables = []
@@ -49,7 +49,7 @@ class ExtendedListener(CSoftListener):
             sym2 = self._get_bool_sym(right)
 
             self.generator.or_operation(left, right, sym1, sym2)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
     
     
     def exitCondXorStm(self, ctx: CSoftParser.CondXorStmContext):
@@ -74,7 +74,7 @@ class ExtendedListener(CSoftListener):
             sym2 = self._get_bool_sym(right)
             
             self.generator.xor_operation(left, right, sym1, sym2)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
     
     def exitCondStmAnd(self, ctx: CSoftParser.CondStmAndContext):
         
@@ -99,7 +99,7 @@ class ExtendedListener(CSoftListener):
             sym2 = self._get_bool_sym(right)
 
             self.generator.and_operation(left, right, sym1, sym2)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
     
     def exitCondStmRel(self, ctx: CSoftParser.CondStmRelContext):
         if ctx.RelOper():
@@ -126,7 +126,7 @@ class ExtendedListener(CSoftListener):
             sym = self._get_bool_sym(left)
             
             self.generator.rel_operation(left, right, ctx.RelOper().symbol.text, sym)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), VariableType.BOOL))
     
     def _get_bool_sym(self, ident):
         sym = ''
@@ -169,7 +169,7 @@ class ExtendedListener(CSoftListener):
                     right = self.stack.pop()
                 
                 type = self.generator.add_operation(left, right, ctx.AddOper().symbol.text)
-                self.stack.append(ValueType("%" + str(self.generator.reg - 1), type))
+                self.stack.push(ValueType("%" + str(self.generator.reg - 1), type))
 
     def exitMultExpr(self, ctx: CSoftParser.MultExprContext):
         if ctx.MultOper():
@@ -177,7 +177,6 @@ class ExtendedListener(CSoftListener):
             r = ctx.negFactor(1).children[0]
             
             if l.BOOL() or r.BOOL():
-                # raise Exception(ctx.start.line, "Bool is not multiplicatable")
                 print(f"Error on line {ctx.start.line}: Bool in arithmetic operation")
             elif l.STRING() or r.STRING():
                 print(f"Error on line {ctx.start.line}: String in arithmetic operation")
@@ -202,22 +201,18 @@ class ExtendedListener(CSoftListener):
                     right = self.stack.pop()
                     
                 type = self.generator.mult_operation(left, right, ctx.MultOper().symbol.text)
-                self.stack.append(ValueType("%" +str(self.generator.reg - 1), type))
+                self.stack.push(ValueType("%" +str(self.generator.reg - 1), type))
             
         
     def exitNegFactor(self, ctx: CSoftParser.NegFactorContext):
         if ctx.NegOper(): 
-            test = ctx.factor()
             if ctx.factor().ID():
                 factor = ctx.factor().ID().symbol.text
-            elif ctx.factor().BOOL():
-                factor = ctx.factor().BOOL().symbol.text
             else:
                 factor = self.stack.pop()
             
-            # self.generator.unary_operation(factor)
             self.generator.neg_operation(factor)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), type))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), type))
     
     def exitFactor(self, ctx: CSoftParser.FactorContext):
         if ctx.ID():
@@ -227,32 +222,29 @@ class ExtendedListener(CSoftListener):
                 temp = [(x, y) for x, y in self.local_variables if x == ident]
                 type = get_llvm_type_str(temp[0][1])
                 self.generator.load("%" + str(ident), type)
-                self.stack.append(ValueType("%" + str(self.generator.reg - 1), temp[0][1]))
+                self.stack.push(ValueType("%" + str(self.generator.reg - 1), temp[0][1]))
             else:
                 type = get_llvm_type_str(temp[0][1])
                 if type == None:
                     type = get_llvm_type_str(temp[0][1][1])
                 self.generator.load("@" + str(ident), type)
-                self.stack.append(ValueType("%" + str(self.generator.reg - 1), temp[0][1]))
+                self.stack.push(ValueType("%" + str(self.generator.reg - 1), temp[0][1]))
         elif ctx.INT():
             value = ctx.INT().symbol.text
-            self.stack.append(ValueType(value, VariableType.LONG))
+            self.stack.push(ValueType(value, VariableType.LONG))
         elif ctx.FLOAT():
             value = ctx.FLOAT().symbol.text
-            self.stack.append(ValueType(value, VariableType.DOUBLE))
+            self.stack.push(ValueType(value, VariableType.DOUBLE))
         elif ctx.STRING():
-            # value = ctx.STRING().symbol.text
-            # self.stack.append(Value(value, VarType.STRING))
-
-            self.stack.append(ValueType(ctx.STRING().symbol.text, VariableType.STRING) )
+            self.stack.push(ValueType(ctx.STRING().symbol.text, VariableType.STRING) )
             tmp = ctx.STRING().getText()
             content = tmp[1:-1]
             self.generator.constant_string(content)
             n = "ptrstr"+str(self.generator.str-1)
-            self.stack.append(ValueType(n, VariableType.STRING))
+            self.stack.push(ValueType(n, VariableType.STRING))
         elif ctx.BOOL():
             value = ctx.BOOL().symbol.text
-            self.stack.append(ValueType(value, VariableType.BOOL))
+            self.stack.push(ValueType(value, VariableType.BOOL))
         elif ctx.arrayAccess():
             ident = ctx.arrayAccess().ID().symbol.text
             indx = ctx.arrayAccess().INT().symbol.text
@@ -275,14 +267,14 @@ class ExtendedListener(CSoftListener):
             else:
                 ident = '%' + ident
             self.generator.array_access(ident, indx, type, size=size)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(type)))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(type)))
         elif ctx.funcCall():
             ident = str(ctx.funcCall().ID())
 
             temp = [(x, y) for x, y in self.functions if x == ident]
             if len(temp) != 0:
                 self.generator.function_call(ident, temp[0][1])
-                self.stack.append(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(temp[0][1])))
+                self.stack.push(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(temp[0][1])))
         elif ctx.structFieldAccess():
             structID = ctx.structFieldAccess().ID().symbol.text
             memberID = ctx.structFieldAccess().ident().ID().symbol.text
@@ -325,7 +317,7 @@ class ExtendedListener(CSoftListener):
                 structID = '%this'
 
             self.generator.struct_field_access(structID, structName, i, type)
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(type)))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), llvm_to_type(type)))
         elif ctx.methodCall():
             ident = str(ctx.methodCall().ID())
             methodID = str(ctx.methodCall().ident().ID())
@@ -351,14 +343,14 @@ class ExtendedListener(CSoftListener):
                 else:
                     self.generator.call_method(classID, classID + '_' + methodID, ident, temp[0][1])
           
-            self.stack.append(ValueType("%" + str(self.generator.reg - 1), string_to_type(temp[0][1])))
+            self.stack.push(ValueType("%" + str(self.generator.reg - 1), string_to_type(temp[0][1])))
      
 
     def exitArrayAssign(self, ctx: CSoftParser.ArrayAssignContext):
         i = 0
         for _ in ctx.factor():
             i += 1
-        self.stack.append(ValueType(i, VariableType.ARRAY))
+        self.stack.push(ValueType(i, VariableType.ARRAY))
     
     def exitArrAssign(self, ctx: CSoftParser.ArrAssignContext):
         ident = ctx.ident().ID().symbol.text
@@ -398,7 +390,7 @@ class ExtendedListener(CSoftListener):
             print(f"Error on line {str(ctx.start.line)}: variable is not an array")
 
         if type is None:
-            type = self.stack[-1].type
+            type = self.stack.peek().type
             
         values = []
         for _ in range(arr.name):
@@ -472,7 +464,7 @@ class ExtendedListener(CSoftListener):
       
         self.generator.print_operation(ident, ctx.start.line, sym)
     
-    def exitAssign(self, ctx:CSoftParser.AssignContext):
+    def exitAssignment(self, ctx:CSoftParser.AssignContext):
         ID = ctx.ident().ID().symbol.text
         try:
             type = ctx.ident().type_().getText()
@@ -652,7 +644,7 @@ class ExtendedListener(CSoftListener):
         i = 0
         for var in ctx.structVarDecl():
             i += 1
-        self.stack.append(ValueType(i, VariableType.STRUCT))
+        self.stack.push(ValueType(i, VariableType.STRUCT))
      
 
     def exitClassAssign(self, ctx: CSoftParser.ClassAssignContext):
@@ -745,13 +737,13 @@ class ExtendedListener(CSoftListener):
         type = ctx.ident().type_().getText()
         type = string_to_type(type)
         if self.classId == '':
-            self.stack.append(ValueType(ident, type))
+            self.stack.push(ValueType(ident, type))
 
     def exitBlockStruct(self, ctx: CSoftParser.BlockStructContext):
         i = 0
         for _ in ctx.structVarDecl():
             i += 1
-        self.stack.append(ValueType(i, VariableType.STRUCT))
+        self.stack.push(ValueType(i, VariableType.STRUCT))
 
     def exitStructAssign(self, ctx: CSoftParser.StructAssignContext):
         ident = ctx.ident().ID().symbol.text

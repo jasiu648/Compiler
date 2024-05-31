@@ -1,1 +1,6 @@
+string mess = "Messege should be displayed 5 times"
+times = 5
 
+repeat(times){
+    print(mess)
+}

@@ -1,5 +1,4 @@
-from utils import VariableType, ValueType, get_llvm_type_str
-from utils import Stack
+from utils import VariableType, get_llvm_type_str, Stack
 
 class CodeGenerator():
 
@@ -87,8 +86,8 @@ class CodeGenerator():
     def or_operation(self, left, right, sym1, sym2):
         evalSecondLabel = f"evalSecond{self.label_count}"
         endLabel = f"endLogicalOr{self.label_count}"
-        finalFalse = f"finalFalse{self.label_count}"
-        finalTrue = f"finalTrue{self.label_count}"
+        finalFalse = f"False{self.label_count}"
+        finalTrue = f"True{self.label_count}"
         self.label_count += 1
 
         left = self.store_var_bool_op(left, sym1)
@@ -110,6 +109,7 @@ class CodeGenerator():
         self.code_text += f"%{resultReg} = phi i1 [1, %{finalTrue}], [0, %{finalFalse}]\n"
 
     def neg_operation(self, factor):
+        
         pass
 
 
@@ -124,8 +124,8 @@ class CodeGenerator():
     def and_operation(self, left, right, sym1, sym2):
         evalSecondLabel = f"evalSecond{self.label_count}"
         endLabel = f"endLogicalAnd{self.label_count}"
-        finalFalse = f"finalFalse{self.label_count}"
-        finalTrue = f"finalTrue{self.label_count}"
+        finalFalse = f"False{self.label_count}"
+        finalTrue = f"True{self.label_count}"
         self.label_count += 1
 
         left = self.store_var_bool_op(left, sym1)
@@ -339,9 +339,6 @@ class CodeGenerator():
         self.reg += 1
         return VariableType.LONG
     
-    def unary_operation(self, factor):
-        self.xor_operation(factor, ValueType('true', 3), None, None)
-
 
     def print_operation(self, identifier, line, sym):
         value = self.get_value(identifier, line)
@@ -676,8 +673,6 @@ class CodeGenerator():
         text += "@strf = constant [3 x i8] c\"%f\\00\"\n"
         text += "@strpl = constant [5 x i8] c\"%lld\\00\"\n"
         text += "@strlf = constant [4 x i8] c\"%lf\\00\"\n"
-        text += "@strhhd = constant [5 x i8] c\"%hhd\\00\"\n"
-        text += "@strhd = constant [4 x i8] c\"%hd\\00\"\n"
         text += "@trueStr = constant [5 x i8] c\"true\\00\"\n"
         text += "@falseStr = constant [6 x i8] c\"false\\00\"\n"
         text += "@strps = constant [4 x i8] c\"%s\\0A\\00\"\n"

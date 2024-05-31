@@ -43,7 +43,7 @@ prog: statement*  EOF
 statement: print_statement		#print
 	| read_statement  		#read
     | expr              # exprression
- 	| ident ASSIGN expr		#assign
+ 	| assignment
     | ID LBRACKET INT RBRACKET ASSIGN expr #elementAssign
     | ident ASSIGN arrayAssign  #arrAssign
     | repeatStm                #repeatStatement

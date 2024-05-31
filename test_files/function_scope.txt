@@ -3,9 +3,14 @@ long testfunction( ) {
     print(scope)
 }
 
+long testfunction2( ){
+    string scope = "function scope2"
+    print(scope)
+}
+
 scope = "main scope"
 testfunction()
 print(scope)
 testfunction()
-a = testfunction()
+a = testfunction2()
 print(a)
