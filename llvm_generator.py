@@ -172,7 +172,7 @@ class LLVMGenerator():
             op = "sge"
         
         l = self.symbol_table[left].name
-        self.code_text += "%"+ str(self.reg) + " = icmp " + op + " i32 " + str(l) + ", " + str(right) + "\n"
+        self.code_text += "%"+ str(self.reg) + " = icmp " + op + " i32 " + "%" + str(self.reg - 1) + ", " + str(right) + "\n"
         self.reg += 1
 
     def add_operation(self, left, right, operator):
@@ -467,7 +467,34 @@ class LLVMGenerator():
         self.code_text += f"br label %false"+ str(b) +"\n"
         self.code_text += "false" + str(b) + ":\n"
     
-    
+    def whileL_start(self):
+        self.br += 1
+        loop_label = self.br
+        self.code_text += f"br label %loop{loop_label}\n"
+        self.code_text += f"loop{loop_label}:\n"
+
+    def while_start(self):
+        loop_label = self.br
+        cond_label = self.br + 1
+        
+        # Create labels for loop entry and condition check
+        self.code_text += f"br i1 %"+str(self.reg-1)+ f", label %cond{cond_label}" + f", label %end{loop_label}" +"\n"
+        self.code_text += f"cond{cond_label}:\n"
+        
+        # Push loop and condition labels onto the stack
+        self.br_stack.push(loop_label)
+        self.br_stack.push(cond_label)
+        self.br += 1  # Increment for the next label
+
+    def while_end(self):
+        cond_label = self.br_stack.pop()
+        loop_label = self.br_stack.pop()
+        
+        # Generate branch for loop body to condition check
+        self.code_text += f"br label %loop{loop_label}\n"
+        self.code_text += f"end{loop_label}:\n"
+
+
     def repeat_start(self, num):
         self.declare_INT('%' + str(self.reg), False)
         rep_count = self.reg

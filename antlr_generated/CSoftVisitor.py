@@ -1,4 +1,4 @@
-# Generated from ./antlr_generated/CSoft.g4 by ANTLR 4.13.1
+# Generated from CSoft.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .CSoftParser import CSoftParser
@@ -56,6 +56,11 @@ class CSoftVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by CSoftParser#ifStatement.
     def visitIfStatement(self, ctx:CSoftParser.IfStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CSoftParser#whileLoop.
+    def visitWhileLoop(self, ctx:CSoftParser.WhileLoopContext):
         return self.visitChildren(ctx)
 
 
@@ -176,6 +181,16 @@ class CSoftVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by CSoftParser#blockRepeat.
     def visitBlockRepeat(self, ctx:CSoftParser.BlockRepeatContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CSoftParser#whileL.
+    def visitWhileL(self, ctx:CSoftParser.WhileLContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CSoftParser#blockWhile.
+    def visitBlockWhile(self, ctx:CSoftParser.BlockWhileContext):
         return self.visitChildren(ctx)
 
 

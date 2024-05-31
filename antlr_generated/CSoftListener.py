@@ -1,4 +1,4 @@
-# Generated from ./antlr_generated/CSoft.g4 by ANTLR 4.13.1
+# Generated from CSoft.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .CSoftParser import CSoftParser
@@ -95,6 +95,15 @@ class CSoftListener(ParseTreeListener):
 
     # Exit a parse tree produced by CSoftParser#ifStatement.
     def exitIfStatement(self, ctx:CSoftParser.IfStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#whileLoop.
+    def enterWhileLoop(self, ctx:CSoftParser.WhileLoopContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#whileLoop.
+    def exitWhileLoop(self, ctx:CSoftParser.WhileLoopContext):
         pass
 
 
@@ -311,6 +320,24 @@ class CSoftListener(ParseTreeListener):
 
     # Exit a parse tree produced by CSoftParser#blockRepeat.
     def exitBlockRepeat(self, ctx:CSoftParser.BlockRepeatContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#whileL.
+    def enterWhileL(self, ctx:CSoftParser.WhileLContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#whileL.
+    def exitWhileL(self, ctx:CSoftParser.WhileLContext):
+        pass
+
+
+    # Enter a parse tree produced by CSoftParser#blockWhile.
+    def enterBlockWhile(self, ctx:CSoftParser.BlockWhileContext):
+        pass
+
+    # Exit a parse tree produced by CSoftParser#blockWhile.
+    def exitBlockWhile(self, ctx:CSoftParser.BlockWhileContext):
         pass
 
 

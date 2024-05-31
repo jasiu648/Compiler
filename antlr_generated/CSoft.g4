@@ -11,6 +11,7 @@ RBRACKET: ']' ;
 PRINT : 'print' ;
 READ : 'read' ;
 IF: 'if';
+WHILE: 'while' ;
 STRUCT: 'struct' ;
 CLASS: 'class' ;
 type: 'double' | 'int' | 'long' | 'bool' | 'string';
@@ -49,6 +50,7 @@ statement: print_statement		#print
     | ident ASSIGN arrayAssign  #arrAssign
     | repeatStm                #repeatStatement
     | ifStm                 #ifStatement
+    | whileL             #whileLoop
     | function              #funcDecl
     | structDecl            #structDeclaration
     | structFieldAssign     #structFieldAssignment
@@ -120,6 +122,10 @@ repNum: factor
 
 blockRepeat: statement* 
     ;
+
+whileL: WHILE LPAREN expr RPAREN LBRACE blockWhile RBRACE ;
+
+blockWhile: statement* ;
 
 function: funType funName LPAREN (parameters)? RPAREN LBRACE blockFun RBRACE ;
 

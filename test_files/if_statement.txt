@@ -1,4 +1,4 @@
-x = 4
+int x = 4
 if (x == 4) {
     y = "If statement is working properly"
     print(y)
